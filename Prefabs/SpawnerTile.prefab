@@ -53,18 +53,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7002281220919077647}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 0.0627451, b: 0.0627451, a: 0.39215687}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bd4f416358ccb454da7f4ebafadfe766, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2b51c610f23509d4aac524a4f6b81da1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -86,6 +86,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1382fc9b4f99c4844b5559ef864fbaa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rowNumber: 0
+  spawning: 1
   minSpawnInterval: 5
   maxSpawnInterval: 8
-  enemy: {fileID: 4721674936066942754, guid: 8a0f10941b7645e4ab60e76eab192a3e, type: 3}
+  enemy: {fileID: 4383074480728334829, guid: 8a0f10941b7645e4ab60e76eab192a3e, type: 3}
+  defenderTilesInThisRow:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
