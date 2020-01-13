@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DefenderTile : MonoBehaviour {
     public Defender defenderPrefab;
@@ -26,7 +27,7 @@ public class DefenderTile : MonoBehaviour {
     [SerializeField]
     GameObject noDefenderPopup = null;  // Text UI element that pops up when the player attempts to spend more energy than they have
 
-    private void Update() {
+    void Update() {
         if (defenderOnTile != null) {
             if (targetSpawner.EnemyExistsInRow() && isShooting == false) {
                 defenderOnTile.StartShooting();

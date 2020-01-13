@@ -19,24 +19,42 @@ public class Selector : MonoBehaviour {
     private void OnMouseDown() {
         Debug.Log("Selector: selected " + defenderName);
         Selector[] allUnits = FindObjectsOfType<Selector>();
+        // If there already exists a currently selected unit, then deselect it
         foreach (Selector unit in allUnits) {
+            if (unit == this) {
+                if (!isCurrSelected) {
+                    isCurrSelected = true;
+                    spawnGlow();
+                    continue;
+                } else {
+                    isCurrSelected = false;
+                    destroyGlow();
+                    continue;
+                }
+            }
             if (unit.isCurrSelected == true) {
                 unit.isCurrSelected = false;
                 unit.destroyGlow();
             }
+            
         }
-
+        /*
         if (!isCurrSelected) {
             isCurrSelected = true;
             spawnGlow();
         }
-        
+        */
 
         DefenderTile[] allTiles = FindObjectsOfType<DefenderTile>();
         // Loop through all the tiles in the battlefield and sets the defender to spawn to the newly selected unit
         foreach (DefenderTile tile in allTiles) {
-            // Tells the tile spawner that if the player clicks on a tile, spawn the one they selected
-            tile.defenderPrefab = defenderPrefab;
+            if (isCurrSelected) {
+                // Tells the tile spawner that if the player clicks on a tile, spawn the one they selected
+                tile.defenderPrefab = defenderPrefab;
+            } else {
+                // The player deselected this current gameobject's unit, so tell all tile spawners there is nothing currently selected
+                tile.defenderPrefab = null;
+            }
         }
     }
 

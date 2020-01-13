@@ -7,6 +7,13 @@ public class Enemy : MonoBehaviour {
     [Range(0f, 5f)]
     [SerializeField]
     float advanceSpeed = 1f;
+    const int RANK_LIGHT = 0;
+    const int RANK_MEDIUM = 1;
+    const int RANK_HEAVY = 2;
+    const int RANK_ELITE = 3;
+    [Range(0, 3)]
+    [Tooltip("0 is light, 1 is medium, 2 is heavy, 3 is elite")]
+    public int rank;
 
     // ===== Shooting =====
     bool isShooting = true;  // Initialise to true to start firing immediately after spawning. TODO: Is this necessary?
@@ -22,7 +29,11 @@ public class Enemy : MonoBehaviour {
     // ===== Other =====
     [SerializeField]
     SoundClip deathSFX = null;
-    
+    [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
+    public int maxImpactDamage = 108;
+    [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
+    public int minImpactDamage = 92;
+
     float swerveTime;
 
     void Start() {

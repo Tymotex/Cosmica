@@ -6,10 +6,14 @@ public class TimeScaler : MonoBehaviour {
     [SerializeField]
     [Tooltip("Sets the time scale. Designed for testing purposes only.")]
     float timeScale = 1;
-    void Start() {
-        Time.timeScale = timeScale;
+
+    private void Update() {  // TODO: Change this to Start(). Shouldn't be calling this each frame
+        // SetTimeScale(timeScale);
     }
-    private void Update() {
-        Start();
+
+    public void SetTimeScale(float newTimeScale) {
+        Debug.Log("Setting new timescale: " + newTimeScale);
+
+        Time.timeScale = newTimeScale;
     }
 }

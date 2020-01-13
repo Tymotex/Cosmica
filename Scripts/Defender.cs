@@ -5,6 +5,13 @@ using UnityEngine;
 public class Defender : MonoBehaviour {
     // ===== Stats =====
     public int costToSpawn;
+    const int RANK_LIGHT = 0;
+    const int RANK_MEDIUM = 1;
+    const int RANK_HEAVY = 2;
+    const int RANK_ELITE = 3;
+    [Range(0, 3)]
+    [Tooltip("0 is light, 1 is medium, 2 is heavy, 3 is elite")]
+    public int rank;
 
     // ===== Shooting =====
     [SerializeField]
@@ -17,7 +24,6 @@ public class Defender : MonoBehaviour {
     [SerializeField]
     Vector3 shootingOffset = Vector3.zero;
 
-
     // ==== Info =====
     int currRow;  // Unused
 
@@ -25,6 +31,10 @@ public class Defender : MonoBehaviour {
     [SerializeField]
     SoundClip deathSFX = null;
     public bool isDead = false;
+    [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
+    public int maxImpactDamage = 108;
+    [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
+    public int minImpactDamage = 92;
 
     public void StartShooting() {
         StartCoroutine(Shoot());
@@ -52,5 +62,19 @@ public class Defender : MonoBehaviour {
 
     public void PlayDeathSFX() {
         AudioSource.PlayClipAtPoint(deathSFX.clip, FindObjectOfType<Camera>().transform.position, 3);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Enemy") {
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            Health defenderHealth = GetComponent<Health>();
+            Health enemyHealth = enemy.GetComponent<Health>();
+            Debug.Log("===> Collision with enemy. " + rank + " vs. " + enemy.rank);
+
+            int impactDamageOnEnemy = Random.Range(minImpactDamage, maxImpactDamage);
+            int impactDamageOnDefender = Random.Range(enemy.minImpactDamage, enemy.maxImpactDamage);
+            defenderHealth.ReduceHealth(impactDamageOnDefender);
+            enemyHealth.ReduceHealth(impactDamageOnEnemy);
+        }
     }
 }

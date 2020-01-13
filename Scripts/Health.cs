@@ -104,6 +104,7 @@ public class Health : MonoBehaviour {
     public float GetControlGainOnKill() {  // TODO: Use properties?
         return controlGainOnKill;
     }
+
     // TODO: Currently doesn't work
     /*private void SpawnDamageNotification(Text popupPrefab, int damageDealt) {
         Debug.Log("Spawning damage popup");

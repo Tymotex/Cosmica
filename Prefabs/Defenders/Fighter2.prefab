@@ -4602,11 +4602,11 @@ GameObject:
   - component: {fileID: 3625087821490689664}
   - component: {fileID: 3625087821490689670}
   - component: {fileID: 3625087821490689671}
-  - component: {fileID: 3625087821490689669}
   - component: {fileID: 8984474870157518016}
   - component: {fileID: 4948329527778187519}
-  - component: {fileID: 4435909075871168833}
   - component: {fileID: 8986705343485409173}
+  - component: {fileID: 3625087821490689669}
+  - component: {fileID: 4435909075871168833}
   m_Layer: 0
   m_Name: Fighter2
   m_TagString: Defender
@@ -4698,31 +4698,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3625087821490689669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3625087821490689665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92dcaa0953b537848beeeb7ef024ba20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  costToSpawn: 20
-  ammo: {fileID: 95578382908335403, guid: 0018eecd51c73ee42bb42ab2c07d8b0d, type: 3}
-  minShootDelay: 1
-  maxShootDelay: 1.5
-  shootingOffset: {x: 0.15, y: 0, z: 0}
-  deathSFX:
-    clipName: 
-    clip: {fileID: 8300000, guid: b3b0098b3eb80a74ab31e406df541b8f, type: 3}
-    volume: 1
-    pitch: 1
-    clipSource: {fileID: 0}
-  destroyDelay: 5
-  isDead: 0
 --- !u!50 &8984474870157518016
 Rigidbody2D:
   serializedVersion: 4
@@ -4760,29 +4735,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.08042254}
   serializedVersion: 2
   m_Radius: 1.9302379
---- !u!114 &4435909075871168833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3625087821490689665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 30
-  health: 30
-  healthBarParent: {fileID: 4330452410746457794}
-  healthBar: {fileID: 3735534634958775495}
-  popupLife: 1.5
-  popupOffset: {x: 0, y: -0.25, z: 0}
-  damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
-    type: 3}
-  energyGainOnKill: 25
-  controlGainOnKill: -5
-  deathVFX: {fileID: 734013242010232335, guid: c31484630e4851040bc49c9043b759a2, type: 3}
 --- !u!82 &8986705343485409173
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4879,6 +4831,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3625087821490689669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625087821490689665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dcaa0953b537848beeeb7ef024ba20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costToSpawn: 20
+  rank: 0
+  ammo: {fileID: 95578382908335403, guid: 0018eecd51c73ee42bb42ab2c07d8b0d, type: 3}
+  minShootDelay: 1
+  maxShootDelay: 1.5
+  shootingOffset: {x: 0.15, y: 0, z: 0}
+  deathSFX:
+    clipName: 
+    clip: {fileID: 8300000, guid: b3b0098b3eb80a74ab31e406df541b8f, type: 3}
+    volume: 1
+    pitch: 1
+    clipSource: {fileID: 0}
+  isDead: 0
+--- !u!114 &4435909075871168833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3625087821490689665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  health: 30
+  healthBarParent: {fileID: 4330452410746457794}
+  healthBar: {fileID: 3735534634958775495}
+  popupLife: 1.5
+  popupOffset: {x: 0, y: -0.25, z: 0}
+  damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
+    type: 3}
+  energyGainOnKill: 25
+  controlGainOnKill: -5
+  deathVFX: {fileID: 734013242010232335, guid: c31484630e4851040bc49c9043b759a2, type: 3}
 --- !u!1 &4191902740165146167
 GameObject:
   m_ObjectHideFlags: 0

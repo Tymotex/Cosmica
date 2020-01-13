@@ -11,6 +11,7 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField]
     string failureSceneName = "";
     int currSceneIndex = 0;
+    SceneData sceneData = null;
 
     // ===== Game status variables =====
     public float control = 50f;
@@ -25,6 +26,7 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField]
     [Tooltip("Set the time allowed for this level in seconds (ignoring overtime). 300 gives the player 5 minutes to beat the level")]
     float maxTime = 300;
+    int score = 0;
 
     // ===== Status UI =====
     [SerializeField]
@@ -67,12 +69,13 @@ public class LevelStatus : MonoBehaviour {
     //[SerializeField]
     //GameObject fadeBackground = null;
 
-
     void Start() {
         // Display the initial energy and control percentage for the start of the current level
         UpdateUI();
         // Set the current scene index
         currSceneIndex = SceneManager.GetActiveScene().buildIndex;  // Gets the currently active scene's index (which is set in the build settings)
+        // Disable the pause menu canvas
+        // pauseCanvas.enabled = false;
     }
 
     void Update() {
@@ -137,22 +140,24 @@ public class LevelStatus : MonoBehaviour {
     }
 
     public void SpendEnergy(int amount) {
-        // Debug.Log("LevelStatus: Spent " + amount.ToString() + " energy");
         energy -= amount;
         UpdateUI();
         if (energy < 0) {
-            print("Energy: negative energy!");  // This should never execute. The functions calling spendEnergy() should check if there is enough energy available beforehand!
+            energy = 0;
+            Debug.Log("Energy: negative energy!");  // This should never execute. The functions calling spendEnergy() should check if there is enough energy available beforehand!
         }
     }
 
     public void AddControl(float amount) {
         control += amount;
         if (control <= 0) {
+            control = 0;
             Debug.Log("LevelStatus: 0 or negative control! GAME LOST!");
             // TODO: Transition to loss screen
             HaltEnemySpawning();
             StartCoroutine(EndLevel(false));
         } else if (control >= 100) {
+            control = 100;
             Debug.Log("LevelStatus: 100 or greater control! GAME WON!");
             // TODO: Transition to win screen
             HaltEnemySpawning();
@@ -184,6 +189,9 @@ public class LevelStatus : MonoBehaviour {
         statusBarAnimator.SetBool("levelCompleted", true);
         yield return new WaitForSeconds(timeBeforeTransition);
 
+        // Update the final score the player achieved in the SceneData object
+        sceneData.SetScore(score);
+
         if (levelPassed) {
             LoadScene(successSceneName);
         } else {
@@ -212,5 +220,23 @@ public class LevelStatus : MonoBehaviour {
         animator.ResetTrigger(triggerName);
     }
     */
+
+    // TODO:
+    // Resets all game state variables like energy, control, etc.
+    private void CleanGameState() {
+
+    }
+
+    public void QuitToMainMenu() {
+        CleanGameState();
+        SceneManager.LoadScene("_Start");  // TODO: Don't use string reference...
+    }
+
+    // TODO:
+    private IEnumerator FadeOnQuit() {
+        Animator levelCompleteUIAnimator = levelCompleteUI.GetComponent<Animator>();
+        levelCompleteUIAnimator.SetBool("levelCompleted", true);
+        yield return new WaitForSeconds(timeBeforeTransition);
+    }
 }
 
