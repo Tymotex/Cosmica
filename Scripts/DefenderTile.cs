@@ -30,10 +30,10 @@ public class DefenderTile : MonoBehaviour {
     void Update() {
         if (defenderOnTile != null) {
             if (targetSpawner.EnemyExistsInRow() && isShooting == false) {
-                defenderOnTile.StartShooting();
+                defenderOnTile.defenderUnit.StartShooting();
                 isShooting = true;
             } else if (targetSpawner.EnemyExistsInRow() == false) {
-                defenderOnTile.StopShooting();
+                defenderOnTile.defenderUnit.StopShooting();
                 isShooting = false;
             }
         }
@@ -65,7 +65,8 @@ public class DefenderTile : MonoBehaviour {
             // Only spawn a unit if we have enough energy available
             if (levelStatus.energy >= defenderPrefab.costToSpawn) {
                 Defender spawnedDefender = Instantiate(defenderPrefab, transform.position, Quaternion.identity) as Defender;
-                spawnedDefender.transform.parent = transform;
+                spawnedDefender.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+                spawnedDefender.transform.SetParent(transform);
                 spawnedDefender.transform.position = transform.position;
                 levelStatus.SpendEnergy(defenderPrefab.costToSpawn);
                 
@@ -90,7 +91,7 @@ public class DefenderTile : MonoBehaviour {
 
     public bool DefenderIsPresent() {
         foreach (Transform child in transform) {
-            if (child.tag == "Defender" && child.GetComponent<Defender>().isDead == true) {
+            if (child.tag == "Defender" && child.GetComponent<DefenderBehaviour>().isDead == true) {
                 return true;
             }
         }
@@ -110,13 +111,13 @@ public class DefenderTile : MonoBehaviour {
 
     public void TellDefenderToShoot() {
         if (defenderOnTile != null) {
-            StartCoroutine(defenderOnTile.Shoot());
+            StartCoroutine(defenderOnTile.defenderUnit.Shoot());
         }
     }
 
     public void TellDefenderToStopShooting() {
         if (defenderOnTile != null) {
-            StopCoroutine(defenderOnTile.Shoot());
+            StopCoroutine(defenderOnTile.defenderUnit.Shoot());
         }
     }
 }

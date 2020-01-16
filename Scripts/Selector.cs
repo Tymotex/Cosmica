@@ -7,9 +7,7 @@ public class Selector : MonoBehaviour {
     public int currDefenderCost;
     [SerializeField] Defender defenderPrefab = null;
     [SerializeField] GameObject spawnGlowPrefab = null;
-    [SerializeField] 
-    
-    bool isCurrSelected = false;
+    [SerializeField] bool isCurrSelected = false;
     /*
     [SerializeField]
     bool isUnlocked = true;  // Should be greyed out if not yet unlocked
@@ -37,7 +35,7 @@ public class Selector : MonoBehaviour {
             
         }
 
-        DefenderTile[] allTiles = FindObjectsOfType<DefenderTile>();
+        DefenderTile[] allTiles = FindObjectsOfType<DefenderTile>();  // TODO: Inefficient
         // Loop through all the tiles in the battlefield and sets the defender to spawn to the newly selected unit
         foreach (DefenderTile tile in allTiles) {
             if (isCurrSelected) {

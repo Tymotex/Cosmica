@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour {
             // Allow time between each enemy spawn
             yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
             // Check whether the difficulty should be ramped up
-
+            // TODO:
             // Select an enemy by spawn percentage chance:
             int randomNumber = Random.Range(0, 100);  // Random integer in 0, 1, ..., 98, 99
             int lowerBound = 0;
@@ -51,14 +51,15 @@ public class EnemySpawner : MonoBehaviour {
 
     private void SpawnEnemy(Enemy enemy) {
         Enemy spawnedEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as Enemy;
-        spawnedEnemy.transform.parent = transform;
+        spawnedEnemy.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        spawnedEnemy.transform.SetParent(transform);
         spawnedEnemy.transform.position = transform.position;
     }
 
     // Spawner tile has an enemy unit as its child
     public bool EnemyExistsInRow() {
         foreach(Transform child in transform) {
-            if (child.tag == "Enemy") {
+            if (child.tag == "EnemyContainer") {
                 return true;
             }
         }
@@ -70,8 +71,8 @@ public class EnemySpawner : MonoBehaviour {
         bool defenderPresent = false;
         foreach(DefenderTile tile in defenderTilesInThisRow) {
             foreach(Transform tileChild in tile.transform) {
-                if (tileChild.tag == "Defender") {
-                    // Defender is present in some tile in the same row as this enemy spawner
+                if (tileChild.tag == "DefenderBehaviour") {
+                    // DefenderBehaviour is present in some tile in the same row as this enemy spawner
                     defenderPresent = true;
                     break;
                 }

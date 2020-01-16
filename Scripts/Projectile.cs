@@ -70,6 +70,10 @@ public class Projectile : MonoBehaviour {
         }
     }
 
+    public static void PlayDeathSFX(SoundClip deathSFX) {
+        AudioSource.PlayClipAtPoint(deathSFX.clip, FindObjectOfType<Camera>().transform.position, deathSFX.volume * PlayerData.GetGameVolume());
+    }
+
     // Switches off the sprite and the collider 
     private void DisableProjectile() {
         GetComponent<BoxCollider2D>().enabled = false;

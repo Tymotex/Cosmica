@@ -33,6 +33,8 @@ public class Health : MonoBehaviour {
     [SerializeField]
     [Tooltip("Add a particle system here")]
     GameObject deathVFX = null;
+    [SerializeField] SoundClip deathSFX = null;  // This is played by the projectile
+
 
     void Start() {
         DisplayHealthIfDamaged();
@@ -71,15 +73,14 @@ public class Health : MonoBehaviour {
         levelStatus.AddEnergy(energyGainOnKill);
         levelStatus.AddControl(controlGainOnKill);
 
-        // If the gameobject is a ship, then play death sfx
-
-        if (gameObject.tag == "Defender") {
-            GetComponent<Defender>().PlayDeathSFX();
-        } else if (gameObject.tag == "Enemy") {
-            GetComponent<Enemy>().PlayDeathSFX();
-        }
-
         // Destroy the object that was hit below 0 health and instantiate an explosion particle system
+        if (gameObject.tag == "Enemy") {   
+            Projectile.PlayDeathSFX(deathSFX);
+            gameObject.GetComponent<EnemyBehaviour>().Die();
+        } else if (gameObject.tag == "Defender") {
+            Projectile.PlayDeathSFX(deathSFX);
+            gameObject.GetComponent<DefenderBehaviour>().Die();
+        }
         Destroy(gameObject);
         GameObject deathExplosion = Instantiate(deathVFX, transform.position, Quaternion.identity) as GameObject;
         // Need to destroy the particle system after it has completed its full cycle
