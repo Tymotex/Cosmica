@@ -141,37 +141,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music:
-  - clipName: meet-the-princess
+  - clipName: Galactic Glory
     clip: {fileID: 8300000, guid: 803c62a595daee84ebe9988272d22eb5, type: 3}
     volume: 0.4
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: 7_SciFiAmbient
+  - clipName: Seeking
     clip: {fileID: 8300000, guid: 40ad187068acfca44a9bf5d80fa111ee, type: 3}
     volume: 0.5
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: 20_SciFiAlertl
+  - clipName: Alert
     clip: {fileID: 8300000, guid: f61da675a4a8a03469b8bc81cb5f51ab, type: 3}
     volume: 0.5
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: 23_AmbientHeavy
+  - clipName: Heavy
     clip: {fileID: 8300000, guid: 578f2643649f8ab4a9c925da1aec3993, type: 3}
     volume: 0.5
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: 25_BlueWater Warning
+  - clipName: 'Hydrogen '
     clip: {fileID: 8300000, guid: e2258d67391b1b34591057263476a379, type: 3}
     volume: 0.5
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: 27_Dark Synnergy
+  - clipName: Dark Synergy
     clip: {fileID: 8300000, guid: aa3979bda6ddb174ba128dbcac3ed5a4, type: 3}
     volume: 0.5
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: 29_Surfing On The Sun
+  - clipName: Surfing On The Sun
     clip: {fileID: 8300000, guid: 3912d92666371a049a5b323d19b63997, type: 3}
     volume: 0.5
     pitch: 1

@@ -4,12 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class OptionController : MonoBehaviour {
-    [SerializeField]
-    Text soundtrackText = null;
-    [SerializeField]
-    Slider gameVolumeSlider = null;
-    [SerializeField]
-    Slider musicVolumeSlider = null;
+    [SerializeField] Text soundtrackText = null;
+    [SerializeField] Slider gameVolumeSlider = null;
+    [SerializeField] Slider musicVolumeSlider = null;
     
 
     void Start() {
@@ -18,7 +15,6 @@ public class OptionController : MonoBehaviour {
         musicVolumeSlider.onValueChanged.AddListener(delegate { UpdateMusicVolume(); });
         gameVolumeSlider.value = PlayerData.GetGameVolume();
         musicVolumeSlider.value = PlayerData.GetMusicVolume();
-        print(MusicPlayer.currentSoundtrack);
         UpdateTrackName(MusicPlayer.currentSoundtrack);
     }
 
@@ -41,4 +37,12 @@ public class OptionController : MonoBehaviour {
             musicPlayer.ChangeVolume(sliderValue);
         }
     }    
+
+    public void NextTrack() {
+
+    }
+
+    public void PreviousTrack() {
+
+    }
 }

@@ -11,10 +11,23 @@ public class SceneDataManager : MonoBehaviour {
     public string currSceneZone;
     public string currSceneLevel;
     public int levelScore;
-    public int timeTaken;
+    public string timeTaken;       // Formatted string in minutes:seconds (eg. 4:30)
+    public bool levelPassed;
 
+    // TODO: SceneManager duplicates!
     void Awake() {
         DontDestroyOnLoad(transform.gameObject);
         Instance = this;
+    }
+
+    // FOR DEBUGGING
+    void Update() {
+        /*
+        Debug.Log("===> zone: " + currSceneZone);
+        Debug.Log("===> levl: " + currSceneLevel);
+        Debug.Log("===> scor: " + levelScore);
+        Debug.Log("===> time: " + timeTaken);
+        Debug.Log("===> pass: " + levelPassed);
+        */
     }
 }

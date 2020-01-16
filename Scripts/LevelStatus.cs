@@ -6,17 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelStatus : MonoBehaviour {
     // ===== Scene management =====
-    [SerializeField]
-    string successSceneName = "";
-    [SerializeField]
-    string failureSceneName = "";
-    int currSceneIndex = 0;
-    SceneData sceneData = null;
+    [SerializeField] string levelOutcomeSceneName = null;
+    [SerializeField] SceneData sceneData = null;
 
     // ===== Game status variables =====
     public float control = 50f;
     public int energy = 100;
     public float elapsedTime = 0f;
+    public float timeSinceLastRampUp = 0f;
+    [SerializeField] float rampUpInterval = 30;   // Difficulty heightens every 30 seconds
     [SerializeField]
     [Tooltip("Don't change this from 100! Any other value doesn't make sense")]
     float maxControl = 100f;
@@ -26,76 +24,80 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField]
     [Tooltip("Set the time allowed for this level in seconds (ignoring overtime). 300 gives the player 5 minutes to beat the level")]
     float maxTime = 300;
-    int score = 0;
+    int score = 100;
 
     // ===== Status UI =====
-    [SerializeField]
-    Text energyUI = null;
-    [SerializeField]
-    StatusBar energyBar = null;
-    //[SerializeField]  // The parent gameobject of the energy text and energy bar. This is for animating the pulse animation when energy is gained/spent
-    //GameObject energyUIContainer = null;
-    [SerializeField]
-    Text controlUI = null;
-    [SerializeField]
-    StatusBar controlBar = null;
-    //[SerializeField]  // The parent gameobject of the control text and control bar
-    //GameObject controlUIContainer = null;
-    [SerializeField]
-    Text timerUI = null;
-    [SerializeField]
-    StatusBar timerBar = null;
-    [SerializeField]
-    Color overtimeWarningColour = Color.yellow;
-    //[SerializeField]  // The parent gameobject of the timer text and timer bar
-    //GameObject timerUIContainer = null;
+    [SerializeField] Text energyUI = null;
+    [SerializeField] StatusBar energyBar = null;
+    [SerializeField] Text controlUI = null;
+    [SerializeField] StatusBar controlBar = null;
+    [SerializeField] Text timerUI = null;
+    [SerializeField] StatusBar timerBar = null;
+    [SerializeField] Color overtimeWarningColour = Color.yellow;
 
     // ===== Level End Animations =====
     [SerializeField]
     [Tooltip("Make this at least as long as how long the level completion animations last for")]
     float timeBeforeTransition = 1f;
-    [SerializeField]
-    Text levelCompletionText = null;
-    [SerializeField]
-    string levelWinText = "Level cleared!";
-    [SerializeField]
-    string levelFailText = "Level failed!";
-    [SerializeField]
-    GameObject levelCompleteUI = null;
-    [SerializeField]
-    GameObject selectionBarUI = null;
-    //[SerializeField]
-    //GameObject bannerBackground = null;
-    //[SerializeField]
-    //GameObject fadeBackground = null;
+    [SerializeField] Text levelCompletionText = null;
+    [SerializeField] string levelWinText = "Level cleared!";
+    [SerializeField] string levelFailText = "Level failed!";
+    [SerializeField] GameObject levelCompleteUI = null;
+    [SerializeField] GameObject selectionBarUI = null;
+
+    // ===== Ramping Up Difficulty =====
+    public EnemySpawner[] enemySpawners = null;
+
+    // ===== Preparation Phase =====
+    public bool levelStarted = false;
+    [SerializeField] GameObject prepPhaseUI = null;
 
     void Start() {
         // Display the initial energy and control percentage for the start of the current level
         UpdateUI();
-        // Set the current scene index
-        currSceneIndex = SceneManager.GetActiveScene().buildIndex;  // Gets the currently active scene's index (which is set in the build settings)
-        // Disable the pause menu canvas
-        // pauseCanvas.enabled = false;
+        // Initialise the enemy spawners array
+        enemySpawners = FindObjectsOfType<EnemySpawner>();
+
+        GameObject prepPhase = Instantiate(prepPhaseUI, Vector3.zero, Quaternion.identity) as GameObject;
+        prepPhase.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        prepPhase.transform.position = transform.position;
+        foreach (EnemySpawner spawner in enemySpawners) {  // TODO: Unnecessary?
+            spawner.spawning = false;
+        }
     }
 
     void Update() {
-        elapsedTime += Time.deltaTime;  // Keeps track of REAL time from the start of the level. Time.deltaTime returns the time in seconds since the last frame update (so summing all deltaTimes gives the total time elapsed)
-        bool timeExceeded = elapsedTime > maxTime;
-        UpdateTimer(timeExceeded);
-        // TODO: Make sure the if statement is only entered once! The shit inside here will get executed every frame update!
-        if (timeExceeded) {
-            timerUI.color = overtimeWarningColour;
-            HaltEnemySpawning();
-            if (!EnemiesStillPresent()) {
-                // The player passes the level if they reached a control level of at least 50%:
-                if (control >= maxControl / 2) {
-                    StartCoroutine(EndLevel(true));
-                }
-                // The player fails the level if they had <50% control over the level
-                else {
-                    StartCoroutine(EndLevel(false));
+        if (levelStarted) {
+            elapsedTime += Time.deltaTime;  // Keeps track of REAL time from the start of the level. Time.deltaTime returns the time in seconds since the last frame update (so summing all deltaTimes gives the total time elapsed)
+            timeSinceLastRampUp += Time.deltaTime;
+            if (timeSinceLastRampUp >= rampUpInterval) {
+                timeSinceLastRampUp -= rampUpInterval;
+                Debug.Log("Ramping up difficulty!");
+                foreach (EnemySpawner spawner in enemySpawners) {
+                    spawner.rampIndex++;
                 }
             }
+            bool timeExceeded = elapsedTime > maxTime;
+            UpdateTimer(timeExceeded);
+            // TODO: Make sure the if statement is only entered once! The shit inside here will get executed every frame update!
+            if (timeExceeded) {
+                timerUI.color = overtimeWarningColour;
+                HaltEnemySpawning();
+                if (!EnemiesStillPresent()) {
+                    // The player passes the level if they reached a control level of at least 50%:
+                    if (control >= maxControl / 2) {
+                        StartCoroutine(EndLevel(true));
+                    }
+                    // The player fails the level if they had <50% control over the level
+                    else {
+                        StartCoroutine(EndLevel(false));
+                    }
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            levelStarted = true;
         }
     }
 
@@ -119,19 +121,6 @@ public class LevelStatus : MonoBehaviour {
     }
 
     public void AddEnergy(int amount) {
-        /*
-        Animator energyUIAnimator = energyUIContainer.GetComponent<Animator>();
-        energyUIAnimator.SetTrigger("energyChanged");
-        AnimationClip[] animations = energyUIAnimator.runtimeAnimatorController.animationClips;
-        // Get the length of the pulse animation clip and reset the trigger after this time has elapsed. This allows the clip to be playable at any point during runtime
-        foreach (AnimationClip clip in animations) {
-            float animationTime;
-            if (clip.name == "EnergyBarPulse") {
-                animationTime = clip.length;
-                StartCoroutine(resetTrigger(energyUIAnimator, "energyChanged", animationTime));
-            }
-        }
-        */
         energy += amount;
         if (energy >= maxEnergy) {
             energy = maxEnergy;
@@ -153,13 +142,11 @@ public class LevelStatus : MonoBehaviour {
         if (control <= 0) {
             control = 0;
             Debug.Log("LevelStatus: 0 or negative control! GAME LOST!");
-            // TODO: Transition to loss screen
             HaltEnemySpawning();
             StartCoroutine(EndLevel(false));
         } else if (control >= 100) {
             control = 100;
             Debug.Log("LevelStatus: 100 or greater control! GAME WON!");
-            // TODO: Transition to win screen
             HaltEnemySpawning();
             StartCoroutine(EndLevel(true));
         }
@@ -189,14 +176,13 @@ public class LevelStatus : MonoBehaviour {
         statusBarAnimator.SetBool("levelCompleted", true);
         yield return new WaitForSeconds(timeBeforeTransition);
 
-        // Update the final score the player achieved in the SceneData object
+        // Update the final score the player achieved and the time taken in the SceneData object
         sceneData.SetScore(score);
-
-        if (levelPassed) {
-            LoadScene(successSceneName);
-        } else {
-            LoadScene(failureSceneName);
-        }
+        sceneData.SetTimeTaken(elapsedTime);
+        sceneData.SetLevelPassed(levelPassed);
+        sceneData.WriteToManager();
+        // Finally transition to the outcome scene
+        LoadScene(levelOutcomeSceneName);
     }
 
     private bool EnemiesStillPresent() {
@@ -213,30 +199,6 @@ public class LevelStatus : MonoBehaviour {
 
     private void LoadScene(string sceneName) {
         SceneManager.LoadScene(sceneName);
-    }
-    /*
-    private IEnumerator resetTrigger(Animator animator, string triggerName, float waitDuration) {
-        yield return new WaitForSeconds(waitDuration);
-        animator.ResetTrigger(triggerName);
-    }
-    */
-
-    // TODO:
-    // Resets all game state variables like energy, control, etc.
-    private void CleanGameState() {
-
-    }
-
-    public void QuitToMainMenu() {
-        CleanGameState();
-        SceneManager.LoadScene("_Start");  // TODO: Don't use string reference...
-    }
-
-    // TODO:
-    private IEnumerator FadeOnQuit() {
-        Animator levelCompleteUIAnimator = levelCompleteUI.GetComponent<Animator>();
-        levelCompleteUIAnimator.SetBool("levelCompleted", true);
-        yield return new WaitForSeconds(timeBeforeTransition);
     }
 }
 

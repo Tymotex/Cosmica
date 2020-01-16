@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Selector : MonoBehaviour {
-    [SerializeField]
-    string defenderName = "";
+    [SerializeField] string defenderName = "";
     public int currDefenderCost;
-    [SerializeField]
-    Defender defenderPrefab = null;
-    [SerializeField]
-    GameObject spawnGlowPrefab = null;
+    [SerializeField] Defender defenderPrefab = null;
+    [SerializeField] GameObject spawnGlowPrefab = null;
+    [SerializeField] 
     
     bool isCurrSelected = false;
     /*
@@ -38,12 +36,6 @@ public class Selector : MonoBehaviour {
             }
             
         }
-        /*
-        if (!isCurrSelected) {
-            isCurrSelected = true;
-            spawnGlow();
-        }
-        */
 
         DefenderTile[] allTiles = FindObjectsOfType<DefenderTile>();
         // Loop through all the tiles in the battlefield and sets the defender to spawn to the newly selected unit
@@ -56,6 +48,10 @@ public class Selector : MonoBehaviour {
                 tile.defenderPrefab = null;
             }
         }
+    }
+
+    private void OnMouseEnter() {
+        
     }
 
     // Spawns a glowing particle system to indicate which defender was selected

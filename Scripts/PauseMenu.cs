@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour {
     // ===== Game Pause =====
@@ -14,7 +15,7 @@ public class PauseMenu : MonoBehaviour {
 
     void Start() {
         pauseCanvas = Instantiate(pauseCanvasPrefab, Vector3.zero, Quaternion.identity) as Canvas;
-        pauseCanvas.transform.parent = transform;
+        pauseCanvas.transform.SetParent(transform);
         pauseCanvas.enabled = false;
     }
 
@@ -23,7 +24,7 @@ public class PauseMenu : MonoBehaviour {
             paused = !paused;
             if (paused) {
                 pauseCanvas.enabled = true;
-                timeScaler.SetTimeScale(0);
+                timeScaler.SetTimeScale(0f);
             } else {
                 pauseCanvas.enabled = false;
                 timeScaler.SetTimeScale(1);

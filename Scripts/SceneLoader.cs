@@ -19,12 +19,31 @@ public class SceneLoader : MonoBehaviour {
         }
         */
     }
-    /*
-    IEnumerator Sleep() {
-        yield return new WaitForSeconds(transitionDelay);
-        LoadNextScene();
+
+    private string FormatLevelName(SceneDataManager manager, bool loadNextLevel) {
+        if (loadNextLevel) {
+            return "Level" + manager.currSceneZone.ToString() + "_" + (System.Convert.ToInt32(manager.currSceneLevel) + 1).ToString();
+        } else {
+            return "Level" + manager.currSceneZone.ToString() + "_" + manager.currSceneLevel.ToString();
+        }
     }
-    */
+
+    public void ReloadLastLevel() {
+        fadeOut();
+        SceneDataManager manager = FindObjectOfType<SceneDataManager>();
+        string lastLevel = FormatLevelName(manager, false);
+        Debug.Log("Loading last level: " + lastLevel);
+        StartCoroutine(LoadAfterDelay(transitionDelay, lastLevel));
+    }
+
+    public void LoadNextLevel() {
+        fadeOut();
+        SceneDataManager manager = FindObjectOfType<SceneDataManager>();
+        string nextLevel = FormatLevelName(manager, true);
+        Debug.Log("Loading next level: " + nextLevel);
+        StartCoroutine(LoadAfterDelay(transitionDelay, nextLevel));
+    }
+
     public void LoadNextScene() {
         fadeOut();
         StartCoroutine(LoadAfterDelay(transitionDelay, currSceneIndex + 1));

@@ -62,7 +62,7 @@ public class Projectile : MonoBehaviour {
     private void PlaySFX(SoundClip sfx) {
         AudioSource audioSource = GetComponent<AudioSource>();
         if (audioSource != null) {
-            Debug.Log("Master volume: " + PlayerData.GetGameVolume());
+            // Debug.Log("Master volume: " + PlayerData.GetGameVolume());
             audioSource.clip = sfx.clip;
             audioSource.volume = sfx.volume * PlayerData.GetGameVolume(); ;
             audioSource.pitch = sfx.pitch;
