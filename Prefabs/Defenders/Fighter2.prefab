@@ -4838,6 +4838,7 @@ MonoBehaviour:
   maxImpactDamage: 108
   minImpactDamage: 92
   container: {fileID: 4588973237231109761}
+  spawnShootDelay: 1
 --- !u!114 &3224303636403064980
 MonoBehaviour:
   m_ObjectHideFlags: 0

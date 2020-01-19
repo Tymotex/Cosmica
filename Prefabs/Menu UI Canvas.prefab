@@ -422,7 +422,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -321301553
+  m_SortingLayerID: 1324281087
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &2919947976111060283
@@ -587,21 +587,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2919947975753944874}
     m_Modifications:
-    - target: {fileID: 418954608147823283, guid: 2186402836b70704ab3776b1666c10ce,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954608374720126, guid: 2186402836b70704ab3776b1666c10ce,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954609098483461, guid: 2186402836b70704ab3776b1666c10ce,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 418954609175864833, guid: 2186402836b70704ab3776b1666c10ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -661,11 +646,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sliders
-      objectReference: {fileID: 0}
-    - target: {fileID: 418954609178845814, guid: 2186402836b70704ab3776b1666c10ce,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2186402836b70704ab3776b1666c10ce, type: 3}

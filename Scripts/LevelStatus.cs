@@ -70,7 +70,7 @@ public class LevelStatus : MonoBehaviour {
         if (levelStarted) {
             elapsedTime += Time.deltaTime;  // Keeps track of REAL time from the start of the level. Time.deltaTime returns the time in seconds since the last frame update (so summing all deltaTimes gives the total time elapsed)
             timeSinceLastRampUp += Time.deltaTime;
-            if (timeSinceLastRampUp >= rampUpInterval) {
+            if (timeSinceLastRampUp >= rampUpInterval && elapsedTime <= maxTime) {  // Ramp up difficulty every x seconds until overtime is reached
                 timeSinceLastRampUp -= rampUpInterval;
                 Debug.Log("Ramping up difficulty!");
                 foreach (EnemySpawner spawner in enemySpawners) {
@@ -94,10 +94,6 @@ public class LevelStatus : MonoBehaviour {
                     }
                 }
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            levelStarted = true;
         }
     }
 
@@ -157,7 +153,7 @@ public class LevelStatus : MonoBehaviour {
         // Halt all enemy spawners
         EnemySpawner[] spawners = FindObjectsOfType<EnemySpawner>();
         foreach (EnemySpawner spawner in spawners) {
-            spawner.spawning = false;
+            spawner.ForceStopSpawning();
         }
     }
 
@@ -167,6 +163,24 @@ public class LevelStatus : MonoBehaviour {
         Animator statusBarAnimator = gameObject.GetComponent<Animator>();
         if (levelPassed) {
             levelCompletionText.text = levelWinText;
+            Defender[] defenders = FindObjectsOfType<Defender>();
+            foreach (Defender defender in defenders) {
+                defender.PlayVictoryAnimation();
+                defender.defenderUnit.StopShooting();
+            }
+            Enemy[] enemies = FindObjectsOfType<Enemy>();
+            foreach (Enemy enemy in enemies) {
+                enemy.PlayDefeatAnimation();
+                enemy.enemyUnit.StopShooting();
+            }
+            EnemySpawner[] spawners = FindObjectsOfType<EnemySpawner>();
+            foreach (EnemySpawner spawner in spawners) {
+                spawner.ForceStopSpawning();
+            }
+            Projectile[] projectiles = FindObjectsOfType<Projectile>();
+            foreach (Projectile projectile in projectiles) {
+                projectile.Dissolve();
+            }
         } else {
             levelCompletionText.text = levelFailText;
         }

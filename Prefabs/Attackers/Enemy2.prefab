@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 5494454525646982338}
   - component: {fileID: 7600723634401924628}
   m_Layer: 0
-  m_Name: Enemy1
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,13 +263,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advanceSpeed: 0.5
   rank: 0
-  ammo: {fileID: 95578382908335403, guid: 2df304fdeaa49fe4a8ea6f0a013f8efe, type: 3}
+  ammo: {fileID: 95578382908335403, guid: 9f683f2bbebe10c479d54bd051b73c87, type: 3}
   minShootDelay: 3
   maxShootDelay: 4
   shootingOffset: {x: -0.2, y: 0, z: 0}
   maxImpactDamage: 108
   minImpactDamage: 92
   container: {fileID: 2798723064585118992}
+  spawnShootDelay: 1
 --- !u!58 &3693663739873349120
 CircleCollider2D:
   m_ObjectHideFlags: 0

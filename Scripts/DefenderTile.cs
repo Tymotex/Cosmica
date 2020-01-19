@@ -15,7 +15,7 @@ public class DefenderTile : MonoBehaviour {
     Defender defenderOnTile = null;  // Reference to the defender that's on this tile
 
     [SerializeField]
-    bool isShooting = false;
+    bool isShooting = false;  // TODO: is this necessary?
 
     // ===== Popup =====
     [SerializeField]
@@ -50,6 +50,7 @@ public class DefenderTile : MonoBehaviour {
 
     // OnMouseOver is called whenever the mouse hovers over the tile
     private void OnMouseOver() {
+        print("HOVERING");
         if (!DefenderIsPresent()) {
             Animation pulse = GetComponent<Animation>();
             pulse.Play();
@@ -91,7 +92,7 @@ public class DefenderTile : MonoBehaviour {
 
     public bool DefenderIsPresent() {
         foreach (Transform child in transform) {
-            if (child.tag == "Defender" && child.GetComponent<DefenderBehaviour>().isDead == true) {
+            if (child.tag == "DefenderContainer") {
                 return true;
             }
         }

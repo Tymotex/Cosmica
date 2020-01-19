@@ -9,4 +9,8 @@ public class Defender : MonoBehaviour {
     public void DestroySelf() {
         Destroy(gameObject);
     }
+
+    public void PlayVictoryAnimation() {
+        GetComponent<Animator>().SetBool("levelCompleted", true);
+    }
 }

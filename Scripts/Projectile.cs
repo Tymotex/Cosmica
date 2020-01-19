@@ -74,8 +74,13 @@ public class Projectile : MonoBehaviour {
         AudioSource.PlayClipAtPoint(deathSFX.clip, FindObjectOfType<Camera>().transform.position, deathSFX.volume * PlayerData.GetGameVolume());
     }
 
+    public void Dissolve() {
+        GetComponent<Animator>().SetBool("levelCompleted", true);
+    }
+
     // Switches off the sprite and the collider 
     private void DisableProjectile() {
+        Dissolve();
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().enabled = false;
         Destroy(gameObject, destroyDelay);

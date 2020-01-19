@@ -30,8 +30,17 @@ public class EnemyBehaviour : MonoBehaviour {
     // ===== Link to Parent =====
     [SerializeField] Enemy container = null;
 
-    void Start() {
+    // ===== On Spawn =====
+    [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
+    [SerializeField] float spawnShootDelay = 1;
+
+    public void StartShooting() {
         StartCoroutine(Shoot());
+    }
+
+    public void StopShooting() {
+        StopAllCoroutines();  // Stops ALL coroutines. TODO: For some reason, calling StopCoroutine(Shoot()) doesn't stop the coroutine I started in StartShooting().
+        // TODO: Maybe setting isShooting to false solves this
     }
 
     void Update() {
@@ -39,9 +48,10 @@ public class EnemyBehaviour : MonoBehaviour {
     }
 
     private IEnumerator Shoot() {
+        yield return new WaitForSeconds(spawnShootDelay);
         while (isShooting) {
-            yield return new WaitForSeconds(Random.Range(minShootDelay, maxShootDelay));
             SpawnProjectile();
+            yield return new WaitForSeconds(Random.Range(minShootDelay, maxShootDelay));
         }
     }
 

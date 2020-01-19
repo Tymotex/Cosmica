@@ -9831,7 +9831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rank: 0
-  ammo: {fileID: 95578382908335403, guid: a5346d0f69a2c8a4d8469880ee985cb6, type: 3}
+  ammo: {fileID: 95578382908335403, guid: 21f3547d750c27a42b00f7091ce7eae6, type: 3}
   minShootDelay: 2.5
   maxShootDelay: 3
   shootingOffset: {x: 0.16, y: 0, z: 0}
@@ -9845,6 +9845,7 @@ MonoBehaviour:
   maxImpactDamage: 108
   minImpactDamage: 92
   container: {fileID: 4067417640620418982}
+  spawnShootDelay: 1
 --- !u!114 &5621279765145956192
 MonoBehaviour:
   m_ObjectHideFlags: 0

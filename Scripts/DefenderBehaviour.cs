@@ -38,6 +38,10 @@ public class DefenderBehaviour : MonoBehaviour {
     // ===== Link to parent container =====
     [SerializeField] Defender container = null;
 
+    // ===== On Spawn =====
+    [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
+    [SerializeField] float spawnShootDelay = 1;
+
     public void StartShooting() {
         StartCoroutine(Shoot());
     }
@@ -48,6 +52,7 @@ public class DefenderBehaviour : MonoBehaviour {
     }
 
     public IEnumerator Shoot() {
+        yield return new WaitForSeconds(spawnShootDelay);
         while (isShooting) {
             SpawnProjectile();
             yield return new WaitForSeconds(Random.Range(minShootDelay, maxShootDelay));

@@ -14,18 +14,18 @@ public class EnemySpawner : MonoBehaviour {
     [HideInInspector] public int rampIndex = 0;
     LevelStatus levelStatus;
 
+    [SerializeField] DefenderTile[] tilesInThisRow = null;
+    bool isShooting = false;
+
     IEnumerator SpawnEnemies() {
         while (spawning) {
             // Allow time between each enemy spawn
             yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
-            // Check whether the difficulty should be ramped up
-            // TODO:
             // Select an enemy by spawn percentage chance:
             int randomNumber = Random.Range(0, 100);  // Random integer in 0, 1, ..., 98, 99
             int lowerBound = 0;
             int higherBound = 99;
-            print("RAMPINDEX: " + rampIndex);
-            for(int i = 0; i < enemies.Length; i++) {
+            for (int i = 0; i < enemies.Length; i++) {
                 higherBound = chances[rampIndex].spawnChances[i] + lowerBound;
                 if (randomNumber >= lowerBound && randomNumber < higherBound) {
                     // Successfully rolled enemies[i]. Spawning this and breaking out of the loop
@@ -38,6 +38,17 @@ public class EnemySpawner : MonoBehaviour {
         }
     }
 
+    private void SpawnEnemy(Enemy enemy) {
+        Enemy spawnedEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as Enemy;
+        spawnedEnemy.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        spawnedEnemy.transform.SetParent(transform);
+        spawnedEnemy.transform.position = transform.position;
+    }
+
+    public void ForceStopSpawning() {
+        StopAllCoroutines();
+    }
+
     void Start() {
         levelStatus = FindObjectOfType<LevelStatus>(); 
     }
@@ -47,13 +58,28 @@ public class EnemySpawner : MonoBehaviour {
             spawning = true;
             StartCoroutine(SpawnEnemies());
         }
-    }
-
-    private void SpawnEnemy(Enemy enemy) {
-        Enemy spawnedEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as Enemy;
-        spawnedEnemy.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        spawnedEnemy.transform.SetParent(transform);
-        spawnedEnemy.transform.position = transform.position;
+        // Tells the enemies in the current row to stop shooting if there are no defenders to defend
+        // TODO: It's possible to move this out of Update... See how this impacts performance
+        if (EnemyExistsInRow()) {
+            bool defenderExists = false;
+            foreach (DefenderTile tile in tilesInThisRow) {
+                if (tile.DefenderIsPresent()) {
+                    defenderExists = true;
+                    break;
+                }
+            }
+            if (defenderExists && isShooting == false) {
+                foreach (Transform child in transform) {
+                    child.GetComponent<Enemy>().enemyUnit.StartShooting();
+                    isShooting = true;
+                }
+            } else if (!defenderExists && isShooting == true) {
+                foreach (Transform child in transform) {
+                    child.GetComponent<Enemy>().enemyUnit.StopShooting();
+                    isShooting = false;
+                }
+            }
+        }
     }
 
     // Spawner tile has an enemy unit as its child
@@ -65,6 +91,7 @@ public class EnemySpawner : MonoBehaviour {
         }
         return false;
     }
+
 
     /*
     public bool DefendersExistInRow() {
