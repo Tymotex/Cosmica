@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
     public EnemyBehaviour enemyUnit = null;
+    [SerializeField] SoundClip spawnSFX = null;
+    AudioSource audioSource;
 
+    private void Start() {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = spawnSFX.clip;
+        audioSource.volume = spawnSFX.volume * PlayerData.GetGameVolume();
+        audioSource.pitch = spawnSFX.pitch;
+        audioSource.Play();
+    }
 
     public void DestroySelf() {
         Destroy(gameObject);

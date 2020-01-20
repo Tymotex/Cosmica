@@ -93,6 +93,15 @@ public class MusicPlayer : MonoBehaviour {
         }
         StartCoroutine(PlayBGM(currentSoundtrackIndex));
     }
+
+    public void ForcePlayPrevious() {
+        StopAllCoroutines();
+        currentSoundtrackIndex--;
+        if (currentSoundtrackIndex < 0) {
+            currentSoundtrackIndex = music.Length - 1;
+        }
+        StartCoroutine(PlayBGM(currentSoundtrackIndex));
+    }
 }
 
 

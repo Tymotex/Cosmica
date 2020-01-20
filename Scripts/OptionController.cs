@@ -38,10 +38,12 @@ public class OptionController : MonoBehaviour {
         }
     }    
 
+    // Right chevron button
     public void NextTrack() {
-
+        FindObjectOfType<MusicPlayer>().ForcePlayNext();
     }
 
+    // Left chevron button
     public void PreviousTrack() {
 
     }

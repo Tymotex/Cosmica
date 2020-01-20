@@ -5,6 +5,18 @@ using UnityEngine;
 public class Defender : MonoBehaviour {
     public DefenderBehaviour defenderUnit = null;
     public int costToSpawn;
+    [Tooltip("Moving units across tiles costs energy")]
+    public int costToMove;
+    [SerializeField] SoundClip spawnSFX = null;
+    AudioSource audioSource;
+
+    private void Start() {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = spawnSFX.clip;
+        audioSource.volume = spawnSFX.volume * PlayerData.GetGameVolume();
+        audioSource.pitch = spawnSFX.pitch;
+        audioSource.Play();
+    }
 
     public void DestroySelf() {
         Destroy(gameObject);
@@ -12,5 +24,9 @@ public class Defender : MonoBehaviour {
 
     public void PlayVictoryAnimation() {
         GetComponent<Animator>().SetBool("levelCompleted", true);
+    }
+
+    public DefenderTile GetCurrentTile() {
+        return transform.parent.GetComponent<DefenderTile>();
     }
 }

@@ -30,18 +30,9 @@ public class Shredder : MonoBehaviour {
                 }
             }
         } else if (!isLeftShredder) {
-            if (collision.gameObject.tag == "Defender" || collision.gameObject.tag == "Enemy") {
-                Debug.Log("Right shredder: ship triggered shredder, ignoring");
-            } else {
-                if (collision.gameObject.tag == "Projectile") {
-                    Destroy(collision.gameObject);
-                } else {
-                    Debug.Log("Right shredder: deleted some non-enemy unit (" + collision.gameObject.name + ")");
-                    Destroy(collision.gameObject);
-                }
+            if (collision.gameObject.tag == "Projectile") {
+                Destroy(collision.gameObject);
             }
         }
-        
-        
     }
 }

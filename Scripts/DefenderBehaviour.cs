@@ -84,4 +84,11 @@ public class DefenderBehaviour : MonoBehaviour {
     public void Die() {
         container.DestroySelf();
     }
+
+    // When clicked, it calls OnMouseDown in the DefenderTile which this gameobject is a grandchild of
+    // Workaround to a problem where not all the tile's region registers clicks (because this gameobject's collider is blocking them)
+    private void OnMouseDown() {
+        DefenderTile currTile = container.GetCurrentTile();
+        currTile.OnMouseDown();
+    }
 }

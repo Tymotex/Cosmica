@@ -35,7 +35,7 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField] StatusBar timerBar = null;
     [SerializeField] Color overtimeWarningColour = Color.yellow;
 
-    // ===== Level End Animations =====
+    // ===== Level End =====
     [SerializeField]
     [Tooltip("Make this at least as long as how long the level completion animations last for")]
     float timeBeforeTransition = 1f;
@@ -44,6 +44,10 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField] string levelFailText = "Level failed!";
     [SerializeField] GameObject levelCompleteUI = null;
     [SerializeField] GameObject selectionBarUI = null;
+    [SerializeField] SoundClip levelSuccessSFX = null;
+    [SerializeField] SoundClip levelFailSFX = null;
+    bool isOvertime = false;
+    bool endingLevel = false;
 
     // ===== Ramping Up Difficulty =====
     public EnemySpawner[] enemySpawners = null;
@@ -80,7 +84,8 @@ public class LevelStatus : MonoBehaviour {
             bool timeExceeded = elapsedTime > maxTime;
             UpdateTimer(timeExceeded);
             // TODO: Make sure the if statement is only entered once! The shit inside here will get executed every frame update!
-            if (timeExceeded) {
+            if (timeExceeded && !isOvertime) {
+                isOvertime = true;
                 timerUI.color = overtimeWarningColour;
                 HaltEnemySpawning();
                 if (!EnemiesStillPresent()) {
@@ -137,14 +142,20 @@ public class LevelStatus : MonoBehaviour {
         control += amount;
         if (control <= 0) {
             control = 0;
-            Debug.Log("LevelStatus: 0 or negative control! GAME LOST!");
-            HaltEnemySpawning();
-            StartCoroutine(EndLevel(false));
-        } else if (control >= 100) {
+            if (!endingLevel) {
+                endingLevel = true;
+                Debug.Log("LevelStatus: 0 or negative control! GAME LOST!");
+                HaltEnemySpawning();
+                StartCoroutine(EndLevel(false));
+            }
+        } else if (control >= 100 && !endingLevel) {
             control = 100;
-            Debug.Log("LevelStatus: 100 or greater control! GAME WON!");
-            HaltEnemySpawning();
-            StartCoroutine(EndLevel(true));
+            if (!endingLevel) {
+                endingLevel = true;
+                Debug.Log("LevelStatus: 100 or greater control! GAME WON!");
+                HaltEnemySpawning();
+                StartCoroutine(EndLevel(true));
+            }
         }
         UpdateUI();
     }
@@ -161,8 +172,14 @@ public class LevelStatus : MonoBehaviour {
         Animator levelCompleteUIAnimator = levelCompleteUI.GetComponent<Animator>();
         Animator selectionBarUIAnimator = selectionBarUI.GetComponent<Animator>();
         Animator statusBarAnimator = gameObject.GetComponent<Animator>();
+        AudioSource audioSource = GetComponent<AudioSource>();
         if (levelPassed) {
             levelCompletionText.text = levelWinText;
+            audioSource.clip = levelSuccessSFX.clip;
+            audioSource.volume = levelSuccessSFX.volume;
+            audioSource.pitch = levelSuccessSFX.pitch;
+            audioSource.Play();
+            // Call end of level functions
             Defender[] defenders = FindObjectsOfType<Defender>();
             foreach (Defender defender in defenders) {
                 defender.PlayVictoryAnimation();
@@ -183,13 +200,25 @@ public class LevelStatus : MonoBehaviour {
             }
         } else {
             levelCompletionText.text = levelFailText;
+            Debug.Log("Playing fail SFX");
+            audioSource.clip = levelFailSFX.clip;
+            audioSource.volume = levelFailSFX.volume;
+            audioSource.pitch = levelFailSFX.pitch;
+            audioSource.Play();
         }
         // levelCompleted is a parameter for the animator controller state machine. Setting it to true triggers any animations meant for level completion
         levelCompleteUIAnimator.SetBool("levelCompleted", true);
         selectionBarUIAnimator.SetBool("levelCompleted", true);
         statusBarAnimator.SetBool("levelCompleted", true);
         yield return new WaitForSeconds(timeBeforeTransition);
-
+        // Deselect any highlighted tiles
+        DefenderTile[] tiles = FindObjectsOfType<DefenderTile>();
+        foreach (DefenderTile tile in tiles) {
+            if (tile.isHighlighted) {
+                tile.RemoveHighlight();
+                break;
+            }
+        }
         // Update the final score the player achieved and the time taken in the SceneData object
         sceneData.SetScore(score);
         sceneData.SetTimeTaken(elapsedTime);

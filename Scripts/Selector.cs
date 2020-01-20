@@ -12,6 +12,11 @@ public class Selector : MonoBehaviour {
     [SerializeField]
     bool isUnlocked = true;  // Should be greyed out if not yet unlocked
     */
+
+    private void OnMouseOver() {
+        Debug.Log("Hovering!!!");
+    }
+
     private void OnMouseDown() {
         Debug.Log("Selector: selected " + defenderName);
         Selector[] allUnits = FindObjectsOfType<Selector>();

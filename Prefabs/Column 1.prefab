@@ -94,8 +94,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1464572309
-  m_SortingLayer: 11
+  m_SortingLayerID: -376190905
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2b51c610f23509d4aac524a4f6b81da1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.15686275}
@@ -702,6 +702,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -859,6 +876,23 @@ PrefabInstance:
       propertyPath: noDefenderPopup
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
@@ -1018,6 +1052,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -1175,6 +1226,23 @@ PrefabInstance:
       propertyPath: noDefenderPopup
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
@@ -1334,6 +1402,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -1491,6 +1576,23 @@ PrefabInstance:
       propertyPath: noDefenderPopup
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
@@ -1650,6 +1752,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -1802,6 +1921,23 @@ PrefabInstance:
       propertyPath: noDefenderPopup
       value: 
       objectReference: {fileID: 3513153669303746620, guid: 5442c897d1f827542be7d2effdcaea3c,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: selectionGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 8c80d10899b5c5341af39f731b814fc6,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileColour.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: validTileGlow
+      value: 
+      objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
