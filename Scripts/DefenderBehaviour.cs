@@ -13,22 +13,14 @@ public class DefenderBehaviour : MonoBehaviour {
     public int rank;
 
     // ===== Shooting =====
-    [SerializeField]
-    GameObject ammo = null;
-    bool isShooting = true;  // Initialise to true to start firing immediately after spawning
-    [SerializeField]
-    float minShootDelay = 3f;
-    [SerializeField]
-    float maxShootDelay = 4f;
-    [SerializeField]
-    Vector3 shootingOffset = Vector3.zero;
-
-    // ==== Info =====
-    int currRow;  // Unused
+    [SerializeField] GameObject ammo = null;
+    public bool isShooting = false;  
+    [SerializeField] float minShootDelay = 3f;
+    [SerializeField] float maxShootDelay = 4f;
+    [SerializeField] Vector3 shootingOffset = Vector3.zero;
 
     // ===== Other =====
-    [SerializeField]
-    SoundClip deathSFX = null;
+    [SerializeField] SoundClip deathSFX = null;
     public bool isDead = false;
     [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
     public int maxImpactDamage = 108;
@@ -41,6 +33,10 @@ public class DefenderBehaviour : MonoBehaviour {
     // ===== On Spawn =====
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
+
+    void Start() {
+        isShooting = false;
+    }
 
     public void StartShooting() {
         StartCoroutine(Shoot());

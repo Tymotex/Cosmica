@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
-    [SerializeField] int rowNumber;  // Used to let any defender units in the same row know that they should be attacking
     public bool spawning = false;
     [SerializeField] float minSpawnInterval = 1f;
     [SerializeField] float maxSpawnInterval = 3f;
@@ -15,7 +14,6 @@ public class EnemySpawner : MonoBehaviour {
     LevelStatus levelStatus;
 
     [SerializeField] DefenderTile[] tilesInThisRow = null;
-    bool isShooting = false;
 
     IEnumerator SpawnEnemies() {
         while (spawning) {
@@ -29,7 +27,7 @@ public class EnemySpawner : MonoBehaviour {
                 higherBound = chances[rampIndex].spawnChances[i] + lowerBound;
                 if (randomNumber >= lowerBound && randomNumber < higherBound) {
                     // Successfully rolled enemies[i]. Spawning this and breaking out of the loop
-                    print("===> Spawning enemy: " + i);
+                    // print("===> Spawning enemy: " + i);
                     SpawnEnemy(enemies[i]);
                     break;
                 }
@@ -61,22 +59,25 @@ public class EnemySpawner : MonoBehaviour {
         // Tells the enemies in the current row to stop shooting if there are no defenders to defend
         // TODO: It's possible to move this out of Update... See how this impacts performance
         if (EnemyExistsInRow()) {
-            bool defenderExists = false;
-            foreach (DefenderTile tile in tilesInThisRow) {
-                if (tile.DefenderIsPresent()) {
-                    defenderExists = true;
-                    break;
-                }
-            }
-            if (defenderExists && isShooting == false) {
+            bool defenderExists = DefenderExistsInRow();
+            Debug.Log("Defender Exists: " + defenderExists);
+            if (defenderExists) {
                 foreach (Transform child in transform) {
-                    child.GetComponent<Enemy>().enemyUnit.StartShooting();
-                    isShooting = true;
+                    Debug.Log("Is shooting:" + child.GetComponent<Enemy>().enemyUnit.isShooting);
+                    EnemyBehaviour enemy = child.GetComponent<Enemy>().enemyUnit;
+                    if (enemy.isShooting == false) {  // If a unit is not already shooting, tell them to shoot
+                        Debug.Log("START SHOOTING");
+                        enemy.StartShooting();
+                        enemy.isShooting = true;
+                    }
                 }
-            } else if (!defenderExists && isShooting == true) {
+            } else if (!defenderExists) {
                 foreach (Transform child in transform) {
-                    child.GetComponent<Enemy>().enemyUnit.StopShooting();
-                    isShooting = false;
+                    EnemyBehaviour enemy = child.GetComponent<Enemy>().enemyUnit;
+                    if (enemy.isShooting == true) {  // If a unit is already shooting, tell them to stop
+                        enemy.StopShooting();
+                        enemy.isShooting = false;
+                    }
                 }
             }
         }
@@ -92,6 +93,16 @@ public class EnemySpawner : MonoBehaviour {
         return false;
     }
 
+    public bool DefenderExistsInRow() {
+        bool defenderExists = false;
+        foreach (DefenderTile tile in tilesInThisRow) {
+            if (tile.DefenderIsPresent()) {
+                defenderExists = true;
+                break;
+            }
+        }
+        return defenderExists;
+    }
 
     /*
     public bool DefendersExistInRow() {

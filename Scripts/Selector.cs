@@ -1,30 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Selector : MonoBehaviour {
+public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     [SerializeField] string defenderName = "";
     public int currDefenderCost;
     [SerializeField] Defender defenderPrefab = null;
     [SerializeField] GameObject spawnGlowPrefab = null;
     [SerializeField] bool isCurrSelected = false;
+    [SerializeField] GameObject infoPanelPrefab = null;
+    GameObject infoPanel = null;
+    [SerializeField] float infoSpawnDelay = 0.5f;
+    [SerializeField] Vector3 infoPanelOffset;
     /*
     [SerializeField]
     bool isUnlocked = true;  // Should be greyed out if not yet unlocked
     */
 
-    private void OnMouseOver() {
-        Debug.Log("Hovering!!!");
-    }
-
     private void OnMouseDown() {
-        Debug.Log("Selector: selected " + defenderName);
+        // Debug.Log("Selector: selected " + defenderName);
         Selector[] allUnits = FindObjectsOfType<Selector>();
         // If there already exists a currently selected unit, then deselect it
         foreach (Selector unit in allUnits) {
             if (unit == this) {
                 if (!isCurrSelected) {
                     isCurrSelected = true;
+                    Debug.Log("Playing sound");
+                    AudioSource audioSource = GetComponent<AudioSource>();
+                    audioSource.volume = PlayerData.GetGameVolume();
+                    audioSource.Play();
                     spawnGlow();
                     continue;
                 } else {
@@ -32,12 +37,10 @@ public class Selector : MonoBehaviour {
                     destroyGlow();
                     continue;
                 }
-            }
-            if (unit.isCurrSelected == true) {
+            } else if (unit.isCurrSelected == true) {
                 unit.isCurrSelected = false;
                 unit.destroyGlow();
             }
-            
         }
 
         DefenderTile[] allTiles = FindObjectsOfType<DefenderTile>();  // TODO: Inefficient
@@ -53,8 +56,36 @@ public class Selector : MonoBehaviour {
         }
     }
 
-    private void OnMouseEnter() {
-        
+    // Attempting to spawn a panel on hover:
+    /*
+     * private void OnMouseEnter() {
+        GameObject infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as GameObject;
+        infoPanel.transform.SetParent(GameObject.FindGameObjectWithTag("InfoPanelCanvas").transform, false);
+        infoPanel.transform.position = transform.position + infoPanelOffset;
+    }
+    private void OnMouseExit() {
+        Debug.Log("Destroying Panel");
+        if (infoPanel == null) {
+            Debug.Log("Failed");
+        }
+        Destroy(infoPanel);
+    }
+    */
+    public void OnPointerEnter(PointerEventData eventData) {
+        Debug.Log("Spawning");
+        StartCoroutine(SpawnInfoPanel());
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        Debug.Log("Destroying Panel");
+        StopAllCoroutines();
+        Destroy(GameObject.FindGameObjectWithTag("InfoPanel"));
+    }
+
+    private IEnumerator SpawnInfoPanel() {
+        yield return new WaitForSeconds(infoSpawnDelay); GameObject infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as GameObject;
+        infoPanel.transform.SetParent(GameObject.FindGameObjectWithTag("InfoPanelCanvas").transform, false);
+        infoPanel.transform.position = transform.position + infoPanelOffset;
     }
 
     // Spawns a glowing particle system to indicate which defender was selected
@@ -71,5 +102,4 @@ public class Selector : MonoBehaviour {
             GameObject.Destroy(child.gameObject);
         }
     }
-
 }

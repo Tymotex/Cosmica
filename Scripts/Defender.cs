@@ -19,6 +19,9 @@ public class Defender : MonoBehaviour {
     }
 
     public void DestroySelf() {
+        DefenderTile currTile = GetCurrentTile();
+        currTile.UpdateValidTileHighlight();
+        currTile.RemoveHighlight();
         Destroy(gameObject);
     }
 

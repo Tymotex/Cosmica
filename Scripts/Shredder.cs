@@ -23,9 +23,8 @@ public class Shredder : MonoBehaviour {
                 Destroy(collision.gameObject);
             } else {
                 if (collision.gameObject.tag == "Defender") {
-                    Debug.Log("Left shredder: defender collision");
+
                 } else {
-                    Debug.Log("Left shredder: deleted some non-enemy unit (" + collision.gameObject.name + ")");
                     Destroy(collision.gameObject);
                 }
             }

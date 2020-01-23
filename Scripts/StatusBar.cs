@@ -20,7 +20,7 @@ public class StatusBar : MonoBehaviour {
         if (ratio > 1) {
             return;
         } 
-        transform.localScale = new Vector3(ratio, 1, 1);
+        transform.localScale = new Vector3(ratio, transform.localScale.y, transform.localScale.z);
         Vector3 newDisplacement = new Vector3(-(1 - ratio) * (sizeOfBar / 2), 0, 0);
         transform.localPosition = newDisplacement;
     }

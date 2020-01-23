@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 // Manually set the fields in the inspector. The fields tell the "success" and "failure" scenes
@@ -9,6 +10,7 @@ public class SceneData : MonoBehaviour {
     [HideInInspector] public int playerScore;        // Fetched from LevelStatus
     [HideInInspector] public string timeTaken;
     [HideInInspector] public bool levelPassed;
+    [SerializeField] Text headerText = null;
 
     SceneDataManager manager = null;
 
@@ -16,6 +18,7 @@ public class SceneData : MonoBehaviour {
         manager = FindObjectOfType<SceneDataManager>();
         manager.currSceneZone = currSceneZone;     // TODO: These should maybe be moved to the WriteToManager() function
         manager.currSceneLevel = currSceneLevel;
+        headerText.text = "Zone " + currSceneZone.ToString() + " Level " + currSceneLevel.ToString();
     }
 
     public void SetScore(int score) {

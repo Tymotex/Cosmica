@@ -21,14 +21,18 @@ public class PauseMenu : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            paused = !paused;
-            if (paused) {
-                pauseCanvas.enabled = true;
-                timeScaler.SetTimeScale(0f);
-            } else {
-                pauseCanvas.enabled = false;
-                timeScaler.SetTimeScale(1);
-            }
+            ToggleMenu();
+        }
+    }
+
+    public void ToggleMenu() {
+        paused = !paused;
+        if (paused) {
+            pauseCanvas.enabled = true;
+            timeScaler.SetTimeScale(0f);
+        } else {
+            pauseCanvas.enabled = false;
+            timeScaler.SetTimeScale(1);
         }
     }
 }

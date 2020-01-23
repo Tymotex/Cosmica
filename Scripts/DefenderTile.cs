@@ -8,14 +8,9 @@ public class DefenderTile : MonoBehaviour {
 
     [SerializeField]
     int rowNumber = 1;
-    [SerializeField]
-    EnemySpawner targetSpawner = null;  // The enemy spawner on the same row as the tile
+    public EnemySpawner targetSpawner = null;  // The enemy spawner on the same row as the tile
 
-    [SerializeField]
-    Defender defenderOnTile = null;  // Reference to the defender that's on this tile
-
-    [SerializeField]
-    bool isShooting = false;  // TODO: is this necessary?
+    [SerializeField] Defender defenderOnTile = null;  // Reference to the defender that's on this tile
 
     // ===== Popup =====
     [SerializeField]
@@ -34,83 +29,62 @@ public class DefenderTile : MonoBehaviour {
     [SerializeField] Color32 validTileColour;
     [SerializeField] ParticleSystem validTileGlow = null;
 
+    // ===== Link =====
+    [SerializeField] LevelStatus levelStatus = null;
+
     void Update() {
         if (defenderOnTile != null) {
-            if (targetSpawner.EnemyExistsInRow() && isShooting == false) {
+            if (targetSpawner.EnemyExistsInRow() == true && defenderOnTile.defenderUnit.isShooting == false) {
                 defenderOnTile.defenderUnit.StartShooting();
-                isShooting = true;
-            } else if (targetSpawner.EnemyExistsInRow() == false) {
+                defenderOnTile.defenderUnit.isShooting = true;
+            } else if (targetSpawner.EnemyExistsInRow() == false && defenderOnTile.defenderUnit.isShooting == true) {
                 defenderOnTile.defenderUnit.StopShooting();
-                isShooting = false;
+                defenderOnTile.defenderUnit.isShooting = false;
             }
         }
     }
 
     // OnMouseDown is called whenever the mouse clicks on a region within the tile's collider region (the circle region)
     public void OnMouseDown() {
-        /*
-        if (defenderPrefab != null) {
-            if (DefenderIsPresent()) {
-                ToggleHighlight();
-            } else {
-                if (highlighted && !isHighlighted) {
-                    
-                } else {
-                    SpawnDefender();
-                }
-            }
-        } else {
-            SpawnNotification(noDefenderPopup);
-        }*/
-        /*
-        if (DefenderIsPresent()) {
-            if (!highlighted) {
-                Debug.Log("Tuning highlight on");
-                ToggleHighlight();
-            } else if (isHighlighted) {
-                Debug.Log("Removing highlight since same unit was clicked again");
-                RemoveHighlight();
-            }
-        } else {
-
-
-
-            if (defenderPrefab != null) {
-                SpawnDefender();
-            } else {
-                SpawnNotification(noDefenderPopup);
-            }
-        }*/
-
-        if (highlighted) {
-            if (DefenderIsPresent()) {
-                if (isHighlighted) {
-                    Debug.Log("Removing highlight since same unit was clicked again");
-                    RemoveHighlight();
-                } else {
-                    // Deselect any highlighted tiles
-                    DefenderTile[] tiles = FindObjectsOfType<DefenderTile>();
-                    foreach (DefenderTile tile in tiles) {
-                        if (tile.isHighlighted) {
-                            tile.RemoveHighlight();
-                            break;
+        if (!levelStatus.levelStarted) {
+            if (highlighted) {
+                if (DefenderIsPresent()) {
+                    if (isHighlighted) {
+                        Debug.Log("Removing highlight since same unit was clicked again");
+                        RemoveHighlight();
+                    } else {
+                        // Deselect any highlighted tiles
+                        DefenderTile[] tiles = FindObjectsOfType<DefenderTile>();
+                        foreach (DefenderTile tile in tiles) {
+                            if (tile.isHighlighted) {
+                                tile.RemoveHighlight();
+                                break;
+                            }
                         }
+                        ToggleHighlight();
                     }
+                } else {
+                    MoveUnitHere();
+                }
+            } else if (!highlighted) {
+                if (!DefenderIsPresent()) {
+                    if (defenderPrefab != null) {
+                        SpawnDefender();
+                    } else {
+                        Debug.Log("Not highlighted and no defender selected");
+                        SpawnNotification(noDefenderPopup);
+                    }
+                } else if (DefenderIsPresent()) {
                     ToggleHighlight();
                 }
-            } else {
-                MoveUnitHere();
             }
-        } else if (!highlighted) {
+        } else {
             if (!DefenderIsPresent()) {
                 if (defenderPrefab != null) {
                     SpawnDefender();
                 } else {
-                    Debug.Log("Not highlighted and no defender selected");
                     SpawnNotification(noDefenderPopup);
                 }
-            } else if (DefenderIsPresent()) {
-                ToggleHighlight();
             }
         }
     }
@@ -201,7 +175,6 @@ public class DefenderTile : MonoBehaviour {
     public void RemoveHighlight() {
         isHighlighted = false;
         highlighted = false;
-        Debug.Log("Destroying child");
         foreach (Transform child in transform) {
             if (child.tag == "Tile Selection Glow") {
                 Destroy(child.gameObject);
@@ -242,6 +215,12 @@ public class DefenderTile : MonoBehaviour {
         }
     }
 
+    public void UpdateValidTileHighlight() {
+        if (highlighted) {
+            SpawnGlow(validTileGlow);
+        }
+    }
+
     private void MoveUnitHere() {
         DefenderTile[] tiles = FindObjectsOfType<DefenderTile>();
         Defender unitToMove = null;
@@ -272,5 +251,6 @@ public class DefenderTile : MonoBehaviour {
         unitToMove.transform.SetParent(transform);
         unitToMove.transform.position = transform.position;
         unitToMove.transform.localScale = new Vector3(1, 1, 1);
+        defenderOnTile = unitToMove;
     }
 }

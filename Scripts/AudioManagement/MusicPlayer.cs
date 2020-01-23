@@ -38,7 +38,7 @@ public class MusicPlayer : MonoBehaviour {
                 audioSource.pitch = musicClip.pitch;
                 audioSource.Play();
                 currentSoundtrack = musicClip.clipName;
-                Debug.Log("===> Playing: " + clipName + " (" + musicClip.clip.length + ")");
+                // Debug.Log("===> Playing: " + clipName + " (" + musicClip.clip.length + ")");
                 // Update the track name in options menu
                 OptionController optionMenu = FindObjectOfType<OptionController>();
                 if (optionMenu != null) {

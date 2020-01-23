@@ -16,7 +16,6 @@ public class DecorationSpawner : MonoBehaviour {
     private IEnumerator SpawnDecoration() {
         while (true) {
             yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
-            Debug.Log("Spawning!");
             int randomIndex = Random.Range(0, decorations.Length);
             Vector3 randomOffset = RandomSpawnPosition();
             Decoration decoration = Instantiate(decorations[randomIndex], Vector3.zero, Quaternion.identity) as Decoration;

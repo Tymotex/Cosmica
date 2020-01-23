@@ -15,7 +15,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public int rank;
 
     // ===== Shooting =====
-    bool isShooting = true;  // Initialise to true to start firing immediately after spawning. TODO: Is this necessary?
+    public bool isShooting = false;  
     [SerializeField] GameObject ammo = null;
     [SerializeField] float minShootDelay = 3f;
     [SerializeField] float maxShootDelay = 4f;
@@ -33,6 +33,10 @@ public class EnemyBehaviour : MonoBehaviour {
     // ===== On Spawn =====
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
+
+    void Start() {
+        isShooting = false;
+    }
 
     public void StartShooting() {
         StartCoroutine(Shoot());

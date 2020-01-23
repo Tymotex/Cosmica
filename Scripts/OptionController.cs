@@ -45,6 +45,10 @@ public class OptionController : MonoBehaviour {
 
     // Left chevron button
     public void PreviousTrack() {
+        FindObjectOfType<MusicPlayer>().ForcePlayPrevious();
+    }
 
+    public void ReturnFromPauseMenu() {
+        FindObjectOfType<PauseMenu>().ToggleMenu();
     }
 }
