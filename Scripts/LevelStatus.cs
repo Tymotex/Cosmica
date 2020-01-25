@@ -65,7 +65,7 @@ public class LevelStatus : MonoBehaviour {
 
         GameObject prepPhase = Instantiate(prepPhaseUI, Vector3.zero, Quaternion.identity) as GameObject;
         prepPhase.transform.SetParent(GameObject.FindGameObjectWithTag("HeaderCanvas").transform, false);
-        prepPhase.transform.position = transform.position;
+        prepPhase.transform.position = Vector3.zero;
         foreach (EnemySpawner spawner in enemySpawners) {  // TODO: Unnecessary?
             spawner.spawning = false;
         }
@@ -178,13 +178,9 @@ public class LevelStatus : MonoBehaviour {
         Animator selectionBarUIAnimator = selectionBarUI.GetComponent<Animator>();
         Animator statusBarAnimator = gameObject.GetComponent<Animator>();
         Animator headerCanvasAnimator = headerCanvas.GetComponent<Animator>();
-        AudioSource audioSource = GetComponent<AudioSource>();
         if (levelPassed) {
             levelCompletionText.text = levelWinText;
-            audioSource.clip = levelSuccessSFX.clip;
-            audioSource.volume = levelSuccessSFX.volume;
-            audioSource.pitch = levelSuccessSFX.pitch;
-            audioSource.Play();
+            PlaySFX(levelSuccessSFX);
             // Call end of level functions
             Defender[] defenders = FindObjectsOfType<Defender>();
             foreach (Defender defender in defenders) {
@@ -204,16 +200,12 @@ public class LevelStatus : MonoBehaviour {
             foreach (Projectile projectile in projectiles) {
                 projectile.Dissolve();
             }
+            sceneData.UnlockNextLevel();
         } else {
             levelCompletionText.text = levelFailText;
-            Debug.Log("Playing fail SFX");
-            audioSource.clip = levelFailSFX.clip;
-            audioSource.volume = levelFailSFX.volume;
-            audioSource.pitch = levelFailSFX.pitch;
-            audioSource.Play();
+            PlaySFX(levelFailSFX);
         }
-        // Triggering level end animations:
-        // levelCompleted is a parameter for the animator controller state machine. Setting it to true triggers any animations meant for level completion
+        // Triggering level end animations: levelCompleted is a parameter for the animator controller state machine. Setting it to true triggers any animations meant for level completion
         levelCompleteUIAnimator.SetBool("levelCompleted", true);
         selectionBarUIAnimator.SetBool("levelCompleted", true);
         statusBarAnimator.SetBool("levelCompleted", true);
@@ -226,6 +218,14 @@ public class LevelStatus : MonoBehaviour {
         sceneData.WriteToManager();
         // Finally transition to the outcome scene
         LoadScene(levelOutcomeSceneName);
+    }
+
+    private void PlaySFX(SoundClip soundClip) {
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = soundClip.clip;
+        audioSource.volume = soundClip.volume;
+        audioSource.pitch = soundClip.pitch;
+        audioSource.Play();
     }
 
     private bool EnemiesStillPresent() {

@@ -34,6 +34,12 @@ public class EnemyBehaviour : MonoBehaviour {
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
 
+    // ===== On Death =====
+    [SerializeField] int chanceToDropCoin = 25;
+    [SerializeField] CoinDrop[] coinDrops = null;
+    [Tooltip("Make sure this sums to 100 AND is the same size as 'coinDrops'")]
+    [SerializeField] int[] coinSpawnChances = null;  
+
     void Start() {
         isShooting = false;
     }
@@ -49,6 +55,12 @@ public class EnemyBehaviour : MonoBehaviour {
 
     void Update() {
         transform.Translate(Vector2.left * advanceSpeed * Time.deltaTime);
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Random.Range(0, 100) < chanceToDropCoin) {
+                Debug.Log("Trying to spawn coin!");
+                SpawnCoinDropByChance();
+            }
+        }
     }
 
     private IEnumerator Shoot() {
@@ -67,6 +79,31 @@ public class EnemyBehaviour : MonoBehaviour {
     }
 
     public void Die() {
+        if (Random.Range(0, 100) < chanceToDropCoin) {
+            Debug.Log("Trying to spawn coin!");
+            SpawnCoinDropByChance();
+        }
         container.DestroySelf();
+    }
+
+    public void SpawnCoinDropByChance() {
+        int randomNumber = Random.Range(0, 100);  // Random integer in 0, 1, ..., 98, 99
+        int lowerBound = 0;
+        int higherBound = 99;
+        for (int i = 0; i < coinDrops.Length; i++) {
+            higherBound = coinSpawnChances[i] + lowerBound;
+            if (randomNumber >= lowerBound && randomNumber < higherBound) {  // Successfully rolled coinDrops[i]
+                SpawnCoin(coinDrops[i]);
+                break;
+            }
+            lowerBound = higherBound;
+        }
+    }
+     
+    public void SpawnCoin(CoinDrop coinPrefab) {
+        Debug.Log("Spawned coin!!!!!!!!!!!!!!!!!!!!!!!!!");
+        CoinDrop coin = Instantiate(coinPrefab, transform.position, Quaternion.identity) as CoinDrop;
+        coin.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        coin.transform.position = new Vector2(transform.position.x, transform.parent.position.y); 
     }
 }

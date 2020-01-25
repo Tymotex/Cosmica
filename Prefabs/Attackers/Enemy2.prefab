@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1464572309
-  m_SortingLayer: 11
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac035b13311ef7b4d962e4130814986a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -339,7 +339,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 13
+  m_SortingLayer: 10
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5ef2c4327575e7d44bdbbfc27c2b2e04, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advanceSpeed: 0.5
   rank: 0
+  isShooting: 0
   ammo: {fileID: 95578382908335403, guid: 9f683f2bbebe10c479d54bd051b73c87, type: 3}
   minShootDelay: 3
   maxShootDelay: 4
@@ -374,6 +375,11 @@ MonoBehaviour:
   minImpactDamage: 92
   container: {fileID: 2798723064585118992}
   spawnShootDelay: 1
+  chanceToDropCoin: 25
+  coinDrops:
+  - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
+  - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
+  coinSpawnChances: 3c00000028000000
 --- !u!58 &3693663739873349120
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -604,7 +610,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1434385733
-  m_SortingLayer: 9
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eebd05a5cce68d54fb27e2ed6a9f9f20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

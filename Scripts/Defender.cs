@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Defender : MonoBehaviour {
     public DefenderBehaviour defenderUnit = null;
-    public int costToSpawn;
     [Tooltip("Moving units across tiles costs energy")]
     public int costToMove;
     [SerializeField] SoundClip spawnSFX = null;

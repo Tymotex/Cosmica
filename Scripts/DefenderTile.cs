@@ -46,7 +46,7 @@ public class DefenderTile : MonoBehaviour {
 
     // OnMouseDown is called whenever the mouse clicks on a region within the tile's collider region (the circle region)
     public void OnMouseDown() {
-        if (!levelStatus.levelStarted) {
+        if (!levelStatus.levelStarted) {  // This if block is executed during preparation phase
             if (highlighted) {
                 if (DefenderIsPresent()) {
                     if (isHighlighted) {
@@ -78,7 +78,7 @@ public class DefenderTile : MonoBehaviour {
                     ToggleHighlight();
                 }
             }
-        } else {
+        } else {  // This block is executed outside of preparation phase
             if (!DefenderIsPresent()) {
                 if (defenderPrefab != null) {
                     SpawnDefender();
@@ -100,13 +100,13 @@ public class DefenderTile : MonoBehaviour {
     private void SpawnDefender() {
         LevelStatus levelStatus = FindObjectOfType<LevelStatus>();
         // Only spawn a unit if we have enough energy available
-        if (levelStatus.energy >= defenderPrefab.costToSpawn) {
+        if (levelStatus.energy >= defenderPrefab.defenderUnit.costToSpawn) {
             Defender spawnedDefender = Instantiate(defenderPrefab, transform.position, Quaternion.identity) as Defender;
             spawnedDefender.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             spawnedDefender.transform.SetParent(transform);
             spawnedDefender.transform.position = transform.position;
             spawnedDefender.transform.localScale = new Vector3(1, 1, 1);
-            levelStatus.SpendEnergy(defenderPrefab.costToSpawn);
+            levelStatus.SpendEnergy(defenderPrefab.defenderUnit.costToSpawn);
             defenderOnTile = spawnedDefender;
         } else {
             SpawnNotification(insuffEnergyPopup);

@@ -4,37 +4,27 @@ using UnityEngine;
 
 public class Health : MonoBehaviour {
     // ===== Health =====
-    [SerializeField]
-    int maxHealth = 100;
-    [SerializeField]
-    int health = 100;
-    [SerializeField]
-    GameObject healthBarParent = null;  // Has a sprite renderer component containing the health bar's background sprite
-    [SerializeField]
-    HealthBar healthBar = null;
+    public int maxHealth = 100;
+    [SerializeField] int health = 100;
+    [SerializeField] GameObject healthBarParent = null;  // Has a sprite renderer component containing the health bar's background sprite
+    [SerializeField] HealthBar healthBar = null;
     bool isDamaged = false;
 
     // ===== Popups =====
-    [SerializeField]
-    float popupLife = 1.5f;  // How long the popup persists (allow enough time for the animation)
-    [SerializeField]
-    Vector3 popupOffset = new Vector3(0, 0, 0);  // Spawn the popup a specific offset from the centre of the tile
-    [SerializeField]
-    Popup damagePopup = null;
+    [SerializeField] float popupLife = 1.5f;  // How long the popup persists (allow enough time for the animation)
+    [SerializeField] Vector3 popupOffset = new Vector3(0, 0, 0);  // Spawn the popup a specific offset from the centre of the tile
+    [SerializeField] Popup damagePopup = null;
 
     // ===== On death =====
-    [SerializeField]
-    int energyGainOnKill = 25;
+    [SerializeField] int energyGainOnKill = 25;
     [SerializeField]
     [Tooltip("Raw percentage (eg. 2 means 2% control). Set a negative value to lose control when a defender unit is destroyed, for example")]
     float controlGainOnKill = 2f;
 
     // ===== Effects =====
-    [SerializeField]
-    [Tooltip("Add a particle system here")]
+    [SerializeField] [Tooltip("Add a particle system here")]
     GameObject deathVFX = null;
     [SerializeField] SoundClip deathSFX = null;  // This is played by the projectile
-
 
     void Start() {
         DisplayHealthIfDamaged();

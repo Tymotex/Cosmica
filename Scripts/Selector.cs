@@ -4,19 +4,19 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
-    [SerializeField] string defenderName = "";
-    public int currDefenderCost;
-    [SerializeField] Defender defenderPrefab = null;
+    // ===== Prefabs =====
+    public Defender defenderPrefab = null;
     [SerializeField] GameObject spawnGlowPrefab = null;
+    [SerializeField] InfoPanel infoPanelPrefab = null;
+
+    // ===== Variables =====
     [SerializeField] bool isCurrSelected = false;
-    [SerializeField] GameObject infoPanelPrefab = null;
-    GameObject infoPanel = null;
     [SerializeField] float infoSpawnDelay = 0.5f;
     [SerializeField] Vector3 infoPanelOffset;
-    /*
-    [SerializeField]
-    bool isUnlocked = true;  // Should be greyed out if not yet unlocked
-    */
+    
+    // ===== Unlocking =====
+    [SerializeField] bool isUnlocked = true;  // Should be greyed out if not yet unlocked
+
 
     private void OnMouseDown() {
         // Debug.Log("Selector: selected " + defenderName);
@@ -26,7 +26,6 @@ public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (unit == this) {
                 if (!isCurrSelected) {
                     isCurrSelected = true;
-                    Debug.Log("Playing sound");
                     AudioSource audioSource = GetComponent<AudioSource>();
                     audioSource.volume = PlayerData.GetGameVolume();
                     audioSource.Play();
@@ -83,9 +82,12 @@ public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     private IEnumerator SpawnInfoPanel() {
-        yield return new WaitForSeconds(infoSpawnDelay); GameObject infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as GameObject;
+        yield return new WaitForSeconds(infoSpawnDelay);
+        InfoPanel infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as InfoPanel;
         infoPanel.transform.SetParent(GameObject.FindGameObjectWithTag("InfoPanelCanvas").transform, false);
         infoPanel.transform.position = transform.position + infoPanelOffset;
+        infoPanel.SetCurrentUnit(this.GetComponent<Selector>());
+        Debug.Log(infoPanel.currentUnit);
     }
 
     // Spawns a glowing particle system to indicate which defender was selected

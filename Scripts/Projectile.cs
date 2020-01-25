@@ -7,22 +7,16 @@ public class Projectile : MonoBehaviour {
     [SerializeField]
     [Tooltip("Positive velocity means the projectile travels to the right, negative means to the left")]
     float projectileVelocity = 1.5f;
-    [SerializeField]
-    int maxDamage = 15;
-    [SerializeField]
-    int minDamage = 10;
-    [SerializeField]
-    bool isFriendlyProjectile = true;
+    public int maxDamage = 15;
+    public int minDamage = 10;
+    [SerializeField] bool isFriendlyProjectile = true;
 
     // ===== Projectile SFX =====
-    [SerializeField]
-    SoundClip laserFireSFX = null;
-    [SerializeField]
-    SoundClip successfulHitSFX = null;  // Played on collision with a ship
+    [SerializeField] SoundClip laserFireSFX = null;
+    [SerializeField] SoundClip successfulHitSFX = null;  // Played on collision with a ship
 
     // ===== Other =====
-    [SerializeField]
-    float destroyDelay = 2;  // How long the projectile gameobject persists after it is meant to be destroyed. This is part of a workaround for being able to play sounds after an object is 'destroyed'
+    [SerializeField] float destroyDelay = 2;  // How long the projectile gameobject persists after it is meant to be destroyed. This is part of a workaround for being able to play sounds after an object is 'destroyed'
 
     void Start() {
         PlaySFX(laserFireSFX);

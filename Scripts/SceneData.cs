@@ -40,4 +40,19 @@ public class SceneData : MonoBehaviour {
         manager.timeTaken = timeTaken;
         manager.levelPassed = levelPassed;
     }
+
+    // TODO: What if we've reached the last level?
+    public void UnlockNextLevel() {
+        string nextLevel;
+        string nextZone;
+        if (int.Parse(currSceneLevel) >= 10) {
+            nextLevel = "1";
+            nextZone = (int.Parse(currSceneZone) + 1).ToString();
+        } else {
+            nextLevel = (int.Parse(currSceneLevel) + 1).ToString();
+            nextZone = currSceneZone;
+        }
+        string levelName = "Level" + nextZone.ToString() + "_" + nextLevel.ToString();
+        PlayerData.UnlockLevel(levelName);
+    }
 }

@@ -9,6 +9,7 @@ public class PreparationPhase : MonoBehaviour {
     [SerializeField] Text prep = null;
     [SerializeField] Button readyButton = null;
     [SerializeField] Text ready = null;
+
     public void StartLevel() {
         FindObjectOfType<LevelStatus>().levelStarted = true;
         DisableVisuals();

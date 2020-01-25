@@ -13,10 +13,21 @@ public class PlayerData : MonoBehaviour {
     const float MAX_VOLUME = 1f;
     const float MIN_VOLUME = 0f;
     const float DEFAULT_VOLUME = 0.4f;
-    const float DEFAULT_CREDITS = 100;
+    const int DEFAULT_CREDITS = 100;
 
+    public static PlayerData uniqueDataManager;
 
+    // TODO: Default values not working
     void Awake() {
+        if (uniqueDataManager != null) {
+            if (uniqueDataManager != this) {
+                Destroy(gameObject);
+            }
+        } else {
+            uniqueDataManager = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+
         if (!PlayerPrefs.HasKey(GAME_VOLUME)) {
             PlayerPrefs.SetFloat(GAME_VOLUME, DEFAULT_VOLUME);
         }
@@ -26,6 +37,10 @@ public class PlayerData : MonoBehaviour {
         if (!PlayerPrefs.HasKey(CREDITS)) {
             PlayerPrefs.SetInt(CREDITS, DEFAULT_CREDITS);
         }
+        if (!PlayerPrefs.HasKey("Level1_1")) {
+            LockAllLevels();
+        }
+        Debug.Log("Here");
     }
 
     public static float GetGameVolume() {
@@ -58,7 +73,30 @@ public class PlayerData : MonoBehaviour {
         return PlayerPrefs.GetInt(CREDITS);
     }
 
-    public static void AddCredits(int amount) {
-        PlayerPrefs.SetInt(CREDITS, GetCredits() + amount);
+    public static void SetCredits(int amount) {
+        PlayerPrefs.SetInt(CREDITS, amount);
+    }
+
+    public static bool LevelIsUnlocked(int zone, int level) {
+        string levelName = "Level" + zone.ToString() + "_" + level.ToString();
+        if (PlayerPrefs.GetInt(levelName) == 1) {
+            return true;
+        }
+        return false;   
+    }
+
+    public static void UnlockLevel(string level) {
+        PlayerPrefs.SetInt(level, 1);
+    }
+
+    private void LockAllLevels() {
+        for (int zone = 1; zone <= 5; zone++) {
+            for (int level = 1; level <= 10; level++) {
+                string levelName = "Level" + zone.ToString() + "_" + level.ToString();
+                PlayerPrefs.SetInt(levelName, 0);
+                Debug.Log("Locking: " + levelName);
+            }
+        }
+        UnlockLevel("Level1_1");
     }
 }

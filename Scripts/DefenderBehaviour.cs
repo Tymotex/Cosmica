@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class DefenderBehaviour : MonoBehaviour {
     // ===== Stats =====
-    const int RANK_LIGHT = 0;
-    const int RANK_MEDIUM = 1;
-    const int RANK_HEAVY = 2;
-    const int RANK_ELITE = 3;
-    [Range(0, 3)]
-    [Tooltip("0 is light, 1 is medium, 2 is heavy, 3 is elite")]
-    public int rank;
+    public string defenderName;
+    public int costToSpawn;
 
     // ===== Shooting =====
-    [SerializeField] GameObject ammo = null;
+    public Projectile ammo = null;
     public bool isShooting = false;  
-    [SerializeField] float minShootDelay = 3f;
-    [SerializeField] float maxShootDelay = 4f;
+    public float minShootDelay = 3f;
+    public float maxShootDelay = 4f;
     [SerializeField] Vector3 shootingOffset = Vector3.zero;
 
     // ===== Other =====
@@ -33,6 +28,10 @@ public class DefenderBehaviour : MonoBehaviour {
     // ===== On Spawn =====
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
+
+    void Awake() {
+        // Calculate values so they can be displayed in the info panel
+    }
 
     void Start() {
         isShooting = false;
@@ -57,7 +56,7 @@ public class DefenderBehaviour : MonoBehaviour {
 
     private void SpawnProjectile() {
         // Instantiate a projectile as the child of the canvas and set the position at where the defender is
-        GameObject projectile = Instantiate(ammo, transform.position, Quaternion.identity);
+        Projectile projectile = Instantiate(ammo, transform.position, Quaternion.identity) as Projectile;
         projectile.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         //projectile.transform.SetParent(transform, true);
         projectile.transform.position = transform.position + shootingOffset;
@@ -68,8 +67,6 @@ public class DefenderBehaviour : MonoBehaviour {
             EnemyBehaviour enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
             Health defenderHealth = GetComponent<Health>();
             Health enemyHealth = enemy.GetComponent<Health>();
-            Debug.Log("===> Collision with enemy. " + rank + " vs. " + enemy.rank);
-
             int impactDamageOnEnemy = Random.Range(minImpactDamage, maxImpactDamage);
             int impactDamageOnDefender = Random.Range(enemy.minImpactDamage, enemy.maxImpactDamage);
             defenderHealth.ReduceHealth(impactDamageOnDefender);
