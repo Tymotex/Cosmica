@@ -10,16 +10,20 @@ public class Health : MonoBehaviour {
     [SerializeField] HealthBar healthBar = null;
     bool isDamaged = false;
 
+    // ===== Defence =====
+    public int defence;  // Reduces incoming damage by how much defence this unit has
+
     // ===== Popups =====
     [SerializeField] float popupLife = 1.5f;  // How long the popup persists (allow enough time for the animation)
     [SerializeField] Vector3 popupOffset = new Vector3(0, 0, 0);  // Spawn the popup a specific offset from the centre of the tile
     [SerializeField] Popup damagePopup = null;
 
     // ===== On death =====
-    [SerializeField] int energyGainOnKill = 25;
-    [SerializeField]
-    [Tooltip("Raw percentage (eg. 2 means 2% control). Set a negative value to lose control when a defender unit is destroyed, for example")]
+    [SerializeField] int energyGainOnKill = 15;
+    [SerializeField] [Tooltip("Raw percentage (eg. 2 means 2% control). Set a negative value to lose control when a defender unit is destroyed, for example")]
     float controlGainOnKill = 2f;
+    [SerializeField] [Tooltip("Set a negative value to lose score on kill")]
+    int scoreGainOnKill = 20;
 
     // ===== Effects =====
     [SerializeField] [Tooltip("Add a particle system here")]
@@ -31,12 +35,7 @@ public class Health : MonoBehaviour {
     }
 
     public void DisplayHealthIfDamaged() {
-        if (maxHealth == health) {
-            isDamaged = false;
-        } else {
-            isDamaged = true;
-        }
-
+        isDamaged = maxHealth == health ? false : true;
         if (isDamaged) {
             healthBarParent.GetComponent<SpriteRenderer>().enabled = true;
             healthBar.GetComponent<SpriteRenderer>().enabled = true;
@@ -47,26 +46,27 @@ public class Health : MonoBehaviour {
     }
 
     public void ReduceHealth(int damage) {
-        health -= damage;
-        SpawnNotification(damagePopup, damage);
+        int damageTaken = (damage - defence) >= 0 ? (damage - defence) : 0;
+        health -= damageTaken;
+        SpawnNotification(damagePopup, damageTaken);
         DisplayHealthIfDamaged();
         if (healthBar != null) {
             healthBar.UpdateHealthBar(maxHealth, health);
         }
         if (health <= 0) {
-            die();
+            Die();
         }
     }
 
-    private void die() {
+    private void Die() {
         LevelStatus levelStatus = FindObjectOfType<LevelStatus>();
         levelStatus.AddEnergy(energyGainOnKill);
         levelStatus.AddControl(controlGainOnKill);
-
+        levelStatus.AddScore(scoreGainOnKill);
         // Destroy the object that was hit below 0 health and instantiate an explosion particle system
         if (gameObject.tag == "Enemy") {   
             Projectile.PlayDeathSFX(deathSFX);
-            gameObject.GetComponent<EnemyBehaviour>().Die();
+            gameObject.GetComponent<EnemyBehaviour>().Die(true);
         } else if (gameObject.tag == "Defender") {
             Projectile.PlayDeathSFX(deathSFX);
             gameObject.GetComponent<DefenderBehaviour>().Die();
@@ -95,23 +95,4 @@ public class Health : MonoBehaviour {
     public float GetControlGainOnKill() {  // TODO: Use properties?
         return controlGainOnKill;
     }
-
-    // TODO: Currently doesn't work
-    /*private void SpawnDamageNotification(Text popupPrefab, int damageDealt) {
-        Debug.Log("Spawning damage popup");
-        foreach (Transform child in transform) {  // Destroy any popup currently displayed before instantiating a new one
-            if (child.tag == "Popup") {  // Popup gameobjects have the "popup" tag
-                Destroy(child.gameObject);
-            }
-        }
-        damagePopup.text = damageDealt.ToString();
-        Text popup = Instantiate(popupPrefab, transform.position, Quaternion.identity);
-        //popup.transform.SetParent(transform);
-        //popup.transform.position = transform.position;
-        popup.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        popup.transform.position = transform.position;
-        popup.transform.SetParent(transform, true);
-        Destroy(popup, popupLife);
-    }*/
-
 }

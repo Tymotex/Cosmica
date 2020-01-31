@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Defender : MonoBehaviour {
-    public DefenderBehaviour defenderUnit = null;
-    [Tooltip("Moving units across tiles costs energy")]
-    public int costToMove;
+    public DefenderBehaviour defenderUnit;
+    public string shipFamily;
     [SerializeField] SoundClip spawnSFX = null;
     AudioSource audioSource;
+    [Tooltip("This is the cost for upgrading the previous tier to this tier. Not applicable to the lowest tier")]
+    public int costToUpgrade;  
 
     private void Start() {
         audioSource = GetComponent<AudioSource>();

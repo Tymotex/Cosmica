@@ -9,7 +9,7 @@ public class DefenderBehaviour : MonoBehaviour {
 
     // ===== Shooting =====
     public Projectile ammo = null;
-    public bool isShooting = false;  
+    public bool defenderIsShooting = false;  
     public float minShootDelay = 3f;
     public float maxShootDelay = 4f;
     [SerializeField] Vector3 shootingOffset = Vector3.zero;
@@ -29,14 +29,6 @@ public class DefenderBehaviour : MonoBehaviour {
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
 
-    void Awake() {
-        // Calculate values so they can be displayed in the info panel
-    }
-
-    void Start() {
-        isShooting = false;
-    }
-
     public void StartShooting() {
         StartCoroutine(Shoot());
     }
@@ -48,7 +40,7 @@ public class DefenderBehaviour : MonoBehaviour {
 
     public IEnumerator Shoot() {
         yield return new WaitForSeconds(spawnShootDelay);
-        while (isShooting) {
+        while (defenderIsShooting) {
             SpawnProjectile();
             yield return new WaitForSeconds(Random.Range(minShootDelay, maxShootDelay));
         }

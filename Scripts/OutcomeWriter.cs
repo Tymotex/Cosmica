@@ -15,6 +15,7 @@ public class OutcomeWriter : MonoBehaviour {
 
     void Start() {
         manager = FindObjectOfType<SceneDataManager>();
+        manager.PrintManagerData();
         if (manager != null) {  // TODO: a lot of duplicated code here
             if (manager.levelPassed) {
                 title.text = "Mission Success"; 
@@ -29,7 +30,13 @@ public class OutcomeWriter : MonoBehaviour {
                 nextLevelButton.GetComponent<Image>().color = greyedOutColour;
                 nextLevelButton.GetComponent<Button>().enabled = false;
             }
-            string statsText = "Score: " + manager.levelScore.ToString() + "\nTime: " + manager.timeTaken.ToString();
+            string statsText = manager.controlAttained.ToString() + "%" +
+                "\n+" + manager.controlBonus.ToString() +
+                "\n" + manager.timeTaken.ToString() +
+                "\n+" + manager.timeBonus.ToString() +
+                "\n" + manager.energySpent.ToString() + 
+                "\n-" + manager.energyPenalty.ToString() +
+                "\n" + manager.levelScore.ToString();
             outcomeStats.text = statsText;
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreditsDisplay : MonoBehaviour {
     CreditsManager manager = null;
 
-    void Awake() {
+    void Start() {
         manager = FindObjectOfType<CreditsManager>();
         UpdateCreditDisplay();
     }
@@ -14,7 +14,17 @@ public class CreditsDisplay : MonoBehaviour {
         manager.UpdateCreditDisplay(this);
     }
 
+    public int GetCredits() {
+        return manager.ReadCredits();
+    }
+
     public void AddCredit(int amount) {
         manager.AddCredit(amount);
-    } 
+        UpdateCreditDisplay();
+    }
+
+    public void SpendCredit(int amount) {
+        manager.SpendCredit(amount);
+        UpdateCreditDisplay();
+    }
 }

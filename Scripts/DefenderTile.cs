@@ -34,12 +34,13 @@ public class DefenderTile : MonoBehaviour {
 
     void Update() {
         if (defenderOnTile != null) {
-            if (targetSpawner.EnemyExistsInRow() == true && defenderOnTile.defenderUnit.isShooting == false) {
+            if (targetSpawner.EnemyExistsInRow() == true && defenderOnTile.defenderUnit.defenderIsShooting == false) {
+                defenderOnTile.defenderUnit.defenderIsShooting = true;
+                Debug.Log(defenderOnTile.defenderUnit.defenderIsShooting);
                 defenderOnTile.defenderUnit.StartShooting();
-                defenderOnTile.defenderUnit.isShooting = true;
-            } else if (targetSpawner.EnemyExistsInRow() == false && defenderOnTile.defenderUnit.isShooting == true) {
+            } else if (targetSpawner.EnemyExistsInRow() == false && defenderOnTile.defenderUnit.defenderIsShooting == true) {
+                defenderOnTile.defenderUnit.defenderIsShooting = false;
                 defenderOnTile.defenderUnit.StopShooting();
-                defenderOnTile.defenderUnit.isShooting = false;
             }
         }
     }
@@ -102,11 +103,12 @@ public class DefenderTile : MonoBehaviour {
         // Only spawn a unit if we have enough energy available
         if (levelStatus.energy >= defenderPrefab.defenderUnit.costToSpawn) {
             Defender spawnedDefender = Instantiate(defenderPrefab, transform.position, Quaternion.identity) as Defender;
+            int defenderCost = defenderPrefab.defenderUnit.costToSpawn;
             spawnedDefender.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
             spawnedDefender.transform.SetParent(transform);
             spawnedDefender.transform.position = transform.position;
             spawnedDefender.transform.localScale = new Vector3(1, 1, 1);
-            levelStatus.SpendEnergy(defenderPrefab.defenderUnit.costToSpawn);
+            levelStatus.SpendEnergy(defenderCost);
             defenderOnTile = spawnedDefender;
         } else {
             SpawnNotification(insuffEnergyPopup);
@@ -237,7 +239,7 @@ public class DefenderTile : MonoBehaviour {
             }
         }
         // Check and deduct energy
-        LevelStatus levelStatus = FindObjectOfType<LevelStatus>();
+        /*LevelStatus levelStatus = FindObjectOfType<LevelStatus>();
         if (levelStatus.levelStarted) {  // Only charge the player energy if they are out of preparation phase
             if (levelStatus.energy < unitToMove.costToMove) {  // Insufficient energy
                 SpawnNotification(insuffEnergyPopup);
@@ -245,7 +247,7 @@ public class DefenderTile : MonoBehaviour {
             } else {
                 levelStatus.SpendEnergy(unitToMove.costToMove);
             }
-        }
+        }*/
         // Move the unit to this tile
         unitToMove.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         unitToMove.transform.SetParent(transform);

@@ -17,7 +17,7 @@ public class Shredder : MonoBehaviour {
                 Health enemyStats = collision.gameObject.GetComponent<Health>();
                 levelStatus.AddControl(-(enemyStats.GetControlGainOnKill()));  // Lose control because the enemy has crossed the border
                                                                                // TODO: Maybe make the control lost a separate variable that we can tune.
-                collision.gameObject.GetComponent<EnemyBehaviour>().Die();
+                collision.gameObject.GetComponent<EnemyBehaviour>().Die(false);
                 Destroy(collision.gameObject);
             } else if (collision.gameObject.tag == "Projectile") {
                 Destroy(collision.gameObject);

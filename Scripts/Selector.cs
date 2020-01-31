@@ -4,7 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
-    // ===== Prefabs =====
+    // ===== Prefabs and Sprites =====
+    public Defender[] tiers;
+    public Sprite[] tierSprites;
+    int currentTier = 1;
     public Defender defenderPrefab = null;
     [SerializeField] GameObject spawnGlowPrefab = null;
     [SerializeField] InfoPanel infoPanelPrefab = null;
@@ -15,8 +18,30 @@ public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] Vector3 infoPanelOffset;
     
     // ===== Unlocking =====
-    [SerializeField] bool isUnlocked = true;  // Should be greyed out if not yet unlocked
+    [SerializeField] int zoneForUnlock;        // zoneForUnlock and levelForUnlock lets the player use this unit once they get past the zone and level set here
+    [SerializeField] int levelForUnlock;
+    [SerializeField] Color32 lockedColour;
+    bool isUnlocked = true;  // Should be greyed out if not yet unlocked
 
+    void Start() {
+        if (!UnitIsUnlocked()) {
+            Debug.Log(defenderPrefab + " is currently locked");
+            isUnlocked = false;
+            GetComponent<SpriteRenderer>().color = lockedColour;
+            GetComponent<CircleCollider2D>().enabled = false;
+        } else {
+            currentTier = PlayerData.GetShipTier(defenderPrefab.shipFamily);
+            defenderPrefab = tiers[currentTier - 1];
+            GetComponent<SpriteRenderer>().sprite = tierSprites[currentTier - 1];
+        }
+    }
+
+    private bool UnitIsUnlocked() {
+        if (PlayerData.LevelIsUnlocked(zoneForUnlock, levelForUnlock)) {
+            return true;
+        }
+        return false;
+    }
 
     private void OnMouseDown() {
         // Debug.Log("Selector: selected " + defenderName);
@@ -55,39 +80,25 @@ public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    // Attempting to spawn a panel on hover:
-    /*
-     * private void OnMouseEnter() {
-        GameObject infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as GameObject;
-        infoPanel.transform.SetParent(GameObject.FindGameObjectWithTag("InfoPanelCanvas").transform, false);
-        infoPanel.transform.position = transform.position + infoPanelOffset;
-    }
-    private void OnMouseExit() {
-        Debug.Log("Destroying Panel");
-        if (infoPanel == null) {
-            Debug.Log("Failed");
-        }
-        Destroy(infoPanel);
-    }
-    */
     public void OnPointerEnter(PointerEventData eventData) {
-        Debug.Log("Spawning");
-        StartCoroutine(SpawnInfoPanel());
+        if (isUnlocked) {
+            StartCoroutine(SpawnInfoPanel());
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        Debug.Log("Destroying Panel");
         StopAllCoroutines();
         Destroy(GameObject.FindGameObjectWithTag("InfoPanel"));
     }
 
     private IEnumerator SpawnInfoPanel() {
-        yield return new WaitForSeconds(infoSpawnDelay);
-        InfoPanel infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as InfoPanel;
-        infoPanel.transform.SetParent(GameObject.FindGameObjectWithTag("InfoPanelCanvas").transform, false);
-        infoPanel.transform.position = transform.position + infoPanelOffset;
-        infoPanel.SetCurrentUnit(this.GetComponent<Selector>());
-        Debug.Log(infoPanel.currentUnit);
+        if (infoPanelPrefab != null) {
+            yield return new WaitForSeconds(infoSpawnDelay);
+            InfoPanel infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as InfoPanel;
+            infoPanel.transform.SetParent(GameObject.FindGameObjectWithTag("InfoPanelCanvas").transform, false);
+            infoPanel.transform.position = transform.position + infoPanelOffset;
+            infoPanel.SetCurrentUnit(this.GetComponent<Selector>());
+        }
     }
 
     // Spawns a glowing particle system to indicate which defender was selected

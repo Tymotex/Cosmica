@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5435605354228976896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5435605354228976909}
+  - component: {fileID: 5435605354228976910}
+  - component: {fileID: 5435605354228976911}
+  m_Layer: 0
+  m_Name: Music Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5435605354228976909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435605354228976896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5435605354228976910
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435605354228976896}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &5435605354228976911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5435605354228976896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68f58fa90226f7488ce794601911623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music:
+  - clipName: A New Era
+    clip: {fileID: 8300000, guid: 8c7a3aa0218a54a4890a7c34a93b65be, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Alone
+    clip: {fileID: 8300000, guid: 788e6e32d49ad2949ad3e4934554c2e3, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Pitch Black
+    clip: {fileID: 8300000, guid: c28f6eaeb1979fb4ca677fb7fa517e7b, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Catalyst
+    clip: {fileID: 8300000, guid: a66116147425762458fcce5c597f40a3, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Cybernetic
+    clip: {fileID: 8300000, guid: 6c9fc28a32eaa744abe1263febd59367, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Echoes
+    clip: {fileID: 8300000, guid: c2bfdbfeace312741bfb9562775e287d, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Drifting
+    clip: {fileID: 8300000, guid: 8c94e2f46772d8843bd731fdc5fe3218, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Us or Them
+    clip: {fileID: 8300000, guid: 5cd70094ea8851c46baf5fdd5c1cc6d4, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Odyssey
+    clip: {fileID: 8300000, guid: 2a821ec10529e9644834a939e81467c8, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Panic
+    clip: {fileID: 8300000, guid: c39f5e21ca717c540a264a23b53babd6, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Maternal Heart
+    clip: {fileID: 8300000, guid: 17bd81623377365478f8157181c4012f, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Sentinel
+    clip: {fileID: 8300000, guid: e1f8d6c1e5ea17f448eca374ace9fa37, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Timeless
+    clip: {fileID: 8300000, guid: 99b40a80fe2b2284a86ab83e7b53e11b, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Supernova
+    clip: {fileID: 8300000, guid: 828c0211cb38ded4485f0eeaa7979359, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Tech Rumble
+    clip: {fileID: 8300000, guid: d076af413f10fd94faaa2be1b9031717, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: The Attack
+    clip: {fileID: 8300000, guid: cbedf3675fccadd4d853ea76c2dc2496, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Watcher
+    clip: {fileID: 8300000, guid: 0e63b8603d234ce4ebe7f769126372ab, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Dystopia
+    clip: {fileID: 8300000, guid: aea7c5179e17b9c48b9e85936ab7b97a, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Worlds
+    clip: {fileID: 8300000, guid: fd84fb38e455de74ab5762b1ad770094, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}

@@ -10,6 +10,11 @@ public class SceneData : MonoBehaviour {
     [HideInInspector] public int playerScore;        // Fetched from LevelStatus
     [HideInInspector] public string timeTaken;
     [HideInInspector] public bool levelPassed;
+    int controlAttained;
+    int controlBonus;
+    int timeBonus;
+    int energySpent;
+    int energyPenalty;
     [SerializeField] Text headerText = null;
 
     SceneDataManager manager = null;
@@ -31,14 +36,33 @@ public class SceneData : MonoBehaviour {
         timeTaken = minutesElapsed.ToString() + ":" + secondsElapsed.ToString().PadLeft(2, '0');
     }
 
+    public void SetControlAttained(int controlAttained) {
+        this.controlAttained = controlAttained;
+    }
+
     public void SetLevelPassed(bool isPass) {
         levelPassed = isPass;
+    }
+
+    public void SetScoreBonuses(int controlBonus, int timeBonus, int energyPenalty) {
+        this.controlBonus = controlBonus;
+        this.timeBonus = timeBonus;
+        this.energyPenalty = energyPenalty;
+    }
+
+    public void SetEnergySpent(int energySpent) {
+        this.energySpent = energySpent;
     }
 
     public void WriteToManager() {
         manager.levelScore = playerScore;
         manager.timeTaken = timeTaken;
         manager.levelPassed = levelPassed;
+        manager.controlAttained = controlAttained;
+        manager.controlBonus = controlBonus;
+        manager.timeBonus = timeBonus;
+        manager.energySpent = energySpent;
+        manager.energyPenalty = energyPenalty;
     }
 
     // TODO: What if we've reached the last level?

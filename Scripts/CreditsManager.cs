@@ -29,4 +29,8 @@ public class CreditsManager : MonoBehaviour {
     public void SpendCredit(int amount) {
         PlayerData.SetCredits(PlayerData.GetCredits() - amount);
     }
+
+    public int ReadCredits() {
+        return PlayerData.GetCredits();
+    }
 }

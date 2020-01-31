@@ -10,7 +10,7 @@ public class MusicPlayer : MonoBehaviour {
     //[SerializeField]
     //float fadeTime = 5f;
 
-    void Awake() {
+    void Start() {
         if (uniqueAudioManager != null) {
             if (uniqueAudioManager != this) {
                 Destroy(gameObject);

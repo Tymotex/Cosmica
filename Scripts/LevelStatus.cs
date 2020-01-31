@@ -24,7 +24,7 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField]
     [Tooltip("Set the time allowed for this level in seconds (ignoring overtime). 300 gives the player 5 minutes to beat the level")]
     float maxTime = 300;
-    int score = 100;
+    public int score = 0;
 
     // ===== Status UI =====
     [SerializeField] Text energyUI = null;
@@ -49,6 +49,13 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField] SoundClip levelFailSFX = null;
     bool isOvertime = false;
     public bool endingLevel = false;
+
+    // ===== Scoring System =====
+    public int energySpent = 0;
+    [SerializeField] float controlBonusFactor = 10;
+    [SerializeField] float timeBonusFactor = 5;
+    [SerializeField] float energySpentPenaltyFactor = 1;
+    [SerializeField] ScoreDisplay scoreDisplay = null;
 
     // ===== Ramping Up Difficulty =====
     public EnemySpawner[] enemySpawners = null;
@@ -141,6 +148,7 @@ public class LevelStatus : MonoBehaviour {
             energy = 0;
             Debug.Log("Energy: negative energy!");  // This should never execute. The functions calling spendEnergy() should check if there is enough energy available beforehand!
         }
+        FindObjectOfType<LevelStatus>().energySpent += amount;
     }
 
     public void AddControl(float amount) {
@@ -163,6 +171,11 @@ public class LevelStatus : MonoBehaviour {
             }
         }
         UpdateUI();
+    }
+
+    public void AddScore(int amount) {
+        scoreDisplay.UpdateDisplay();
+        score += amount;
     }
 
     private void HaltEnemySpawning() {
@@ -212,12 +225,30 @@ public class LevelStatus : MonoBehaviour {
         headerCanvasAnimator.SetBool("levelCompleted", true);
         yield return new WaitForSeconds(timeBeforeTransition);
         // Update the final score the player achieved and the time taken in the SceneData object
-        sceneData.SetScore(score);
+        // TODO: Repetitive code
+        sceneData.SetScore(DetermineFinalScore());
         sceneData.SetTimeTaken(elapsedTime);
+        sceneData.SetControlAttained(Mathf.FloorToInt(control));
         sceneData.SetLevelPassed(levelPassed);
+        sceneData.SetEnergySpent(energySpent);
         sceneData.WriteToManager();
+        FindObjectOfType<SceneDataManager>().PrintManagerData();
         // Finally transition to the outcome scene
         LoadScene(levelOutcomeSceneName);
+    }
+
+    private int DetermineFinalScore() {
+        int controlBonus = (control >= 50) ? Mathf.FloorToInt((control - 50) * controlBonusFactor) : 0;
+        int timeBonus;
+        if (elapsedTime >= maxTime) {
+            timeBonus = 0;
+        } else {
+            timeBonus = Mathf.FloorToInt((maxTime - elapsedTime) * timeBonusFactor);
+        }
+        int energySpentPenalty = Mathf.FloorToInt(energySpent * energySpentPenaltyFactor);
+        sceneData.SetScoreBonuses(controlBonus, timeBonus, energySpentPenalty);
+        int result = score + timeBonus - energySpentPenalty;
+        return ((result >= 0) ? result : 0);
     }
 
     private void PlaySFX(SoundClip soundClip) {

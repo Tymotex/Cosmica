@@ -9,8 +9,8 @@ public class CoinDrop : MonoBehaviour {
 
     void Start() {
         CreditsDisplay creditDisplayer = FindObjectOfType<CreditsDisplay>();
-        creditDisplayer.UpdateCreditDisplay();
         creditDisplayer.AddCredit(coinWorth);
         coinText.text = "+" + coinWorth.ToString();
+        creditDisplayer.UpdateCreditDisplay();
     }
 }

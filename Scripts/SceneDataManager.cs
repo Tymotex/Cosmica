@@ -5,7 +5,7 @@ using System.Collections;
 // SceneData objects will be present in gameplay scenes, like level01_01
 public class SceneDataManager : MonoBehaviour {
     // Persistent 'global' object
-    public static SceneDataManager Instance { get; set; }
+    public static SceneDataManager uniqueDataManager;
     
     // ===== Scene data =====
     public string currSceneZone;
@@ -14,20 +14,27 @@ public class SceneDataManager : MonoBehaviour {
     public string timeTaken;       // Formatted string in minutes:seconds (eg. 4:30)
     public bool levelPassed;
 
-    // TODO: SceneManager duplicates!
+    // ===== Score Keeping =====
+    public int controlAttained;
+    public int controlBonus;
+    public int timeBonus;
+    public int energySpent;
+    public int energyPenalty;
+
     void Awake() {
-        DontDestroyOnLoad(transform.gameObject);
-        Instance = this;
+        if (uniqueDataManager != null) {
+            if (uniqueDataManager != this) {
+                Destroy(gameObject);
+            }
+        } else {
+            uniqueDataManager = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
 
-    // FOR DEBUGGING
-    void Update() {
-        /*
-        Debug.Log("===> zone: " + currSceneZone);
-        Debug.Log("===> levl: " + currSceneLevel);
-        Debug.Log("===> scor: " + levelScore);
-        Debug.Log("===> time: " + timeTaken);
-        Debug.Log("===> pass: " + levelPassed);
-        */
+    public void PrintManagerData() {
+        Debug.Log("Level passed: " + levelPassed);
+        Debug.Log("Curr level  : " + currSceneLevel);
+        Debug.Log("Time taken  : " + timeTaken);
     }
 }

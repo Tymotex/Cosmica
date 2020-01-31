@@ -9,6 +9,7 @@ public class PlayerData : MonoBehaviour {
     const string MUSIC_VOLUME = "Music volume";
     // ===== Keys - Player Progress =====
     const string CREDITS = "Credits";      // Persistent currency
+
     // ===== Limits and default values =====
     const float MAX_VOLUME = 1f;
     const float MIN_VOLUME = 0f;
@@ -40,7 +41,6 @@ public class PlayerData : MonoBehaviour {
         if (!PlayerPrefs.HasKey("Level1_1")) {
             LockAllLevels();
         }
-        Debug.Log("Here");
     }
 
     public static float GetGameVolume() {
@@ -89,14 +89,44 @@ public class PlayerData : MonoBehaviour {
         PlayerPrefs.SetInt(level, 1);
     }
 
+    // Lock all levels apart from the first
     private void LockAllLevels() {
         for (int zone = 1; zone <= 5; zone++) {
             for (int level = 1; level <= 10; level++) {
                 string levelName = "Level" + zone.ToString() + "_" + level.ToString();
                 PlayerPrefs.SetInt(levelName, 0);
-                Debug.Log("Locking: " + levelName);
+                // Debug.Log("Locking: " + levelName);
             }
         }
         UnlockLevel("Level1_1");
+    }
+
+    public static int GetShipTier(string shipFamily) {
+        if (PlayerPrefs.HasKey(shipFamily)) {
+            return PlayerPrefs.GetInt(shipFamily);
+        } else {
+            return 1;
+        }
+    }
+
+    public void UpgradeShip(string shipFamily) {
+        if (PlayerPrefs.HasKey(shipFamily)) {
+            if (PlayerPrefs.GetInt(shipFamily) <= 2) {  // Max upgrade number is 3
+                PlayerPrefs.SetInt(shipFamily, PlayerPrefs.GetInt(shipFamily) + 1);
+                Debug.Log(shipFamily + " is now tier " + PlayerPrefs.GetInt(shipFamily));
+            } else {
+                Debug.Log("NO FURTHER UPGRADeS");
+            }
+        } else {
+            PlayerPrefs.SetInt(shipFamily, 2);
+            Debug.Log(shipFamily + " is now tier " + PlayerPrefs.GetInt(shipFamily));
+        }
+    }
+
+    void Update() {
+        if (Input.GetKeyDown(KeyCode.T)) {
+            Debug.Log("Resetting all prefs");
+            PlayerPrefs.DeleteAll();
+        }
     }
 }

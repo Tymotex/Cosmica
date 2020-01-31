@@ -60,20 +60,21 @@ public class EnemySpawner : MonoBehaviour {
         // TODO: It's possible to move this out of Update... See how this impacts performance
         if (EnemyExistsInRow()) {
             bool defenderExists = DefenderExistsInRow();
+            Debug.Log("Defender exists: " + defenderExists);
             if (defenderExists) {
                 foreach (Transform child in transform) {
                     EnemyBehaviour enemy = child.GetComponent<Enemy>().enemyUnit;
-                    if (enemy.isShooting == false) {  // If a unit is not already shooting, tell them to shoot
+                    if (enemy.enemyIsShooting == false) {  // If a unit is not already shooting, tell them to shoot
                         enemy.StartShooting();
-                        enemy.isShooting = true;
+                        enemy.enemyIsShooting = true;
                     }
                 }
             } else if (!defenderExists) {
                 foreach (Transform child in transform) {
                     EnemyBehaviour enemy = child.GetComponent<Enemy>().enemyUnit;
-                    if (enemy.isShooting == true) {  // If a unit is already shooting, tell them to stop
+                    if (enemy.enemyIsShooting == true) {  // If a unit is already shooting, tell them to stop
                         enemy.StopShooting();
-                        enemy.isShooting = false;
+                        enemy.enemyIsShooting = false;
                     }
                 }
             }
