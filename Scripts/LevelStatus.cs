@@ -71,7 +71,7 @@ public class LevelStatus : MonoBehaviour {
         enemySpawners = FindObjectsOfType<EnemySpawner>();
 
         GameObject prepPhase = Instantiate(prepPhaseUI, Vector3.zero, Quaternion.identity) as GameObject;
-        prepPhase.transform.SetParent(GameObject.FindGameObjectWithTag("HeaderCanvas").transform, false);
+        prepPhase.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         prepPhase.transform.position = Vector3.zero;
         foreach (EnemySpawner spawner in enemySpawners) {  // TODO: Unnecessary?
             spawner.spawning = false;

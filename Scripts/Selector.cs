@@ -18,14 +18,15 @@ public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] Vector3 infoPanelOffset;
     
     // ===== Unlocking =====
-    [SerializeField] int zoneForUnlock;        // zoneForUnlock and levelForUnlock lets the player use this unit once they get past the zone and level set here
-    [SerializeField] int levelForUnlock;
+    [Tooltip("zoneForUnlock and levelForUnlock lets the player unlock this unit once they GET UP TO the zone and level set here")]
+    public int zoneForUnlock;        
+    public int levelForUnlock;
     [SerializeField] Color32 lockedColour;
     bool isUnlocked = true;  // Should be greyed out if not yet unlocked
 
     void Start() {
         if (!UnitIsUnlocked()) {
-            Debug.Log(defenderPrefab + " is currently locked");
+            // Debug.Log(defenderPrefab + " is currently locked");
             isUnlocked = false;
             GetComponent<SpriteRenderer>().color = lockedColour;
             GetComponent<CircleCollider2D>().enabled = false;

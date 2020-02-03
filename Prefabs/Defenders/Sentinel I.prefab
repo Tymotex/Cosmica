@@ -4665,7 +4665,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1eb58b285168a9e46980913e0924cd41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4826,9 +4826,9 @@ MonoBehaviour:
   defenderName: Sentinel I
   costToSpawn: 30
   ammo: {fileID: -6935270470529395205, guid: 159ce6ed07196534ab54cc0e7bfb9794, type: 3}
-  isShooting: 0
-  minShootDelay: 2
-  maxShootDelay: 3
+  defenderIsShooting: 0
+  minShootDelay: 3
+  maxShootDelay: 3.5
   shootingOffset: {x: 0.15, y: 0, z: 0}
   deathSFX:
     clipName: 
@@ -4853,11 +4853,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  health: 50
+  maxHealth: 55
+  health: 55
   healthBarParent: {fileID: 3253955569713915671}
   healthBar: {fileID: 2515203401396489490}
-  defence: 3
+  defence: 2
   popupLife: 1.5
   popupOffset: {x: 0, y: -0.25, z: 0}
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
@@ -10024,7 +10024,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

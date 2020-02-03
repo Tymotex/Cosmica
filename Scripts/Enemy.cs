@@ -7,6 +7,8 @@ public class Enemy : MonoBehaviour {
     [SerializeField] SoundClip spawnSFX = null;
     AudioSource audioSource;
 
+    public string enemyName;
+
     // ===== On Death =====
     public int chanceToDropCoin = 25;
     [SerializeField] CoinDrop[] coinDrops = null;

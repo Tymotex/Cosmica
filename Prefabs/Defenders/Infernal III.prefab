@@ -4665,7 +4665,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f08b30f48fbed124b99881ee81cde77d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4824,11 +4824,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderName: Infernal III
-  costToSpawn: 60
+  costToSpawn: 65
   ammo: {fileID: -6935270470529395205, guid: b5ff551af49be7a45b38001444d69fba, type: 3}
-  isShooting: 0
-  minShootDelay: 1.45
-  maxShootDelay: 1.65
+  defenderIsShooting: 0
+  minShootDelay: 2.05
+  maxShootDelay: 2.4
   shootingOffset: {x: 0.15, y: 0, z: 0}
   deathSFX:
     clipName: 
@@ -4837,8 +4837,8 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   isDead: 0
-  maxImpactDamage: 260
-  minImpactDamage: 220
+  maxImpactDamage: 108
+  minImpactDamage: 92
   container: {fileID: 4588973237231109761}
   spawnShootDelay: 1
 --- !u!114 &3224303636403064980
@@ -4853,8 +4853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 60
-  health: 60
+  maxHealth: 70
+  health: 70
   healthBarParent: {fileID: 3253955569713915671}
   healthBar: {fileID: 2515203401396489490}
   defence: 4
@@ -4940,7 +4940,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 605604685
-  m_SortingLayer: 11
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac035b13311ef7b4d962e4130814986a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5033,7 +5033,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 605604685
-  m_SortingLayer: 11
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eebd05a5cce68d54fb27e2ed6a9f9f20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10024,7 +10024,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

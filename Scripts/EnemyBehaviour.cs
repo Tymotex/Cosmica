@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour {
     // ===== Stats =====
-    [Range(0f, 5f)]
-    public float advanceSpeed = 1f;
+    [Range(0f, 5f)] public float advanceSpeed = 1f;
+
+    //DEBUG: 
+    [SerializeField] float DPS = 0;
 
     // ===== Shooting =====
-    public bool enemyIsShooting = false;  
-    [SerializeField] GameObject ammo = null;
-    [SerializeField] float minShootDelay = 3f;
-    [SerializeField] float maxShootDelay = 4f;
+    [HideInInspector] public bool enemyIsShooting = false;  
+    public Projectile ammo = null;
+    public float minShootDelay = 3f;
+    public float maxShootDelay = 4f;
     [SerializeField] Vector3 shootingOffset = Vector3.zero;
 
-    // ===== Other =====
-    [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
+    // ===== On Collision With Defenders =====
     public int maxImpactDamage = 108;
-    [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
     public int minImpactDamage = 92;
 
     // ===== Link to Parent =====
@@ -27,13 +27,6 @@ public class EnemyBehaviour : MonoBehaviour {
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
 
-    /*
-    // ===== On Death =====
-    [SerializeField] int chanceToDropCoin = 25;
-    [SerializeField] CoinDrop[] coinDrops = null;
-    [Tooltip("Make sure this sums to 100 AND is the same size as 'coinDrops'")]
-    [SerializeField] int[] coinSpawnChances = null;  
-    */
 
     public void StartShooting() {
         StartCoroutine(Shoot());
@@ -46,12 +39,18 @@ public class EnemyBehaviour : MonoBehaviour {
 
     void Update() {
         transform.Translate(Vector2.left * advanceSpeed * Time.deltaTime);
+
+        // TODO: DEBUGGING ONLY
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (Random.Range(0, 100) < container.chanceToDropCoin) {
                 Debug.Log("Trying to spawn coin!");
                 container.SpawnCoinDropByChance();
             }
         }
+        float avgDamage = (ammo.minDamage + ammo.maxDamage) / 2f;
+        float avgFirerate = 1 / ((minShootDelay + maxShootDelay) / 2f);
+        DPS = avgDamage * avgFirerate;
+        Debug.Log(this + " : " + DPS);
     }
 
     private IEnumerator Shoot() {
@@ -64,7 +63,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
     private void SpawnProjectile() {
         // Instantiate a projectile as the child of the canvas and set the position at where the defender is
-        GameObject projectile = Instantiate(ammo, transform.position, Quaternion.identity);
+        Projectile projectile = Instantiate(ammo, transform.position, Quaternion.identity) as Projectile;
         projectile.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         projectile.transform.position = transform.position + shootingOffset;
     }
@@ -77,25 +76,4 @@ public class EnemyBehaviour : MonoBehaviour {
         }
         container.DestroySelf();
     }
-    /*
-    public void SpawnCoinDropByChance() {
-        int randomNumber = Random.Range(0, 100);  // Random integer in 0, 1, ..., 98, 99
-        int lowerBound = 0;
-        int higherBound = 99;
-        for (int i = 0; i < coinDrops.Length; i++) {
-            higherBound = coinSpawnChances[i] + lowerBound;
-            if (randomNumber >= lowerBound && randomNumber < higherBound) {  // Successfully rolled coinDrops[i]
-                SpawnCoin(coinDrops[i]);
-                break;
-            }
-            lowerBound = higherBound;
-        }
-    }
-     
-    public void SpawnCoin(CoinDrop coinPrefab) {
-        CoinDrop coin = Instantiate(coinPrefab, transform.position, Quaternion.identity) as CoinDrop;
-        coin.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        coin.transform.position = new Vector2(transform.position.x, transform.parent.position.y); 
-    }
-    */
 }

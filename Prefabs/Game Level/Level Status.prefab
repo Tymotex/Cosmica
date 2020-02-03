@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711075627514501795}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9176, y: 0.9176, z: 0.9176}
   m_Children:
@@ -62,10 +62,11 @@ MonoBehaviour:
   energy: 250
   elapsedTime: 0
   timeSinceLastRampUp: 0
-  rampUpInterval: 20
+  rampUpInterval: 30
   maxControl: 100
   maxEnergy: 250
-  maxTime: 60
+  maxTime: 300
+  score: 0
   energyUI: {fileID: 711075628462218854}
   energyBar: {fileID: 711075628009428941}
   controlUI: {fileID: 711075628919071514}
@@ -82,17 +83,22 @@ MonoBehaviour:
   headerCanvas: {fileID: 0}
   levelSuccessSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: 3719e82b2edb122428b70d6a5f5e9c2a, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 70ef9a6339c11f34f83a091e70522051, type: 3}
+    volume: 0.3
     pitch: 1
     clipSource: {fileID: 0}
   levelFailSFX:
     clipName: 
     clip: {fileID: 8300000, guid: 49abcbd3a5d383d41aa5e75a641ca321, type: 3}
-    volume: 1
+    volume: 0.1
     pitch: 1
     clipSource: {fileID: 0}
   endingLevel: 0
+  energySpent: 0
+  controlBonusFactor: 10
+  timeBonusFactor: 5
+  energySpentPenaltyFactor: 0.5
+  scoreDisplay: {fileID: 0}
   enemySpawners: []
   levelStarted: 0
   prepPhaseUI: {fileID: 7866847597115492323, guid: 3fa5b6e7193e92c458fd471b76b553f8,
@@ -329,7 +335,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.000030517578, y: 7.34}
-  m_SizeDelta: {x: 243.63, y: 25.84}
+  m_SizeDelta: {x: 243.63, y: 40.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &711075627811518546
 CanvasRenderer:
@@ -480,7 +486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0086}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2.46, y: 0.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &711075627820778150
@@ -596,7 +602,7 @@ RectTransform:
   m_GameObject: {fileID: 711075627835576609}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 711075628948679810}
   m_RootOrder: 1
@@ -1314,7 +1320,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: -0.000030517578, y: 7.34}
-  m_SizeDelta: {x: 243.63, y: 25.84}
+  m_SizeDelta: {x: 243.63, y: 40.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &711075628462218855
 CanvasRenderer:
@@ -1577,7 +1583,7 @@ Transform:
   m_GameObject: {fileID: 711075628741744373}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 110, y: 110, z: 0}
+  m_LocalScale: {x: 160, y: 110, z: 0}
   m_Children:
   - {fileID: 711075628217571275}
   - {fileID: 711075628624835439}
@@ -1644,14 +1650,14 @@ RectTransform:
   m_GameObject: {fileID: 711075628919071524}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.019090911, y: 0.015, z: 0}
+  m_LocalScale: {x: 0.013125, y: 0.014999996, z: 0}
   m_Children: []
   m_Father: {fileID: 711075628741744362}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -0.01, y: 0.06}
+  m_AnchoredPosition: {x: -0.006958008, y: 0.059936523}
   m_SizeDelta: {x: 243.63, y: 25.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &711075628919071515
@@ -1771,9 +1777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currSceneZone: 1
   currSceneLevel: 1
-  playerScore: 20
-  timeTaken: 15
-  levelPassed: 0
+  baseCreditReward: 400
   headerText: {fileID: 0}
 --- !u!1 &711075629417095489
 GameObject:

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// TODO: Give a better classname
 public class OutcomeWriter : MonoBehaviour {
     SceneDataManager manager = null;
     [SerializeField] Text title = null;  // TODO: Maybe make a different animation for this title
@@ -12,6 +14,10 @@ public class OutcomeWriter : MonoBehaviour {
     [SerializeField] Text outcomeStats = null;
     [SerializeField] Button nextLevelButton = null;
     [SerializeField] Color32 greyedOutColour;
+    [SerializeField] Text scoreValuesText = null;
+    [SerializeField] Text rewardValuesText = null;
+    [SerializeField] Image unlockedShip = null;
+    [SerializeField] Color unlockShipColour;
 
     void Start() {
         manager = FindObjectOfType<SceneDataManager>();
@@ -38,6 +44,31 @@ public class OutcomeWriter : MonoBehaviour {
                 "\n-" + manager.energyPenalty.ToString() +
                 "\n" + manager.levelScore.ToString();
             outcomeStats.text = statsText;
+            // Write to the scores panel
+            int zone = int.Parse(manager.currSceneZone);
+            int level = int.Parse(manager.currSceneLevel);
+            // Set new high score if greater than last high score
+            int lastHighScore = PlayerData.GetHighScore(zone, level);
+            int levelScore = manager.levelScore;
+            if (levelScore > lastHighScore) {
+                PlayerData.SetHighScore(zone, level, levelScore);
+                lastHighScore = levelScore;
+            }
+            string scoresText = levelScore.ToString() +
+                "\n" + lastHighScore.ToString();
+            scoreValuesText.text = scoresText;
+            // Write to the rewards panel AND add them to PlayerData
+            int earnedCredit = manager.baseCreditReward + Mathf.FloorToInt(levelScore * manager.creditToScoreRatio);
+            string unlockedShipName = "";
+            if (manager.unlockedShip != null) {
+                unlockedShipName = manager.unlockedShip.defenderUnit.defenderName;
+                unlockedShip.sprite = manager.unlockedShip.defenderUnit.GetComponent<SpriteRenderer>().sprite;
+                unlockedShip.color = unlockShipColour;
+            }
+            rewardValuesText.text = "+" + earnedCredit.ToString() +
+                "\n" + unlockedShipName;
+            
+            FindObjectOfType<CreditsManager>().AddCredit(earnedCredit);
         }
     }
 }

@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880059e500ee2d7409bb3b6a2f23ea5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinWorth: 15
+  coinWorth: 25
   coinText: {fileID: 3495471973158622657}
 --- !u!95 &1328465815
 Animator:

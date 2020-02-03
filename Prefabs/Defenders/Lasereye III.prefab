@@ -4665,7 +4665,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 29ab863301147b24b84e59bac4153266, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4824,11 +4824,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderName: Lasereye III
-  costToSpawn: 20
+  costToSpawn: 30
   ammo: {fileID: 4873063701569507371, guid: 1cca0fb1ae558a244a82a59d3c4b0198, type: 3}
-  isShooting: 0
-  minShootDelay: 1.2
-  maxShootDelay: 1.8
+  defenderIsShooting: 0
+  minShootDelay: 2.35
+  maxShootDelay: 2.7
   shootingOffset: {x: 0.15, y: 0, z: 0}
   deathSFX:
     clipName: 
@@ -4853,8 +4853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 45
-  health: 45
+  maxHealth: 40
+  health: 40
   healthBarParent: {fileID: 3253955569713915671}
   healthBar: {fileID: 2515203401396489490}
   defence: 3
@@ -4940,7 +4940,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 605604685
-  m_SortingLayer: 11
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac035b13311ef7b4d962e4130814986a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5033,7 +5033,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 605604685
-  m_SortingLayer: 11
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eebd05a5cce68d54fb27e2ed6a9f9f20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10024,7 +10024,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

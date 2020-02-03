@@ -183,6 +183,12 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     clipSource: {fileID: 0}
+  enemyName: Marauder
+  chanceToDropCoin: 25
+  coinDrops:
+  - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
+  - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
+  coinSpawnChances: 3200000032000000
 --- !u!95 &2029933524
 Animator:
   serializedVersion: 3
@@ -327,7 +333,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6882239759875724326}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
@@ -372,7 +378,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0cebeec2f941f694caa83a18ae447ae2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -398,9 +404,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   advanceSpeed: 0.2
-  rank: 0
-  isShooting: 0
-  ammo: {fileID: 95578382908335403, guid: f32a5807b939b6244b1af7362a13d081, type: 3}
+  DPS: 0
+  enemyIsShooting: 0
+  ammo: {fileID: -6935270470529395205, guid: f32a5807b939b6244b1af7362a13d081, type: 3}
   minShootDelay: 2
   maxShootDelay: 2.5
   shootingOffset: {x: -0.2, y: 0, z: 0}
@@ -408,11 +414,6 @@ MonoBehaviour:
   minImpactDamage: 92
   container: {fileID: 2798723064585118992}
   spawnShootDelay: 1
-  chanceToDropCoin: 25
-  coinDrops:
-  - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
-  - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
-  coinSpawnChances: 3c00000028000000
 --- !u!58 &3693663739873349120
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -603,7 +604,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7277557544228663342}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 464.76, y: -0.03, z: 50}
+  m_LocalPosition: {x: 675, y: -0.03, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7370536831946729110}
@@ -5304,8 +5305,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayerID: -1363964911
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -5437,7 +5438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9114779995454910017}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 464.76, y: -0.03, z: 100}
+  m_LocalPosition: {x: 675, y: -0.03, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7370536831946729110}
@@ -10138,7 +10139,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -622364527
+  m_SortingLayerID: 649386187
   m_SortingLayer: 10
   m_SortingOrder: 0
   m_RenderMode: 0

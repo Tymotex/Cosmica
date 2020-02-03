@@ -302,7 +302,7 @@ MonoBehaviour:
   infoSpawnDelay: 0.15
   infoPanelOffset: {x: 0, y: 1.2, z: 0}
   zoneForUnlock: 1
-  levelForUnlock: 3
+  levelForUnlock: 4
   lockedColour:
     serializedVersion: 2
     rgba: 4279900698
@@ -2224,7 +2224,7 @@ MonoBehaviour:
   infoSpawnDelay: 0.15
   infoPanelOffset: {x: 0, y: 1.2, z: 0}
   zoneForUnlock: 1
-  levelForUnlock: 3
+  levelForUnlock: 7
   lockedColour:
     serializedVersion: 2
     rgba: 4279900698
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   infoSpawnDelay: 0.15
   infoPanelOffset: {x: 0, y: 1.2, z: 0}
   zoneForUnlock: 1
-  levelForUnlock: 3
+  levelForUnlock: 6
   lockedColour:
     serializedVersion: 2
     rgba: 4279900698
@@ -3214,7 +3214,7 @@ MonoBehaviour:
   infoSpawnDelay: 0.15
   infoPanelOffset: {x: 0, y: 1.2, z: 0}
   zoneForUnlock: 1
-  levelForUnlock: 3
+  levelForUnlock: 5
   lockedColour:
     serializedVersion: 2
     rgba: 4279900698

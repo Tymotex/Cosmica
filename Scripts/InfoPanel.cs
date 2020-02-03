@@ -10,8 +10,8 @@ public class InfoPanel : MonoBehaviour {
     void Display() {
         if (currentUnit != null) {
             DefenderBehaviour unit = currentUnit.defenderPrefab.defenderUnit;
-            float avgDamage = (unit.ammo.minDamage + unit.ammo.maxDamage) / 2;
-            float avgFirerate = 1 / ((unit.minShootDelay + unit.maxShootDelay) / 2);
+            float avgDamage = (unit.ammo.minDamage + unit.ammo.maxDamage) / 2f;
+            float avgFirerate = 1 / ((unit.minShootDelay + unit.maxShootDelay) / 2f);
             float avgDPS = avgDamage * avgFirerate;
             infoText.text = unit.defenderName +
                 "\n" + unit.costToSpawn +

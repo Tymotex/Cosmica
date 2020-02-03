@@ -19,11 +19,11 @@ public class Health : MonoBehaviour {
     [SerializeField] Popup damagePopup = null;
 
     // ===== On death =====
-    [SerializeField] int energyGainOnKill = 15;
-    [SerializeField] [Tooltip("Raw percentage (eg. 2 means 2% control). Set a negative value to lose control when a defender unit is destroyed, for example")]
-    float controlGainOnKill = 2f;
-    [SerializeField] [Tooltip("Set a negative value to lose score on kill")]
-    int scoreGainOnKill = 20;
+    public int energyGainOnKill = 15;
+    [Tooltip("Raw percentage (eg. 2 means 2% control). Set a negative value to lose control when a defender unit is destroyed, for example")]
+    public float controlGainOnKill = 2f;
+    [Tooltip("Set a negative value to lose score on kill")]
+    public int scoreGainOnKill = 20;
 
     // ===== Effects =====
     [SerializeField] [Tooltip("Add a particle system here")]

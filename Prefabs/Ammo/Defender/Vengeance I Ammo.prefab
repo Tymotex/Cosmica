@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1111697911
-  m_SortingLayer: 12
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4534c4101a69cc74083667cb06150253, type: 3}
   m_Color: {r: 1, g: 1, b: 0, a: 1}
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileVelocity: 4.75
-  maxDamage: 34
-  minDamage: 30
+  maxDamage: 27
+  minDamage: 22
   isFriendlyProjectile: 1
   laserFireSFX:
     clipName: 

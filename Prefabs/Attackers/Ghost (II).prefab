@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5373768418201191877}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.31, y: -0.03, z: 100}
+  m_LocalPosition: {x: -0.84, y: -0.03, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3451876451890959712}
@@ -409,7 +409,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.17
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4852,7 +4852,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -622364527
+  m_SortingLayerID: 649386187
   m_SortingLayer: 10
   m_SortingOrder: 0
   m_RenderMode: 0
@@ -4936,6 +4936,12 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     clipSource: {fileID: 0}
+  enemyName: Ghost
+  chanceToDropCoin: 25
+  coinDrops:
+  - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
+  - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
+  coinSpawnChances: 3200000032000000
 --- !u!95 &2029933524
 Animator:
   serializedVersion: 3
@@ -5077,7 +5083,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6079659584309039912}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.31, y: -0.03, z: 50}
+  m_LocalPosition: {x: -0.29, y: -0.03, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3451876451890959712}
@@ -5335,7 +5341,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.09
+      scalar: 0.08
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5916,7 +5922,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 25
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -9778,8 +9784,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayerID: -1363964911
+  m_SortingLayer: 11
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -9833,7 +9839,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6882239759875724326}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children:
@@ -9841,7 +9847,7 @@ Transform:
   - {fileID: 3451876451890959712}
   m_Father: {fileID: 5995675862012428941}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
 --- !u!212 &6882239759875724322
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9878,7 +9884,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 10
+  m_SortingLayer: 12
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a598ceae896b9b440bceef88d7cc440b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9904,9 +9910,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   advanceSpeed: 0.2
-  rank: 0
-  isShooting: 0
-  ammo: {fileID: 95578382908335403, guid: a70dc47987a45744cbd27576d239fbf1, type: 3}
+  DPS: 0
+  enemyIsShooting: 0
+  ammo: {fileID: -6935270470529395205, guid: a70dc47987a45744cbd27576d239fbf1, type: 3}
   minShootDelay: 2.5
   maxShootDelay: 3
   shootingOffset: {x: -0.2, y: 0, z: 0}
@@ -9914,11 +9920,6 @@ MonoBehaviour:
   minImpactDamage: 92
   container: {fileID: 2798723064585118992}
   spawnShootDelay: 1
-  chanceToDropCoin: 25
-  coinDrops:
-  - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
-  - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
-  coinSpawnChances: 3c00000028000000
 --- !u!58 &3693663739873349120
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class DefenderBehaviour : MonoBehaviour {
 
     // ===== Shooting =====
     public Projectile ammo = null;
-    public bool defenderIsShooting = false;  
+    [HideInInspector] public bool defenderIsShooting = false;  
     public float minShootDelay = 3f;
     public float maxShootDelay = 4f;
     [SerializeField] Vector3 shootingOffset = Vector3.zero;

@@ -538,6 +538,9 @@ MonoBehaviour:
   timeBonus: 0
   energySpent: 0
   energyPenalty: 0
+  baseCreditReward: 0
+  unlockedShip: {fileID: 0}
+  creditToScoreRatio: 0.1
 --- !u!4 &151673550
 Transform:
   m_ObjectHideFlags: 0
@@ -1410,6 +1413,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b6a37750434cd344885adc78b6d9c3f, type: 3}
   - {fileID: 21300000, guid: 08b4b311b6f07dd4f854bbf8c7352973, type: 3}
   shipName: {fileID: 119700630}
+  lockedColour:
+    serializedVersion: 2
+    rgba: 3357548576
+  zoneForUnlock: 1
+  levelForUnlock: 1
 --- !u!1 &348892273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2081,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c2a0c3011b70a654dba4ee024af0ee58, type: 3}
   - {fileID: 21300000, guid: c1766790e97ec7a4898cca003417d302, type: 3}
   shipName: {fileID: 1045805551}
+  lockedColour:
+    serializedVersion: 2
+    rgba: 3357548576
+  zoneForUnlock: 1
+  levelForUnlock: 3
 --- !u!1 &493959218
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,6 +2325,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9da4f19b842ff4a4383d090e0a51bcd3, type: 3}
   - {fileID: 21300000, guid: 14fa6e6291fff014eb91eacd5d0878c8, type: 3}
   shipName: {fileID: 715261810}
+  lockedColour:
+    serializedVersion: 2
+    rgba: 3357548576
+  zoneForUnlock: 1
+  levelForUnlock: 3
 --- !u!1 &511613518
 GameObject:
   m_ObjectHideFlags: 0
@@ -3990,8 +4008,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 7.6}
-  m_SizeDelta: {x: 154.61, y: 248.88}
+  m_AnchoredPosition: {x: -80, y: 3.12}
+  m_SizeDelta: {x: 154.61, y: 257.84}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218827739
 MonoBehaviour:
@@ -4619,6 +4637,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 64df4c4330da61747a6d82309d1fb4c4, type: 3}
   - {fileID: 21300000, guid: 8fffa39df6645ee44960f1b9268298b9, type: 3}
   shipName: {fileID: 217590069}
+  lockedColour:
+    serializedVersion: 2
+    rgba: 3357548576
+  zoneForUnlock: 1
+  levelForUnlock: 1
 --- !u!1 &1432033704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4792,6 +4815,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d36f4bf9c1f251046bbe5efda0999e42, type: 3}
   - {fileID: 21300000, guid: d7c7a67888dcbd747b83aef3f4eb4798, type: 3}
   shipName: {fileID: 1975624053}
+  lockedColour:
+    serializedVersion: 2
+    rgba: 3357548576
+  zoneForUnlock: 1
+  levelForUnlock: 1
 --- !u!1 &1494062068
 GameObject:
   m_ObjectHideFlags: 0
@@ -5019,6 +5047,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 504957eaa8a0d8f47b5261785ae0313d, type: 3}
   - {fileID: 21300000, guid: ddb172ff04ab7bd4385eed7433859136, type: 3}
   shipName: {fileID: 40438677}
+  lockedColour:
+    serializedVersion: 2
+    rgba: 3357548576
+  zoneForUnlock: 1
+  levelForUnlock: 3
 --- !u!1 &1614599740
 GameObject:
   m_ObjectHideFlags: 0
@@ -5462,6 +5495,11 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4fd4af155400f31458783894552cf4a9, type: 3}
   - {fileID: 21300000, guid: 94d06b9ed1e21da4b8732e9798b7b1d0, type: 3}
   shipName: {fileID: 26523121}
+  lockedColour:
+    serializedVersion: 2
+    rgba: 3357548576
+  zoneForUnlock: 1
+  levelForUnlock: 1
 --- !u!1 &1889270346
 GameObject:
   m_ObjectHideFlags: 0
@@ -6144,8 +6182,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 86.8, y: 7.5999994}
-  m_SizeDelta: {x: 154.61, y: 248.88}
+  m_AnchoredPosition: {x: 86.8, y: 1.05}
+  m_SizeDelta: {x: 154.61, y: 261.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2050592742
 MonoBehaviour:

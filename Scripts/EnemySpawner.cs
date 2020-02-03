@@ -60,7 +60,6 @@ public class EnemySpawner : MonoBehaviour {
         // TODO: It's possible to move this out of Update... See how this impacts performance
         if (EnemyExistsInRow()) {
             bool defenderExists = DefenderExistsInRow();
-            Debug.Log("Defender exists: " + defenderExists);
             if (defenderExists) {
                 foreach (Transform child in transform) {
                     EnemyBehaviour enemy = child.GetComponent<Enemy>().enemyUnit;

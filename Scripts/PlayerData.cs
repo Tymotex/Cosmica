@@ -9,6 +9,7 @@ public class PlayerData : MonoBehaviour {
     const string MUSIC_VOLUME = "Music volume";
     // ===== Keys - Player Progress =====
     const string CREDITS = "Credits";      // Persistent currency
+    const string HIGHSCORE = "_HIGHSCORE";
 
     // ===== Limits and default values =====
     const float MAX_VOLUME = 1f;
@@ -86,7 +87,7 @@ public class PlayerData : MonoBehaviour {
     }
 
     public static void UnlockLevel(string level) {
-        PlayerPrefs.SetInt(level, 1);
+        PlayerPrefs.SetInt(level, 1);  // Set to 1 to mark as unlocked
     }
 
     // Lock all levels apart from the first
@@ -123,10 +124,36 @@ public class PlayerData : MonoBehaviour {
         }
     }
 
+    public static int GetHighScore(int zone, int level) {
+        string levelName = "Level" + zone.ToString() + "_" + level.ToString();
+        string levelHighScore = levelName + HIGHSCORE;
+        if (PlayerPrefs.HasKey(levelHighScore)) {
+            return PlayerPrefs.GetInt(levelHighScore);
+        } else {
+            return 0;
+        }
+    }
+
+    public static void SetHighScore(int zone, int level, int highScore) {
+        string levelName = "Level" + zone.ToString() + "_" + level.ToString();
+        string levelHighScore = levelName + HIGHSCORE;
+        PlayerPrefs.SetInt(levelHighScore, highScore);
+    }
+
+    // TODO: TESTING ONLY
     void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
             Debug.Log("Resetting all prefs");
             PlayerPrefs.DeleteAll();
+        }
+        if (Input.GetKeyDown(KeyCode.Y)) {
+            Debug.Log("Unlocking all levels");
+            for (int zone = 1; zone <= 5; zone++) {
+                for (int level = 1; level <= 10; level++) {
+                    string levelName = "Level" + zone.ToString() + "_" + level.ToString();
+                    UnlockLevel(levelName);
+                }
+            }
         }
     }
 }

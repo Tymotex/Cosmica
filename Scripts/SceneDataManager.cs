@@ -21,6 +21,12 @@ public class SceneDataManager : MonoBehaviour {
     public int energySpent;
     public int energyPenalty;
 
+    // ===== Outcome Rewards Panel =====
+    public int baseCreditReward;
+    public Defender unlockedShip;
+    [Tooltip("Eg. Set to 0.1 to reward the player an amount of credits equal to 10% of the score they achieve on any level")]
+    public float creditToScoreRatio = 0.1f;
+
     void Awake() {
         if (uniqueDataManager != null) {
             if (uniqueDataManager != this) {
