@@ -47,7 +47,7 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField] Canvas headerCanvas = null;
     [SerializeField] SoundClip levelSuccessSFX = null;
     [SerializeField] SoundClip levelFailSFX = null;
-    bool isOvertime = false;
+    [HideInInspector] public bool isOvertime = false;
     public bool endingLevel = false;
 
     // ===== Scoring System =====
@@ -64,18 +64,22 @@ public class LevelStatus : MonoBehaviour {
     public bool levelStarted = false;
     [SerializeField] GameObject prepPhaseUI = null;
 
+    // ===== Links =====
+    [SerializeField] Canvas gameCanvas = null;
+
     void Start() {
         // Display the initial energy and control percentage for the start of the current level
         UpdateUI();
-        // Initialise the enemy spawners array
+        // Initialise the enemy spawners array (TODO: May be unnecessary. Needs refactoring)
         enemySpawners = FindObjectsOfType<EnemySpawner>();
-
-        GameObject prepPhase = Instantiate(prepPhaseUI, Vector3.zero, Quaternion.identity) as GameObject;
-        prepPhase.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        prepPhase.transform.position = Vector3.zero;
-        foreach (EnemySpawner spawner in enemySpawners) {  // TODO: Unnecessary?
+        foreach (EnemySpawner spawner in enemySpawners) {
             spawner.spawning = false;
         }
+
+        GameObject prepPhase = Instantiate(prepPhaseUI, Vector3.zero, Quaternion.identity) as GameObject;
+        prepPhase.transform.SetParent(gameCanvas.transform, false);
+        prepPhase.transform.position = Vector3.zero;
+        
     }
 
     void Update() {
@@ -174,8 +178,8 @@ public class LevelStatus : MonoBehaviour {
     }
 
     public void AddScore(int amount) {
-        scoreDisplay.UpdateDisplay();
         score += amount;
+        scoreDisplay.UpdateDisplay();
     }
 
     private void HaltEnemySpawning() {
@@ -226,7 +230,7 @@ public class LevelStatus : MonoBehaviour {
         yield return new WaitForSeconds(timeBeforeTransition);
         // Update the final score the player achieved and the time taken in the SceneData object
         // TODO: Repetitive code
-        sceneData.SetScore(DetermineFinalScore());
+        sceneData.SetScore(DetermineFinalScore(levelPassed));
         sceneData.SetTimeTaken(elapsedTime);
         sceneData.SetControlAttained(Mathf.FloorToInt(control));
         sceneData.SetLevelPassed(levelPassed);
@@ -237,14 +241,9 @@ public class LevelStatus : MonoBehaviour {
         LoadScene(levelOutcomeSceneName);
     }
 
-    private int DetermineFinalScore() {
+    private int DetermineFinalScore(bool levelPassed) {
         int controlBonus = (control >= 50) ? Mathf.FloorToInt((control - 50) * controlBonusFactor) : 0;
-        int timeBonus;
-        if (elapsedTime >= maxTime) {
-            timeBonus = 0;
-        } else {
-            timeBonus = Mathf.FloorToInt((maxTime - elapsedTime) * timeBonusFactor);
-        }
+        int timeBonus = (elapsedTime >= maxTime || !levelPassed) ? 0 : Mathf.FloorToInt((maxTime - elapsedTime) * timeBonusFactor);
         int energySpentPenalty = Mathf.FloorToInt(energySpent * energySpentPenaltyFactor);
         sceneData.SetScoreBonuses(controlBonus, timeBonus, energySpentPenalty);
         int result = score + timeBonus - energySpentPenalty;

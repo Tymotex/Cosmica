@@ -52,6 +52,9 @@ public class DefenderBehaviour : MonoBehaviour {
         projectile.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         //projectile.transform.SetParent(transform, true);
         projectile.transform.position = transform.position + shootingOffset;
+        ParticleSystem gunBlast = Instantiate(container.gunFireVFX, transform.position, container.gunFireVFX.transform.rotation) as ParticleSystem;
+        gunBlast.transform.position = transform.position + container.gunFireOffset;
+        Destroy(gunBlast, 0.2f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

@@ -3,22 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
+    // ===== Spawning Parameters =====
     public bool spawning = false;
     [SerializeField] float minSpawnInterval = 1f;
     [SerializeField] float maxSpawnInterval = 3f;
 
+    // ===== Enemies, Spawn Chance and Difficulty Ramping =====
     [SerializeField] Enemy[] enemies = null;
     [Tooltip("Must be the same size as the enemies array! Setting the first element of this array to 10% means enemies[0] has 10% chance of being spawned. Make sure the spawn chances at up to 100")]
-    public SpawnChances[] chances = null;  // Could be a float...
+    public SpawnChances[] chances = null;
     [HideInInspector] public int rampIndex = 0;
-    LevelStatus levelStatus;
+    [Tooltip("Eg. setting the 3rd element's value to 2 will double the spawn rate when the timer reaches ramp index 2 (so at 1:30)")]
+    [SerializeField] float[] spawnRates;
 
+    // ===== Links =====
+    LevelStatus levelStatus;
     [SerializeField] DefenderTile[] tilesInThisRow = null;
+
+    void Start() {
+        levelStatus = FindObjectOfType<LevelStatus>();
+    }
 
     IEnumerator SpawnEnemies() {
         while (spawning) {
             // Allow time between each enemy spawn
-            yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
+            float spawnFactor = 1f / spawnRates[rampIndex];
+            yield return new WaitForSeconds(Random.Range(minSpawnInterval * spawnFactor, maxSpawnInterval * spawnFactor));
             // Select an enemy by spawn percentage chance:
             int randomNumber = Random.Range(0, 100);  // Random integer in 0, 1, ..., 98, 99
             int lowerBound = 0;
@@ -47,11 +57,10 @@ public class EnemySpawner : MonoBehaviour {
         StopAllCoroutines();
     }
 
-    void Start() {
-        levelStatus = FindObjectOfType<LevelStatus>(); 
-    }
-
     void Update() {
+        Debug.Log("Ramp Index: " + rampIndex);
+        Debug.Log("Min Interval: " + minSpawnInterval);
+        Debug.Log("Max Interval: " + maxSpawnInterval);
         if (!spawning && levelStatus.levelStarted) {
             spawning = true;
             StartCoroutine(SpawnEnemies());

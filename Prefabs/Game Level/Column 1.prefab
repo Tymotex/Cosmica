@@ -653,6 +653,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: spawnGlowPrefab
+      value: 
+      objectReference: {fileID: 3251044157496839064, guid: 9b97aa914a01e08429af390d7ac47c02,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: overtimeGlowPrefab
+      value: 
+      objectReference: {fileID: 542746798305536819, guid: ff43cf6380cc6e942b484bc3ab437a8d,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -827,6 +839,18 @@ PrefabInstance:
       propertyPath: validTileGlow
       value: 
       objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: spawnGlowPrefab
+      value: 
+      objectReference: {fileID: 3251044157496839064, guid: 9b97aa914a01e08429af390d7ac47c02,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: overtimeGlowPrefab
+      value: 
+      objectReference: {fileID: 542746798305536819, guid: ff43cf6380cc6e942b484bc3ab437a8d,
         type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
@@ -1003,6 +1027,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: spawnGlowPrefab
+      value: 
+      objectReference: {fileID: 3251044157496839064, guid: 9b97aa914a01e08429af390d7ac47c02,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: overtimeGlowPrefab
+      value: 
+      objectReference: {fileID: 542746798305536819, guid: ff43cf6380cc6e942b484bc3ab437a8d,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -1177,6 +1213,18 @@ PrefabInstance:
       propertyPath: validTileGlow
       value: 
       objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: spawnGlowPrefab
+      value: 
+      objectReference: {fileID: 3251044157496839064, guid: 9b97aa914a01e08429af390d7ac47c02,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: overtimeGlowPrefab
+      value: 
+      objectReference: {fileID: 542746798305536819, guid: ff43cf6380cc6e942b484bc3ab437a8d,
         type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
@@ -1353,6 +1401,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: spawnGlowPrefab
+      value: 
+      objectReference: {fileID: 3251044157496839064, guid: 9b97aa914a01e08429af390d7ac47c02,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: overtimeGlowPrefab
+      value: 
+      objectReference: {fileID: 542746798305536819, guid: ff43cf6380cc6e942b484bc3ab437a8d,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -1528,6 +1588,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
         type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: spawnGlowPrefab
+      value: 
+      objectReference: {fileID: 3251044157496839064, guid: 9b97aa914a01e08429af390d7ac47c02,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: overtimeGlowPrefab
+      value: 
+      objectReference: {fileID: 542746798305536819, guid: ff43cf6380cc6e942b484bc3ab437a8d,
+        type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_Enabled
@@ -1667,7 +1739,7 @@ PrefabInstance:
     - target: {fileID: 7611678948010654760, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.3333335
+      value: 1.333333
       objectReference: {fileID: 0}
     - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}
@@ -1697,6 +1769,18 @@ PrefabInstance:
       propertyPath: validTileGlow
       value: 
       objectReference: {fileID: 45654266937573666, guid: 67a1dd59bf39f3d43bc1da2485f1fa5c,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: spawnGlowPrefab
+      value: 
+      objectReference: {fileID: 3251044157496839064, guid: 9b97aa914a01e08429af390d7ac47c02,
+        type: 3}
+    - target: {fileID: 7611678948010654761, guid: 596a33b740bdedc45ae08d2e40f3354d,
+        type: 3}
+      propertyPath: overtimeGlowPrefab
+      value: 
+      objectReference: {fileID: 542746798305536819, guid: ff43cf6380cc6e942b484bc3ab437a8d,
         type: 3}
     - target: {fileID: 7611678948010654763, guid: 596a33b740bdedc45ae08d2e40f3354d,
         type: 3}

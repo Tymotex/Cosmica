@@ -26,8 +26,7 @@ public class Health : MonoBehaviour {
     public int scoreGainOnKill = 20;
 
     // ===== Effects =====
-    [SerializeField] [Tooltip("Add a particle system here")]
-    GameObject deathVFX = null;
+    [SerializeField] ParticleSystem[] deathVFXs = null;
     [SerializeField] SoundClip deathSFX = null;  // This is played by the projectile
 
     void Start() {
@@ -72,7 +71,12 @@ public class Health : MonoBehaviour {
             gameObject.GetComponent<DefenderBehaviour>().Die();
         }
         Destroy(gameObject);
-        GameObject deathExplosion = Instantiate(deathVFX, transform.position, Quaternion.identity) as GameObject;
+        SpawnDeathVFX();
+    }
+
+    private void SpawnDeathVFX() {
+        int randomIndex = Random.Range(0, deathVFXs.Length);
+        ParticleSystem deathExplosion = Instantiate(deathVFXs[randomIndex], transform.position, Quaternion.identity) as ParticleSystem;
         // Need to destroy the particle system after it has completed its full cycle
         float explosionDuration = deathExplosion.GetComponent<ParticleSystem>().main.duration;
         Destroy(deathExplosion, explosionDuration);

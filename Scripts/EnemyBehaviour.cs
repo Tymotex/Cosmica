@@ -15,6 +15,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public float minShootDelay = 3f;
     public float maxShootDelay = 4f;
     [SerializeField] Vector3 shootingOffset = Vector3.zero;
+    [SerializeField] ParticleSystem fireVFX = null;
 
     // ===== On Collision With Defenders =====
     public int maxImpactDamage = 108;
@@ -66,6 +67,10 @@ public class EnemyBehaviour : MonoBehaviour {
         Projectile projectile = Instantiate(ammo, transform.position, Quaternion.identity) as Projectile;
         projectile.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         projectile.transform.position = transform.position + shootingOffset;
+        ParticleSystem gunBlast = Instantiate(fireVFX, transform.position, fireVFX.transform.rotation) as ParticleSystem;
+        
+        gunBlast.transform.position = transform.position + shootingOffset;
+        Destroy(gunBlast, 0.2f);
     }
 
     public void Die(bool killedByPlayer) {

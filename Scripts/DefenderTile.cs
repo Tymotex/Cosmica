@@ -29,8 +29,13 @@ public class DefenderTile : MonoBehaviour {
     [SerializeField] Color32 validTileColour;
     [SerializeField] ParticleSystem validTileGlow = null;
 
+    // ===== FX =====
+    [SerializeField] GameObject spawnGlowPrefab = null;
+    [SerializeField] GameObject overtimeGlowPrefab = null;
+
     // ===== Link =====
     [SerializeField] LevelStatus levelStatus = null;
+    [SerializeField] Canvas gameCanvas = null;
 
     void Update() {
         if (defenderOnTile != null) {
@@ -69,6 +74,7 @@ public class DefenderTile : MonoBehaviour {
                 }
             } else if (!highlighted) {
                 if (!DefenderIsPresent()) {
+                    PlayPulseAnimation();
                     if (defenderPrefab != null) {
                         SpawnDefender();
                     } else {
@@ -81,6 +87,7 @@ public class DefenderTile : MonoBehaviour {
             }
         } else {  // This block is executed outside of preparation phase
             if (!DefenderIsPresent()) {
+                PlayPulseAnimation();
                 if (defenderPrefab != null) {
                     SpawnDefender();
                 } else {
@@ -90,8 +97,7 @@ public class DefenderTile : MonoBehaviour {
         }
     }
 
-    // OnMouseOver is called whenever the mouse hovers over the tile
-    private void OnMouseOver() {
+    private void PlayPulseAnimation() {
         if (!DefenderIsPresent()) {
             Animation pulse = GetComponent<Animation>();
             pulse.Play();
@@ -104,15 +110,27 @@ public class DefenderTile : MonoBehaviour {
         if (levelStatus.energy >= defenderPrefab.defenderUnit.costToSpawn) {
             Defender spawnedDefender = Instantiate(defenderPrefab, transform.position, Quaternion.identity) as Defender;
             int defenderCost = defenderPrefab.defenderUnit.costToSpawn;
-            spawnedDefender.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            spawnedDefender.transform.SetParent(gameCanvas.transform, false);
             spawnedDefender.transform.SetParent(transform);
             spawnedDefender.transform.position = transform.position;
             spawnedDefender.transform.localScale = new Vector3(1, 1, 1);
             levelStatus.SpendEnergy(defenderCost);
             defenderOnTile = spawnedDefender;
+            if (levelStatus.isOvertime) {
+                SpawnFX(overtimeGlowPrefab);
+            } else {
+                SpawnFX(spawnGlowPrefab);
+            }
         } else {
             SpawnNotification(insuffEnergyPopup);
         }
+    }
+
+    private void SpawnFX(GameObject glowPrefab) {
+        GameObject glow = Instantiate(glowPrefab, transform.position, Quaternion.identity) as GameObject;
+        glow.transform.SetParent(gameCanvas.transform, false);
+        glow.transform.position = transform.position;
+        Destroy(glow, 3);
     }
 
     private void SpawnNotification(GameObject popupPrefab) {
@@ -187,7 +205,7 @@ public class DefenderTile : MonoBehaviour {
 
     public void SpawnGlow(ParticleSystem glowPrefab) {
         ParticleSystem glow = Instantiate(glowPrefab, transform.position, Quaternion.identity) as ParticleSystem;
-        glow.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        glow.transform.SetParent(gameCanvas.transform, false);
         glow.transform.SetParent(transform);
         glow.transform.position = transform.position;
     }
@@ -238,18 +256,8 @@ public class DefenderTile : MonoBehaviour {
                 // break;
             }
         }
-        // Check and deduct energy
-        /*LevelStatus levelStatus = FindObjectOfType<LevelStatus>();
-        if (levelStatus.levelStarted) {  // Only charge the player energy if they are out of preparation phase
-            if (levelStatus.energy < unitToMove.costToMove) {  // Insufficient energy
-                SpawnNotification(insuffEnergyPopup);
-                return;
-            } else {
-                levelStatus.SpendEnergy(unitToMove.costToMove);
-            }
-        }*/
         // Move the unit to this tile
-        unitToMove.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        unitToMove.transform.SetParent(gameCanvas.transform, false);
         unitToMove.transform.SetParent(transform);
         unitToMove.transform.position = transform.position;
         unitToMove.transform.localScale = new Vector3(1, 1, 1);

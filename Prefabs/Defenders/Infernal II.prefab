@@ -4665,7 +4665,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 12
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4f12dcc262bbbbe488193264edba15dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4863,9 +4863,12 @@ MonoBehaviour:
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
   energyGainOnKill: 0
-  controlGainOnKill: 0
-  scoreGainOnKill: 0
-  deathVFX: {fileID: 734013242010232335, guid: c31484630e4851040bc49c9043b759a2, type: 3}
+  controlGainOnKill: -1
+  scoreGainOnKill: -5
+  deathVFXs:
+  - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}
+  - {fileID: 5162182095616014747, guid: 060bc36f65962044b96efd239491ac43, type: 3}
+  - {fileID: 7583148468210671281, guid: d0251cf95549e14469abfb1ca2edf531, type: 3}
   deathSFX:
     clipName: 
     clip: {fileID: 8300000, guid: b3b0098b3eb80a74ab31e406df541b8f, type: 3}
@@ -4940,7 +4943,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 605604685
-  m_SortingLayer: 13
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac035b13311ef7b4d962e4130814986a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5032,8 +5035,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 605604685
-  m_SortingLayer: 13
+  m_SortingLayerID: 1753028331
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eebd05a5cce68d54fb27e2ed6a9f9f20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5107,6 +5110,9 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   costToUpgrade: 6000
+  gunFireVFX: {fileID: 7201334513897153250, guid: 4eb800663d58897408ace5d08e1d1fab,
+    type: 3}
+  gunFireOffset: {x: 0.12, y: 0, z: 0}
 --- !u!95 &4968134535669591746
 Animator:
   serializedVersion: 3
@@ -10024,7 +10030,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 12
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0

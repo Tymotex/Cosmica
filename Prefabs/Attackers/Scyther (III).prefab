@@ -99,8 +99,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1464572309
-  m_SortingLayer: 7
+  m_SortingLayerID: 605604685
+  m_SortingLayer: 15
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac035b13311ef7b4d962e4130814986a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -184,11 +184,14 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   enemyName: Scyther
-  chanceToDropCoin: 25
+  chanceToDropCoin: 20
   coinDrops:
   - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
   - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
-  coinSpawnChances: 3200000032000000
+  - {fileID: 4864242988745154349, guid: c1884105fbd135241b69b9120e588356, type: 3}
+  - {fileID: 699091126744766816, guid: d377f574130d2874483d9423afa45f60, type: 3}
+  - {fileID: 3404531457496183396, guid: 1f4d629c42f7bce40b8dc046a94ab00e, type: 3}
+  coinSpawnChances: 1900000019000000190000000f0000000a000000
 --- !u!95 &2029933524
 Animator:
   serializedVersion: 3
@@ -219,7 +222,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -378,7 +381,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -622364527
-  m_SortingLayer: 12
+  m_SortingLayer: 13
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d9965fe7707a332409c3bf93bbcb2100, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -410,6 +413,7 @@ MonoBehaviour:
   minShootDelay: 2.25
   maxShootDelay: 2.5
   shootingOffset: {x: -0.2, y: 0, z: 0}
+  fireVFX: {fileID: 1270402708555626286, guid: 2326a33fb048b8249aa1ead0ee986502, type: 3}
   maxImpactDamage: 108
   minImpactDamage: 92
   container: {fileID: 2798723064585118992}
@@ -442,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  health: 50
+  maxHealth: 60
+  health: 60
   healthBarParent: {fileID: 8617050118500065986}
   healthBar: {fileID: 6511636224097189629}
   defence: 0
@@ -451,10 +455,13 @@ MonoBehaviour:
   popupOffset: {x: 0, y: -0.25, z: 0}
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
-  energyGainOnKill: 25
-  controlGainOnKill: 2
-  scoreGainOnKill: 20
-  deathVFX: {fileID: 734013242010232335, guid: c31484630e4851040bc49c9043b759a2, type: 3}
+  energyGainOnKill: 30
+  controlGainOnKill: 0.75
+  scoreGainOnKill: 100
+  deathVFXs:
+  - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}
+  - {fileID: 5162182095616014747, guid: 060bc36f65962044b96efd239491ac43, type: 3}
+  - {fileID: 7583148468210671281, guid: d0251cf95549e14469abfb1ca2edf531, type: 3}
   deathSFX:
     clipName: 
     clip: {fileID: 8300000, guid: 741710270344b8b46bcb179fc7899055, type: 3}
@@ -5398,8 +5405,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1434385733
-  m_SortingLayer: 5
+  m_SortingLayerID: 1753028331
+  m_SortingLayer: 14
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: eebd05a5cce68d54fb27e2ed6a9f9f20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

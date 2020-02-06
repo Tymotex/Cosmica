@@ -8,7 +8,11 @@ public class Defender : MonoBehaviour {
     [SerializeField] SoundClip spawnSFX = null;
     AudioSource audioSource;
     [Tooltip("This is the cost for upgrading the previous tier to this tier. Not applicable to the lowest tier")]
-    public int costToUpgrade;  
+    public int costToUpgrade;
+
+    // ===== VFX for unit =====
+    public ParticleSystem gunFireVFX;
+    public Vector3 gunFireOffset;
 
     private void Start() {
         audioSource = GetComponent<AudioSource>();

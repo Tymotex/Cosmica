@@ -59,12 +59,12 @@ MonoBehaviour:
   levelOutcomeSceneName: _LevelOutcome
   sceneData: {fileID: 711075629312489799}
   control: 50
-  energy: 250
+  energy: 300
   elapsedTime: 0
   timeSinceLastRampUp: 0
   rampUpInterval: 30
   maxControl: 100
-  maxEnergy: 250
+  maxEnergy: 300
   maxTime: 300
   score: 0
   energyUI: {fileID: 711075628462218854}
@@ -89,10 +89,11 @@ MonoBehaviour:
     clipSource: {fileID: 0}
   levelFailSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: 49abcbd3a5d383d41aa5e75a641ca321, type: 3}
-    volume: 0.1
+    clip: {fileID: 8300000, guid: dd4f29005e93a8d4eb70edfb9bcd6283, type: 3}
+    volume: 0.3
     pitch: 1
     clipSource: {fileID: 0}
+  isOvertime: 0
   endingLevel: 0
   energySpent: 0
   controlBonusFactor: 10
