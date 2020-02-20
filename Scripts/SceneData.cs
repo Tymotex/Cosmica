@@ -24,8 +24,6 @@ public class SceneData : MonoBehaviour {
     [SerializeField] Text headerText = null;
     SceneDataManager manager = null;
 
-
-
     void Start() {
         manager = FindObjectOfType<SceneDataManager>();
         manager.currSceneZone = currSceneZone;     // TODO: These should maybe be moved to the WriteToManager() function

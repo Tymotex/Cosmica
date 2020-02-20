@@ -4840,6 +4840,7 @@ MonoBehaviour:
   maxImpactDamage: 108
   minImpactDamage: 92
   container: {fileID: 4588973237231109761}
+  gameCanvas: {fileID: 0}
   spawnShootDelay: 1
 --- !u!114 &3224303636403064980
 MonoBehaviour:
@@ -4871,10 +4872,11 @@ MonoBehaviour:
   - {fileID: 7583148468210671281, guid: d0251cf95549e14469abfb1ca2edf531, type: 3}
   deathSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: b3b0098b3eb80a74ab31e406df541b8f, type: 3}
+    clip: {fileID: 8300000, guid: bde59555070b94d409a9a5c701a159bd, type: 3}
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}
+  gameCanvas: {fileID: 0}
 --- !u!1 &3106399119970852834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,7 +5107,7 @@ MonoBehaviour:
   shipFamily: Vengeance
   spawnSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: b5f82f0786ccb2644930c70881acd1a8, type: 3}
+    clip: {fileID: 8300000, guid: 74a0cb3f10b616b4da23c7222682c9f1, type: 3}
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}

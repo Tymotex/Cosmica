@@ -29,6 +29,13 @@ public class Health : MonoBehaviour {
     [SerializeField] ParticleSystem[] deathVFXs = null;
     [SerializeField] SoundClip deathSFX = null;  // This is played by the projectile
 
+    // ===== Links =====
+    [SerializeField] Canvas gameCanvas = null;
+
+    private void Awake() {
+        gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<Canvas>();
+    }
+
     void Start() {
         DisplayHealthIfDamaged();
     }
@@ -91,7 +98,7 @@ public class Health : MonoBehaviour {
 
         Popup popup = Instantiate(popupPrefab, Vector2.zero, Quaternion.identity) as Popup;
         popup.initialText = damageDealt.ToString();
-        popup.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        popup.transform.SetParent(gameCanvas.transform, false);
         popup.transform.position = transform.position + popupOffset;
         Destroy(popup, popupLife);
     }

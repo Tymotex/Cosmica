@@ -67,7 +67,7 @@ public class LevelStatus : MonoBehaviour {
     // ===== Links =====
     [SerializeField] Canvas gameCanvas = null;
 
-    void Start() {
+    void Awake() {
         // Display the initial energy and control percentage for the start of the current level
         UpdateUI();
         // Initialise the enemy spawners array (TODO: May be unnecessary. Needs refactoring)
@@ -230,13 +230,18 @@ public class LevelStatus : MonoBehaviour {
         yield return new WaitForSeconds(timeBeforeTransition);
         // Update the final score the player achieved and the time taken in the SceneData object
         // TODO: Repetitive code
-        sceneData.SetScore(DetermineFinalScore(levelPassed));
-        sceneData.SetTimeTaken(elapsedTime);
-        sceneData.SetControlAttained(Mathf.FloorToInt(control));
-        sceneData.SetLevelPassed(levelPassed);
-        sceneData.SetEnergySpent(energySpent);
-        sceneData.WriteToManager();
-        FindObjectOfType<SceneDataManager>().PrintManagerData();
+        if (sceneData != null) {
+            sceneData.SetScore(DetermineFinalScore(levelPassed));
+            sceneData.SetTimeTaken(elapsedTime);
+            sceneData.SetControlAttained(Mathf.FloorToInt(control));
+            sceneData.SetLevelPassed(levelPassed);
+            sceneData.SetEnergySpent(energySpent);
+            sceneData.WriteToManager();
+            SceneDataManager manager = FindObjectOfType<SceneDataManager>();
+            if (manager != null) {
+                manager.PrintManagerData();
+            }
+        }
         // Finally transition to the outcome scene
         LoadScene(levelOutcomeSceneName);
     }

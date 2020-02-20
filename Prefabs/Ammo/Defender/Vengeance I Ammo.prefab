@@ -71,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1111697911
-  m_SortingLayer: 14
+  m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4534c4101a69cc74083667cb06150253, type: 3}
   m_Color: {r: 1, g: 1, b: 0, a: 1}
@@ -102,13 +102,13 @@ MonoBehaviour:
   isFriendlyProjectile: 1
   laserFireSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: a403d91a8c485454587d8c0d70cb9242, type: 3}
-    volume: 0.25
+    clip: {fileID: 8300000, guid: e8a98ee32440b4f4484bd5a487166b76, type: 3}
+    volume: 0.2
     pitch: 1
     clipSource: {fileID: 0}
   successfulHitSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: 068524458d3bf4f4188d6016a73a9bfd, type: 3}
+    clip: {fileID: 8300000, guid: cc8f23ba89de816489a73b695a62f091, type: 3}
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}

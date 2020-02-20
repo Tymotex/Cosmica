@@ -24,6 +24,13 @@ public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] Color32 lockedColour;
     bool isUnlocked = true;  // Should be greyed out if not yet unlocked
 
+    // ===== Links =====
+    [SerializeField] Canvas infoPanelCanvas = null;
+
+    private void Awake() {
+        infoPanelCanvas = GameObject.FindGameObjectWithTag("InfoPanelCanvas").GetComponent<Canvas>();
+    }
+
     void Start() {
         if (!UnitIsUnlocked()) {
             // Debug.Log(defenderPrefab + " is currently locked");
@@ -96,7 +103,7 @@ public class Selector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (infoPanelPrefab != null) {
             yield return new WaitForSeconds(infoSpawnDelay);
             InfoPanel infoPanel = Instantiate(infoPanelPrefab, transform.position, Quaternion.identity) as InfoPanel;
-            infoPanel.transform.SetParent(GameObject.FindGameObjectWithTag("InfoPanelCanvas").transform, false);
+            infoPanel.transform.SetParent(infoPanelCanvas.transform, false);
             infoPanel.transform.position = transform.position + infoPanelOffset;
             infoPanel.SetCurrentUnit(this.GetComponent<Selector>());
         }

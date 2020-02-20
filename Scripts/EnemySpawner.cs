@@ -9,7 +9,7 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] float maxSpawnInterval = 3f;
 
     // ===== Enemies, Spawn Chance and Difficulty Ramping =====
-    [SerializeField] Enemy[] enemies = null;
+    public Enemy[] enemies = null;
     [Tooltip("Must be the same size as the enemies array! Setting the first element of this array to 10% means enemies[0] has 10% chance of being spawned. Make sure the spawn chances at up to 100")]
     public SpawnChances[] chances = null;
     [HideInInspector] public int rampIndex = 0;
@@ -19,6 +19,7 @@ public class EnemySpawner : MonoBehaviour {
     // ===== Links =====
     LevelStatus levelStatus;
     [SerializeField] DefenderTile[] tilesInThisRow = null;
+    [SerializeField] Canvas gameCanvas = null;
 
     void Start() {
         levelStatus = FindObjectOfType<LevelStatus>();
@@ -48,7 +49,7 @@ public class EnemySpawner : MonoBehaviour {
 
     private void SpawnEnemy(Enemy enemy) {
         Enemy spawnedEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as Enemy;
-        spawnedEnemy.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        spawnedEnemy.transform.SetParent(gameCanvas.transform, false);
         spawnedEnemy.transform.SetParent(transform);
         spawnedEnemy.transform.position = transform.position;
     }
@@ -58,9 +59,9 @@ public class EnemySpawner : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log("Ramp Index: " + rampIndex);
-        Debug.Log("Min Interval: " + minSpawnInterval);
-        Debug.Log("Max Interval: " + maxSpawnInterval);
+        //Debug.Log("Ramp Index: " + rampIndex);
+        //Debug.Log("Min Interval: " + minSpawnInterval);
+        //Debug.Log("Max Interval: " + maxSpawnInterval);
         if (!spawning && levelStatus.levelStarted) {
             spawning = true;
             StartCoroutine(SpawnEnemies());

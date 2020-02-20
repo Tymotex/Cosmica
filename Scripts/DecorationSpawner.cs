@@ -9,6 +9,13 @@ public class DecorationSpawner : MonoBehaviour {
     // ===== Decoration Objects =====
     [SerializeField] Decoration[] decorations = null;
 
+    // ===== Links =====
+    [SerializeField] Canvas gameCanvas = null;
+
+    private void Awake() {
+        gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<Canvas>();
+    }
+
     void Start() {
         StartCoroutine(SpawnDecoration());
     }
@@ -19,7 +26,7 @@ public class DecorationSpawner : MonoBehaviour {
             int randomIndex = Random.Range(0, decorations.Length);
             Vector3 randomOffset = RandomSpawnPosition();
             Decoration decoration = Instantiate(decorations[randomIndex], Vector3.zero, Quaternion.identity) as Decoration;
-            decoration.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+            decoration.transform.SetParent(gameCanvas.transform, false);
             decoration.transform.SetParent(transform);
             decoration.transform.position = transform.position + randomOffset;
         }

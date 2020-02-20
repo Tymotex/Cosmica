@@ -9971,6 +9971,7 @@ MonoBehaviour:
   maxImpactDamage: 108
   minImpactDamage: 92
   container: {fileID: 4067417640620418982}
+  gameCanvas: {fileID: 0}
   spawnShootDelay: 1
 --- !u!114 &5621279765145956192
 MonoBehaviour:
@@ -9984,8 +9985,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  health: 50
+  maxHealth: 55
+  health: 55
   healthBarParent: {fileID: 6160497816551811600}
   healthBar: {fileID: 9180609325415637140}
   defence: 0
@@ -10006,6 +10007,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}
+  gameCanvas: {fileID: 0}
 --- !u!1 &6160497816551811600
 GameObject:
   m_ObjectHideFlags: 0

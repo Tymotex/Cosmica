@@ -48,6 +48,7 @@ public class OptionController : MonoBehaviour {
         FindObjectOfType<MusicPlayer>().ForcePlayPrevious();
     }
 
+    // Menu buttons
     public void ReturnFromPauseMenu() {
         FindObjectOfType<PauseMenu>().ToggleMenu();
     }

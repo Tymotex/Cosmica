@@ -21,13 +21,17 @@ public class EnemyBehaviour : MonoBehaviour {
     public int maxImpactDamage = 108;
     public int minImpactDamage = 92;
 
-    // ===== Link to Parent =====
-    [SerializeField] Enemy container = null;
+    // ===== Links =====
+    [SerializeField] Enemy container = null;  // Link to parent container
+    [SerializeField] Canvas gameCanvas = null; 
 
     // ===== On Spawn =====
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
 
+    private void Awake() {
+        gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<Canvas>();
+    }
 
     public void StartShooting() {
         StartCoroutine(Shoot());
@@ -65,7 +69,7 @@ public class EnemyBehaviour : MonoBehaviour {
     private void SpawnProjectile() {
         // Instantiate a projectile as the child of the canvas and set the position at where the defender is
         Projectile projectile = Instantiate(ammo, transform.position, Quaternion.identity) as Projectile;
-        projectile.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        projectile.transform.SetParent(gameCanvas.transform, false);
         projectile.transform.position = transform.position + shootingOffset;
         ParticleSystem gunBlast = Instantiate(fireVFX, transform.position, fireVFX.transform.rotation) as ParticleSystem;
         

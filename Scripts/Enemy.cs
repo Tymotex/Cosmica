@@ -15,6 +15,13 @@ public class Enemy : MonoBehaviour {
     [Tooltip("Make sure this sums to 100 AND is the same size as 'coinDrops'")]
     [SerializeField] int[] coinSpawnChances = null;
 
+    // ===== Links =====
+    [SerializeField] Canvas gameCanvas = null;
+
+    private void Awake() {
+        gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<Canvas>();
+    }
+
     private void Start() {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = spawnSFX.clip;
@@ -48,7 +55,7 @@ public class Enemy : MonoBehaviour {
 
     public void SpawnCoin(CoinDrop coinPrefab) {
         CoinDrop coin = Instantiate(coinPrefab, transform.position, Quaternion.identity) as CoinDrop;
-        coin.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
-        coin.transform.position = new Vector2(transform.position.x, transform.parent.position.y);
+        coin.transform.SetParent(gameCanvas.transform, false);
+        coin.transform.position = new Vector2(enemyUnit.transform.position.x, transform.parent.position.y);
     }
 }

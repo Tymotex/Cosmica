@@ -22,12 +22,17 @@ public class DefenderBehaviour : MonoBehaviour {
     [Tooltip("~100 for light, ~260 for medium, ~420 for heavy, ~1050 for elite")]
     public int minImpactDamage = 92;
 
-    // ===== Link to parent container =====
-    [SerializeField] Defender container = null;
+    // ===== Links =====
+    [SerializeField] Defender container = null;  // This is the parent container
+    [SerializeField] Canvas gameCanvas = null;
 
     // ===== On Spawn =====
     [Tooltip("Set this value to how long it takes for the ship to swerve into position.")]
     [SerializeField] float spawnShootDelay = 1;
+
+    private void Awake() {
+        gameCanvas = GameObject.FindGameObjectWithTag("GameCanvas").GetComponent<Canvas>();
+    }
 
     public void StartShooting() {
         StartCoroutine(Shoot());
@@ -49,7 +54,7 @@ public class DefenderBehaviour : MonoBehaviour {
     private void SpawnProjectile() {
         // Instantiate a projectile as the child of the canvas and set the position at where the defender is
         Projectile projectile = Instantiate(ammo, transform.position, Quaternion.identity) as Projectile;
-        projectile.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
+        projectile.transform.SetParent(gameCanvas.transform, false);
         //projectile.transform.SetParent(transform, true);
         projectile.transform.position = transform.position + shootingOffset;
         ParticleSystem gunBlast = Instantiate(container.gunFireVFX, transform.position, container.gunFireVFX.transform.rotation) as ParticleSystem;

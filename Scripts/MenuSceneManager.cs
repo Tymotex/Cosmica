@@ -8,4 +8,9 @@ public class MenuSceneManager : MonoBehaviour {
         Time.timeScale = 1;
         SceneManager.LoadScene("_Start");
     }
+
+    public void ForceRestartLevel() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

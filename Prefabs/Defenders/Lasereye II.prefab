@@ -4840,6 +4840,7 @@ MonoBehaviour:
   maxImpactDamage: 108
   minImpactDamage: 92
   container: {fileID: 4588973237231109761}
+  gameCanvas: {fileID: 0}
   spawnShootDelay: 1
 --- !u!114 &3224303636403064980
 MonoBehaviour:
@@ -4853,8 +4854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 35
-  health: 35
+  maxHealth: 45
+  health: 45
   healthBarParent: {fileID: 3253955569713915671}
   healthBar: {fileID: 2515203401396489490}
   defence: 1
@@ -4871,10 +4872,11 @@ MonoBehaviour:
   - {fileID: 7583148468210671281, guid: d0251cf95549e14469abfb1ca2edf531, type: 3}
   deathSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: b3b0098b3eb80a74ab31e406df541b8f, type: 3}
+    clip: {fileID: 8300000, guid: b94ef689767ab60428d25826f9aff34d, type: 3}
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}
+  gameCanvas: {fileID: 0}
 --- !u!1 &3106399119970852834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5105,7 +5107,7 @@ MonoBehaviour:
   shipFamily: Lasereye
   spawnSFX:
     clipName: 
-    clip: {fileID: 8300000, guid: b5f82f0786ccb2644930c70881acd1a8, type: 3}
+    clip: {fileID: 8300000, guid: 945d441a41d9add4c8af462eda6415ba, type: 3}
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}
