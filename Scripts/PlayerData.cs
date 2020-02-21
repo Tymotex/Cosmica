@@ -140,6 +140,41 @@ public class PlayerData : MonoBehaviour {
         PlayerPrefs.SetInt(levelHighScore, highScore);
     }
 
+    // TESTING FUNCTION
+    private string GetFurthestUnlockedLevel() {
+        for (int zone = 1; zone <= 5; zone++) {
+            for (int level = 1; level <= 10; level++) {
+                Debug.Log("Checking: Level" + zone.ToString() + "_" + level.ToString());
+                if (!LevelIsUnlocked(zone, level)) {
+                    if (level <= 1) {
+                        zone -= 1;
+                        level = 10;
+                        string levelString = "Level" + zone.ToString() + "_" + level.ToString();
+                        return levelString;
+                    } else {
+                        level -= 1;
+                        string levelString = "Level" + zone.ToString() + "_" + level.ToString();
+                        return levelString;
+                    }
+                }
+            }
+        }
+        return "Level5_10";
+    }
+
+    private string GetNextUnlockableLevel() {
+        for (int zone = 1; zone <= 5; zone++) {
+            for (int level = 1; level <= 10; level++) {
+                Debug.Log("Checking: Level" + zone.ToString() + "_" + level.ToString());
+                if (!LevelIsUnlocked(zone, level)) {
+                    string levelString = "Level" + zone.ToString() + "_" + level.ToString();
+                    return levelString;
+                }
+            }
+        }
+        return "Level5_10";
+    }
+
     // TODO: TESTING ONLY
     void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
@@ -154,6 +189,13 @@ public class PlayerData : MonoBehaviour {
                     UnlockLevel(levelName);
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.U)) {
+            string nextLevel = GetNextUnlockableLevel();
+            Debug.Log("Furthest unlocked level is:" + GetFurthestUnlockedLevel());
+            Debug.Log("Unlocking level:" + nextLevel);
+            UnlockLevel(nextLevel);
         }
     }
 }

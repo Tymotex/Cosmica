@@ -217,7 +217,9 @@ public class LevelStatus : MonoBehaviour {
             foreach (Projectile projectile in projectiles) {
                 projectile.Dissolve();
             }
-            sceneData.UnlockNextLevel();
+            if (sceneData != null) {
+                sceneData.UnlockNextLevel();
+            }
         } else {
             levelCompletionText.text = levelFailText;
             PlaySFX(levelFailSFX);
@@ -243,7 +245,11 @@ public class LevelStatus : MonoBehaviour {
             }
         }
         // Finally transition to the outcome scene
-        LoadScene(levelOutcomeSceneName);
+        if (sceneData != null) {  
+            LoadScene(levelOutcomeSceneName);
+        } else {  // THE ONLY CASE WHERE SCENEDATA IS NULL IS IN THE TUTORIAL SCENE
+            LoadScene("_Start");
+        }
     }
 
     private int DetermineFinalScore(bool levelPassed) {

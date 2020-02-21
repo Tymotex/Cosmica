@@ -55,7 +55,6 @@ public class EnemyBehaviour : MonoBehaviour {
         float avgDamage = (ammo.minDamage + ammo.maxDamage) / 2f;
         float avgFirerate = 1 / ((minShootDelay + maxShootDelay) / 2f);
         DPS = avgDamage * avgFirerate;
-        Debug.Log(this + " : " + DPS);
     }
 
     private IEnumerator Shoot() {

@@ -76,7 +76,9 @@ public class DefenderTile : MonoBehaviour {
                 if (!DefenderIsPresent()) {
                     PlayPulseAnimation();
                     if (defenderPrefab != null) {
-                        SpawnDefender();
+                        if (!levelStatus.endingLevel) {
+                            SpawnDefender();
+                        }
                     } else {
                         Debug.Log("Not highlighted and no defender selected");
                         SpawnNotification(noDefenderPopup);
@@ -89,7 +91,9 @@ public class DefenderTile : MonoBehaviour {
             if (!DefenderIsPresent()) {
                 PlayPulseAnimation();
                 if (defenderPrefab != null) {
-                    SpawnDefender();
+                    if (!levelStatus.endingLevel) {
+                        SpawnDefender();
+                    }
                 } else {
                     SpawnNotification(noDefenderPopup);
                 }

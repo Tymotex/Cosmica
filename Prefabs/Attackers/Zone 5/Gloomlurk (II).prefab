@@ -4937,7 +4937,7 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   enemyName: Gloomlurk
-  chanceToDropCoin: 20
+  chanceToDropCoin: 12
   coinDrops:
   - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
   - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}

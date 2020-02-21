@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 // Manually set the fields in the inspector. The fields tell the "success" and "failure" scenes
@@ -26,6 +27,15 @@ public class SceneData : MonoBehaviour {
 
     void Start() {
         manager = FindObjectOfType<SceneDataManager>();
+        // TODO: fix up crude code and magic numbers. Levelx_y
+        string sceneName = SceneManager.GetActiveScene().name;
+        currSceneZone = sceneName[5].ToString();
+        if (sceneName.Length > 8) {
+            currSceneLevel = sceneName[7].ToString() + sceneName[8].ToString();
+        } else {
+            currSceneLevel = sceneName[7].ToString();
+        }
+        Debug.Log("SCENEDATA: zone " + currSceneZone + " level " + currSceneLevel);
         manager.currSceneZone = currSceneZone;     // TODO: These should maybe be moved to the WriteToManager() function
         manager.currSceneLevel = currSceneLevel;
         headerText.text = "Zone " + currSceneZone.ToString() + " Level " + currSceneLevel.ToString();

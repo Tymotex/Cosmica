@@ -184,7 +184,7 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   enemyName: Void Fiend
-  chanceToDropCoin: 20
+  chanceToDropCoin: 12
   coinDrops:
   - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
   - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
@@ -448,8 +448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 75
-  health: 75
+  maxHealth: 100
+  health: 100
   healthBarParent: {fileID: 8617050118500065986}
   healthBar: {fileID: 6511636224097189629}
   defence: 3
@@ -458,8 +458,8 @@ MonoBehaviour:
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
   energyGainOnKill: 45
-  controlGainOnKill: 1.5
-  scoreGainOnKill: 200
+  controlGainOnKill: 1.75
+  scoreGainOnKill: 250
   deathVFXs:
   - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}
   - {fileID: 5162182095616014747, guid: 060bc36f65962044b96efd239491ac43, type: 3}

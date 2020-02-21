@@ -20,8 +20,8 @@ public class EnemyInfoPanel : MonoBehaviour {
                 "\n" + avgDamage.ToString("0.##") +
                 "\n" + avgFirerate.ToString("0.##") + "/sec" +
                 "\n" + avgDPS.ToString("0.##") +
-                "\n" + unit.GetComponent<Health>().maxHealth +
-                "\n" + unit.GetComponent<Health>().defence;
+                "\n" + unit.GetComponent<Health>().maxHealth.ToString() +
+                "\n" + unit.GetComponent<Health>().defence.ToString();
         } else {
             Debug.LogWarning("CURRENT UNIT IS NULL");
         }

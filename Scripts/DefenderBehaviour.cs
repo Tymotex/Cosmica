@@ -63,6 +63,7 @@ public class DefenderBehaviour : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        // Annihilate the defender ship on collision with enemy (dealing massive damage to the enemy)
         if (collision.gameObject.tag == "Enemy") {
             EnemyBehaviour enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
             Health defenderHealth = GetComponent<Health>();
@@ -70,7 +71,7 @@ public class DefenderBehaviour : MonoBehaviour {
             int impactDamageOnEnemy = Random.Range(minImpactDamage, maxImpactDamage);
             int impactDamageOnDefender = Random.Range(enemy.minImpactDamage, enemy.maxImpactDamage);
             defenderHealth.ReduceHealth(impactDamageOnDefender);
-            enemyHealth.ReduceHealth(impactDamageOnEnemy);
+            enemyHealth.ReduceHealth(impactDamageOnEnemy, true);
         }
     }
 

@@ -60,14 +60,29 @@ public class Health : MonoBehaviour {
             healthBar.UpdateHealthBar(maxHealth, health);
         }
         if (health <= 0) {
-            Die();
+            Die(false);
         }
     }
 
-    private void Die() {
+    public void ReduceHealth(int damage, bool isContactDeath) {
+        int damageTaken = (damage - defence) >= 0 ? (damage - defence) : 0;
+        health -= damageTaken;
+        SpawnNotification(damagePopup, damageTaken);
+        DisplayHealthIfDamaged();
+        if (healthBar != null) {
+            healthBar.UpdateHealthBar(maxHealth, health);
+        }
+        if (health <= 0) {
+            Die(isContactDeath);
+        }
+    }
+
+    private void Die(bool isContactDeath) {
         LevelStatus levelStatus = FindObjectOfType<LevelStatus>();
-        levelStatus.AddEnergy(energyGainOnKill);
-        levelStatus.AddControl(controlGainOnKill);
+        if (!isContactDeath) {
+            levelStatus.AddEnergy(energyGainOnKill);
+            levelStatus.AddControl(controlGainOnKill);
+        }
         levelStatus.AddScore(scoreGainOnKill);
         // Destroy the object that was hit below 0 health and instantiate an explosion particle system
         if (gameObject.tag == "Enemy") {   

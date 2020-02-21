@@ -146,12 +146,7 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: Alone
-    clip: {fileID: 8300000, guid: 788e6e32d49ad2949ad3e4934554c2e3, type: 3}
-    volume: 0.25
-    pitch: 1
-    clipSource: {fileID: 0}
-  - clipName: Pitch Black
+  - clipName: Solitude
     clip: {fileID: 8300000, guid: c28f6eaeb1979fb4ca677fb7fa517e7b, type: 3}
     volume: 0.25
     pitch: 1
@@ -171,11 +166,6 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: Drifting
-    clip: {fileID: 8300000, guid: 8c94e2f46772d8843bd731fdc5fe3218, type: 3}
-    volume: 0.25
-    pitch: 1
-    clipSource: {fileID: 0}
   - clipName: Us or Them
     clip: {fileID: 8300000, guid: 5cd70094ea8851c46baf5fdd5c1cc6d4, type: 3}
     volume: 0.25
@@ -183,16 +173,6 @@ MonoBehaviour:
     clipSource: {fileID: 0}
   - clipName: Odyssey
     clip: {fileID: 8300000, guid: 2a821ec10529e9644834a939e81467c8, type: 3}
-    volume: 0.25
-    pitch: 1
-    clipSource: {fileID: 0}
-  - clipName: Panic
-    clip: {fileID: 8300000, guid: c39f5e21ca717c540a264a23b53babd6, type: 3}
-    volume: 0.25
-    pitch: 1
-    clipSource: {fileID: 0}
-  - clipName: Maternal Heart
-    clip: {fileID: 8300000, guid: 17bd81623377365478f8157181c4012f, type: 3}
     volume: 0.25
     pitch: 1
     clipSource: {fileID: 0}
@@ -231,8 +211,48 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: Worlds
+  - clipName: Worlds Collide
     clip: {fileID: 8300000, guid: fd84fb38e455de74ab5762b1ad770094, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Blue Moon
+    clip: {fileID: 8300000, guid: c80bf693c231f154e9ab24ab78f7a9ce, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Dark Synergy
+    clip: {fileID: 8300000, guid: 51cb7cd8b3a40284697b8cacf8ff54b5, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Dying Breath
+    clip: {fileID: 8300000, guid: 61d034cae5472df46abb29d8e441fa6b, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Transience
+    clip: {fileID: 8300000, guid: 927d078f525d1124181e74d43b0df46c, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Light Years
+    clip: {fileID: 8300000, guid: 135c5ddd77901224b8eb63ad6a0678eb, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Last Stand
+    clip: {fileID: 8300000, guid: b358ff126064604418baa1ff185102e0, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Our Galaxy
+    clip: {fileID: 8300000, guid: 5e3d96e57f843044aa64a0c089f79947, type: 3}
+    volume: 0.25
+    pitch: 1
+    clipSource: {fileID: 0}
+  - clipName: Stellar
+    clip: {fileID: 8300000, guid: 90072195b1aedf24eaeffc752a8c3f30, type: 3}
     volume: 0.25
     pitch: 1
     clipSource: {fileID: 0}

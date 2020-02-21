@@ -9798,12 +9798,12 @@ SpriteRenderer:
   m_SortingLayerID: -622364527
   m_SortingLayer: 13
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e4f46ca3bb365342a4c211cee7a466e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 200ede797c14ec54c8a2693e8b0ecc38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.24, y: 10.24}
+  m_Size: {x: 6.5, y: 6.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9995,7 +9995,7 @@ MonoBehaviour:
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
   energyGainOnKill: 0
-  controlGainOnKill: -1
+  controlGainOnKill: -0.5
   scoreGainOnKill: -5
   deathVFXs:
   - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}

@@ -153,9 +153,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You will gain energy, control and score for destroying enemy ships. You
-    will lose control and score if your ships are destroyed or if the enemy gets past
-    your defences. Keep spawning ships in to maintain control. Good luck commander!
+  m_Text: The level has started! You will gain energy, control and score for destroying
+    enemy ships. You will lose control and score if your ships are destroyed or if
+    the enemy gets past your defences. Keep spawning ships in to maintain control.
+    Good luck commander!
 --- !u!1 &5709500148956308475
 GameObject:
   m_ObjectHideFlags: 0

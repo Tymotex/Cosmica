@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1401628419009290938}
   - component: {fileID: 1270402708555626286}
   - component: {fileID: 1272178316543532402}
+  - component: {fileID: 2767946766014548546}
   m_Layer: 0
   m_Name: EnemyGunBlast
   m_TagString: Untagged
@@ -4811,3 +4812,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &2767946766014548546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397858913101051264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e526408ab5df549b975443cd3edfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeDelay: 0.2

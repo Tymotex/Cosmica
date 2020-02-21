@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6999353036575045494}
   - component: {fileID: 7201334513897153250}
   - component: {fileID: 7203094660392634558}
+  - component: {fileID: 6752073791379450710}
   m_Layer: 0
   m_Name: DefenderGunBlast
   m_TagString: Untagged
@@ -4811,3 +4812,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &6752073791379450710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005092313235923020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8e526408ab5df549b975443cd3edfc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeDelay: 0.2

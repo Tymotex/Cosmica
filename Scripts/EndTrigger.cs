@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EndTrigger : MonoBehaviour {
+    [SerializeField] float accerlateFactor;
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Enemy") {
-            collision.gameObject.GetComponent<EnemyBehaviour>().advanceSpeed *= 5;
+            EnemyBehaviour enemyBehaviour = collision.gameObject.GetComponent<EnemyBehaviour>();
+            enemyBehaviour.advanceSpeed *= accerlateFactor;
         }
     }
 }
