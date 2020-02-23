@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileVelocity: -6
-  maxDamage: 17
-  minDamage: 13
+  maxDamage: 14
+  minDamage: 12
   isFriendlyProjectile: 0
   laserFireSFX:
     clipName: 
@@ -130,7 +130,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 34.332943, y: 8.6}
+    oldSize: {x: 34.4, y: 8.6}
     newSize: {x: 1.3, y: 0.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -2058,6 +2058,7 @@ MonoBehaviour:
   rampUpInterval: 30
   maxControl: 100
   maxEnergy: 300
+  energyRegenPerSec: 0
   maxTime: 300
   score: 0
   energyUI: {fileID: 1573001436}

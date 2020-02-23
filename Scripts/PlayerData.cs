@@ -175,6 +175,25 @@ public class PlayerData : MonoBehaviour {
         return "Level5_10";
     }
 
+
+    // TODO: TESTING ONLY
+    public void UnlockAllLevels() {
+        Debug.Log("Unlocking all levels");
+        for (int zone = 1; zone <= 5; zone++) {
+            for (int level = 1; level <= 10; level++) {
+                string levelName = "Level" + zone.ToString() + "_" + level.ToString();
+                UnlockLevel(levelName);
+            }
+        }
+    }
+
+    public void UnlockNextLevel() {
+        string nextLevel = GetNextUnlockableLevel();
+        Debug.Log("Furthest unlocked level is:" + GetFurthestUnlockedLevel());
+        Debug.Log("Unlocking level:" + nextLevel);
+        UnlockLevel(nextLevel);
+    }
+
     // TODO: TESTING ONLY
     void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
@@ -182,20 +201,10 @@ public class PlayerData : MonoBehaviour {
             PlayerPrefs.DeleteAll();
         }
         if (Input.GetKeyDown(KeyCode.Y)) {
-            Debug.Log("Unlocking all levels");
-            for (int zone = 1; zone <= 5; zone++) {
-                for (int level = 1; level <= 10; level++) {
-                    string levelName = "Level" + zone.ToString() + "_" + level.ToString();
-                    UnlockLevel(levelName);
-                }
-            }
+            UnlockAllLevels();
         }
-
         if (Input.GetKeyDown(KeyCode.U)) {
-            string nextLevel = GetNextUnlockableLevel();
-            Debug.Log("Furthest unlocked level is:" + GetFurthestUnlockedLevel());
-            Debug.Log("Unlocking level:" + nextLevel);
-            UnlockLevel(nextLevel);
+            UnlockNextLevel();
         }
     }
 }

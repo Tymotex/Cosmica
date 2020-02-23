@@ -9722,14 +9722,14 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   enemyName: Stronghold
-  chanceToDropCoin: 12
+  chanceToDropCoin: 8
   coinDrops:
   - {fileID: 2566279465220240663, guid: b8f1d4b9fa4614444863de690a95bbda, type: 3}
   - {fileID: 2270944961200264840, guid: bc88a49fcb9c57f44a77395259ca0922, type: 3}
   - {fileID: 4864242988745154349, guid: c1884105fbd135241b69b9120e588356, type: 3}
   - {fileID: 699091126744766816, guid: d377f574130d2874483d9423afa45f60, type: 3}
   - {fileID: 3404531457496183396, guid: 1f4d629c42f7bce40b8dc046a94ab00e, type: 3}
-  coinSpawnChances: 1900000019000000190000000f0000000a000000
+  coinSpawnChances: 1e0000001e000000140000000a0000000a000000
   gameCanvas: {fileID: 0}
 --- !u!95 &2029933524
 Animator:
@@ -9948,6 +9948,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   advanceSpeed: 0.16
   DPS: 0
+  isImmune: 0
   enemyIsShooting: 0
   ammo: {fileID: -6935270470529395205, guid: 6db3c2fe70e92cc45a5d2569f157f5d9, type: 3}
   minShootDelay: 3
@@ -9987,16 +9988,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 115
-  health: 115
+  maxHealth: 120
+  health: 120
   healthBarParent: {fileID: 8617050118500065986}
   healthBar: {fileID: 6511636224097189629}
-  defence: 1
+  defence: 3
   popupLife: 1.5
   popupOffset: {x: 0, y: -0.25, z: 0}
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
-  energyGainOnKill: 50
+  energyGainOnKill: 35
   controlGainOnKill: 2
   scoreGainOnKill: 250
   deathVFXs:

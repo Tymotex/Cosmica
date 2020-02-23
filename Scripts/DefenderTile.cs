@@ -41,7 +41,7 @@ public class DefenderTile : MonoBehaviour {
         if (defenderOnTile != null) {
             if (targetSpawner.EnemyExistsInRow() == true && defenderOnTile.defenderUnit.defenderIsShooting == false) {
                 defenderOnTile.defenderUnit.defenderIsShooting = true;
-                Debug.Log(defenderOnTile.defenderUnit.defenderIsShooting);
+                // Debug.Log(defenderOnTile.defenderUnit.defenderIsShooting);
                 defenderOnTile.defenderUnit.StartShooting();
             } else if (targetSpawner.EnemyExistsInRow() == false && defenderOnTile.defenderUnit.defenderIsShooting == true) {
                 defenderOnTile.defenderUnit.defenderIsShooting = false;

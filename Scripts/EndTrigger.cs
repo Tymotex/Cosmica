@@ -8,6 +8,7 @@ public class EndTrigger : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Enemy") {
             EnemyBehaviour enemyBehaviour = collision.gameObject.GetComponent<EnemyBehaviour>();
+            enemyBehaviour.isImmune = true;
             enemyBehaviour.advanceSpeed *= accerlateFactor;
         }
     }

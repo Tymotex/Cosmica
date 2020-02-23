@@ -4837,8 +4837,8 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   isDead: 0
-  maxImpactDamage: 108
-  minImpactDamage: 92
+  maxImpactDamage: 145
+  minImpactDamage: 135
   container: {fileID: 4588973237231109761}
   gameCanvas: {fileID: 0}
   spawnShootDelay: 1
@@ -4854,17 +4854,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 65
-  health: 65
+  maxHealth: 85
+  health: 85
   healthBarParent: {fileID: 3253955569713915671}
   healthBar: {fileID: 2515203401396489490}
-  defence: 2
+  defence: 3
   popupLife: 1.5
   popupOffset: {x: 0, y: -0.25, z: 0}
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
   energyGainOnKill: 0
-  controlGainOnKill: -0.5
+  controlGainOnKill: -0.25
   scoreGainOnKill: -5
   deathVFXs:
   - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}

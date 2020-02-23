@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 95578382908335403}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.37, y: 0, z: 0}
-  m_LocalScale: {x: 40, y: 30, z: 30}
+  m_LocalScale: {x: 40, y: 35, z: 35}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 16
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4534c4101a69cc74083667cb06150253, type: 3}
-  m_Color: {r: 1, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.19339621, g: 0.29349205, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileVelocity: 4.75
-  maxDamage: 28
-  minDamage: 26
+  maxDamage: 24
+  minDamage: 18
   isFriendlyProjectile: 1
   laserFireSFX:
     clipName: 

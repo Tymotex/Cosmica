@@ -4824,11 +4824,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderName: Infernal II
-  costToSpawn: 60
+  costToSpawn: 55
   ammo: {fileID: -6935270470529395205, guid: b5ff551af49be7a45b38001444d69fba, type: 3}
   defenderIsShooting: 0
-  minShootDelay: 2.2
-  maxShootDelay: 2.4
+  minShootDelay: 3
+  maxShootDelay: 2.3
   shootingOffset: {x: 0.15, y: 0, z: 0}
   deathSFX:
     clipName: 
@@ -4837,8 +4837,8 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   isDead: 0
-  maxImpactDamage: 108
-  minImpactDamage: 92
+  maxImpactDamage: 145
+  minImpactDamage: 135
   container: {fileID: 4588973237231109761}
   gameCanvas: {fileID: 0}
   spawnShootDelay: 1
@@ -4864,7 +4864,7 @@ MonoBehaviour:
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
   energyGainOnKill: 0
-  controlGainOnKill: -0.5
+  controlGainOnKill: -0.25
   scoreGainOnKill: -5
   deathVFXs:
   - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}

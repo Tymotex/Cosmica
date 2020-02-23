@@ -59,12 +59,13 @@ MonoBehaviour:
   levelOutcomeSceneName: _LevelOutcome
   sceneData: {fileID: 711075629312489799}
   control: 50
-  energy: 500
+  energy: 450
   elapsedTime: 0
   timeSinceLastRampUp: 0
   rampUpInterval: 30
   maxControl: 100
   maxEnergy: 500
+  energyRegenPerSec: 2
   maxTime: 300
   score: 0
   energyUI: {fileID: 711075628462218854}
@@ -98,7 +99,7 @@ MonoBehaviour:
   energySpent: 0
   controlBonusFactor: 10
   timeBonusFactor: 5
-  energySpentPenaltyFactor: 0.5
+  energySpentPenaltyFactor: 0.25
   scoreDisplay: {fileID: 0}
   enemySpawners: []
   levelStarted: 0

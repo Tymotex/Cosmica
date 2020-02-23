@@ -9,6 +9,12 @@ public class Shredder : MonoBehaviour {
 
     [SerializeField]
     bool isLeftShredder = false;
+    LevelStatus levelStatus;
+    public int controlLossOnCross;  // Fix a penalty rather than use the value from the enemy
+
+    private void Start() {
+        levelStatus = FindObjectOfType<LevelStatus>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (isLeftShredder) {

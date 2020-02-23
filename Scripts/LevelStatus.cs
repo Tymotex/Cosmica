@@ -21,6 +21,7 @@ public class LevelStatus : MonoBehaviour {
     [SerializeField]
     [Tooltip("This might change from level to level. Maybe the player should buy an upgrade to increase capacity")]
     int maxEnergy = 250;
+    public int energyRegenPerSec;
     [SerializeField]
     [Tooltip("Set the time allowed for this level in seconds (ignoring overtime). 300 gives the player 5 minutes to beat the level")]
     float maxTime = 300;
@@ -187,6 +188,17 @@ public class LevelStatus : MonoBehaviour {
         EnemySpawner[] spawners = FindObjectsOfType<EnemySpawner>();
         foreach (EnemySpawner spawner in spawners) {
             spawner.ForceStopSpawning();
+        }
+    }
+
+    public void StartRegeneratingEnergy() {
+        StartCoroutine(RegenerateEnergy());
+    }
+
+    private IEnumerator RegenerateEnergy() {
+        while (!endingLevel) {
+            AddEnergy(energyRegenPerSec);
+            yield return new WaitForSeconds(1);
         }
     }
 

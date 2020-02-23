@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileVelocity: 4
-  maxDamage: 19
-  minDamage: 15
+  maxDamage: 14
+  minDamage: 9
   isFriendlyProjectile: 1
   laserFireSFX:
     clipName: 

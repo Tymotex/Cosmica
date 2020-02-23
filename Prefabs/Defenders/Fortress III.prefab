@@ -4824,11 +4824,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderName: Fortress III
-  costToSpawn: 55
+  costToSpawn: 50
   ammo: {fileID: -6935270470529395205, guid: f4abe97a15c51dd45b35144c90dfcd5f, type: 3}
   defenderIsShooting: 0
-  minShootDelay: 4
-  maxShootDelay: 4.4
+  minShootDelay: 3.2
+  maxShootDelay: 3.8
   shootingOffset: {x: 0.15, y: 0, z: 0}
   deathSFX:
     clipName: 
@@ -4837,8 +4837,8 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   isDead: 0
-  maxImpactDamage: 108
-  minImpactDamage: 92
+  maxImpactDamage: 145
+  minImpactDamage: 135
   container: {fileID: 4588973237231109761}
   gameCanvas: {fileID: 0}
   spawnShootDelay: 1
@@ -4854,8 +4854,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bae11726c5237e4990ca1c5a8ff55c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 90
-  health: 90
+  maxHealth: 115
+  health: 115
   healthBarParent: {fileID: 3253955569713915671}
   healthBar: {fileID: 2515203401396489490}
   defence: 6
@@ -4864,7 +4864,7 @@ MonoBehaviour:
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
   energyGainOnKill: 0
-  controlGainOnKill: -0.5
+  controlGainOnKill: -0.25
   scoreGainOnKill: -5
   deathVFXs:
   - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}
@@ -5111,7 +5111,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}
-  costToUpgrade: 6000
+  costToUpgrade: 7000
   gunFireVFX: {fileID: 7201334513897153250, guid: 4eb800663d58897408ace5d08e1d1fab,
     type: 3}
   gunFireOffset: {x: 0.28, y: 0, z: 0}

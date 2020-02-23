@@ -37,4 +37,5 @@ public class Tips : MonoBehaviour {
     * Lasereye and Scimitar are fragile but deal high damage!
     * A higher defence value reduces the damage taken by a unit!
     * You have 500 energy to start each level. Use it wisely!
+    * You will regenerate a small amount of energy per second after the level starts!
     */

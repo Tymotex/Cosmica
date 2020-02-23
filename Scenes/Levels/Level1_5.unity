@@ -746,47 +746,47 @@ PrefabInstance:
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: maxSpawnInterval
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[4]
-      value: 1.4
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[3]
-      value: 1.3
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[5]
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[6]
-      value: 1.6
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[7]
-      value: 1.7
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[8]
-      value: 1.8
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[9]
-      value: 1.9
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[1]
-      value: 1.15
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -987,6 +987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chances.Array.data[9].spawnChances.Array.data[3]
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772433631036580150, guid: 61441e1d91a24ea4a912ef867ca45de9,
+        type: 3}
+      propertyPath: spawnRates.Array.data[2]
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -1056,47 +1061,47 @@ PrefabInstance:
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: maxSpawnInterval
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[4]
-      value: 1.4
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[3]
-      value: 1.3
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[5]
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[6]
-      value: 1.6
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[7]
-      value: 1.7
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[8]
-      value: 1.8
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[9]
-      value: 1.9
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[1]
-      value: 1.15
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -1297,6 +1302,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chances.Array.data[9].spawnChances.Array.data[3]
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772433631252080558, guid: 61441e1d91a24ea4a912ef867ca45de9,
+        type: 3}
+      propertyPath: spawnRates.Array.data[2]
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -1366,47 +1376,47 @@ PrefabInstance:
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: maxSpawnInterval
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[4]
-      value: 1.4
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[3]
-      value: 1.3
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[5]
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[6]
-      value: 1.6
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[7]
-      value: 1.7
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[8]
-      value: 1.8
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[9]
-      value: 1.9
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[1]
-      value: 1.15
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -1607,6 +1617,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chances.Array.data[9].spawnChances.Array.data[3]
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772433631509466457, guid: 61441e1d91a24ea4a912ef867ca45de9,
+        type: 3}
+      propertyPath: spawnRates.Array.data[2]
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -1676,47 +1691,47 @@ PrefabInstance:
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: maxSpawnInterval
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[4]
-      value: 1.4
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[3]
-      value: 1.3
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[5]
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[6]
-      value: 1.6
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[7]
-      value: 1.7
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[8]
-      value: 1.8
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[9]
-      value: 1.9
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[1]
-      value: 1.15
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -1917,6 +1932,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chances.Array.data[9].spawnChances.Array.data[3]
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772433631665236700, guid: 61441e1d91a24ea4a912ef867ca45de9,
+        type: 3}
+      propertyPath: spawnRates.Array.data[2]
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -1986,47 +2006,47 @@ PrefabInstance:
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: maxSpawnInterval
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[4]
-      value: 1.4
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[3]
-      value: 1.3
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[5]
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[6]
-      value: 1.6
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[7]
-      value: 1.7
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[8]
-      value: 1.8
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[9]
-      value: 1.9
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[1]
-      value: 1.15
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -2227,6 +2247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chances.Array.data[9].spawnChances.Array.data[3]
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772433632104558399, guid: 61441e1d91a24ea4a912ef867ca45de9,
+        type: 3}
+      propertyPath: spawnRates.Array.data[2]
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632110085558, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -2301,47 +2326,47 @@ PrefabInstance:
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: maxSpawnInterval
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[4]
-      value: 1.4
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[3]
-      value: 1.3
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[5]
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[6]
-      value: 1.6
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[7]
-      value: 1.7
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[8]
-      value: 1.8
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[9]
-      value: 1.9
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[1]
-      value: 1.15
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -2542,6 +2567,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chances.Array.data[9].spawnChances.Array.data[3]
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1772433632179211429, guid: 61441e1d91a24ea4a912ef867ca45de9,
+        type: 3}
+      propertyPath: spawnRates.Array.data[2]
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 7126226309766621683, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -2791,47 +2821,47 @@ PrefabInstance:
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: maxSpawnInterval
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[4]
-      value: 1.4
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[3]
-      value: 1.3
+      value: 1.24
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[5]
-      value: 1.5
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[6]
-      value: 1.6
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[7]
-      value: 1.7
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[8]
-      value: 1.8
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[9]
-      value: 1.9
+      value: 1.72
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
       propertyPath: spawnRates.Array.data[1]
-      value: 1.15
+      value: 1.08
       objectReference: {fileID: 0}
     - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
         type: 3}
@@ -3032,6 +3062,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chances.Array.data[9].spawnChances.Array.data[3]
       value: 85
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187159306127380082, guid: 61441e1d91a24ea4a912ef867ca45de9,
+        type: 3}
+      propertyPath: spawnRates.Array.data[2]
+      value: 1.16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61441e1d91a24ea4a912ef867ca45de9, type: 3}

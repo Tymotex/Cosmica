@@ -59,13 +59,16 @@ public class OutcomeWriter : MonoBehaviour {
             scoreValuesText.text = scoresText;
             // Write to the rewards panel AND add them to PlayerData
             int earnedCredit = manager.baseCreditReward + Mathf.FloorToInt(levelScore * manager.creditToScoreRatio);
+            if (!manager.levelPassed) {
+                earnedCredit = 0;  // Player gets no reward if they have failed the level
+            }
             string unlockedShipName = "";
             if (manager.unlockedShip != null) {
                 unlockedShipName = manager.unlockedShip.defenderUnit.defenderName;
                 unlockedShip.sprite = manager.unlockedShip.defenderUnit.GetComponent<SpriteRenderer>().sprite;
                 unlockedShip.color = unlockShipColour;
             }
-            rewardValuesText.text = "+" + earnedCredit.ToString() +
+            rewardValuesText.text = "+" + earnedCredit.ToString() + " credits" + 
                 "\n" + unlockedShipName;
             
             FindObjectOfType<CreditsManager>().AddCredit(earnedCredit);

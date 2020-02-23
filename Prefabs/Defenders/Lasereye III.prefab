@@ -4824,7 +4824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defenderName: Lasereye III
-  costToSpawn: 30
+  costToSpawn: 25
   ammo: {fileID: 4873063701569507371, guid: 1cca0fb1ae558a244a82a59d3c4b0198, type: 3}
   defenderIsShooting: 0
   minShootDelay: 2.35
@@ -4837,8 +4837,8 @@ MonoBehaviour:
     pitch: 1
     clipSource: {fileID: 0}
   isDead: 0
-  maxImpactDamage: 108
-  minImpactDamage: 92
+  maxImpactDamage: 145
+  minImpactDamage: 135
   container: {fileID: 4588973237231109761}
   gameCanvas: {fileID: 0}
   spawnShootDelay: 1
@@ -4858,13 +4858,13 @@ MonoBehaviour:
   health: 50
   healthBarParent: {fileID: 3253955569713915671}
   healthBar: {fileID: 2515203401396489490}
-  defence: 3
+  defence: 2
   popupLife: 1.5
   popupOffset: {x: 0, y: -0.25, z: 0}
   damagePopup: {fileID: -2097908463682651117, guid: 640f8b768d543c541893868e92146893,
     type: 3}
   energyGainOnKill: 0
-  controlGainOnKill: -0.5
+  controlGainOnKill: -0.25
   scoreGainOnKill: -5
   deathVFXs:
   - {fileID: 9041692745061105681, guid: c31484630e4851040bc49c9043b759a2, type: 3}
@@ -5111,7 +5111,7 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     clipSource: {fileID: 0}
-  costToUpgrade: 4500
+  costToUpgrade: 5500
   gunFireVFX: {fileID: 7201334513897153250, guid: 4eb800663d58897408ace5d08e1d1fab,
     type: 3}
   gunFireOffset: {x: 0.255, y: 0, z: 0}

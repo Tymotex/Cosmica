@@ -7,7 +7,9 @@ public class PreparationPhase : MonoBehaviour {
     
 
     public void StartLevel() {
-        FindObjectOfType<LevelStatus>().levelStarted = true;
+        LevelStatus levelStatus = FindObjectOfType<LevelStatus>();
+        levelStatus.levelStarted = true;
+        levelStatus.StartRegeneratingEnergy(); 
         // Deselect any highlighted tiles
         DefenderTile[] tiles = FindObjectsOfType<DefenderTile>();
         foreach (DefenderTile tile in tiles) {

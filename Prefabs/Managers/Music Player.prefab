@@ -161,16 +161,6 @@ MonoBehaviour:
     volume: 0.25
     pitch: 1
     clipSource: {fileID: 0}
-  - clipName: Echoes
-    clip: {fileID: 8300000, guid: c2bfdbfeace312741bfb9562775e287d, type: 3}
-    volume: 0.25
-    pitch: 1
-    clipSource: {fileID: 0}
-  - clipName: Us or Them
-    clip: {fileID: 8300000, guid: 5cd70094ea8851c46baf5fdd5c1cc6d4, type: 3}
-    volume: 0.25
-    pitch: 1
-    clipSource: {fileID: 0}
   - clipName: Odyssey
     clip: {fileID: 8300000, guid: 2a821ec10529e9644834a939e81467c8, type: 3}
     volume: 0.25
@@ -208,11 +198,6 @@ MonoBehaviour:
     clipSource: {fileID: 0}
   - clipName: Dystopia
     clip: {fileID: 8300000, guid: aea7c5179e17b9c48b9e85936ab7b97a, type: 3}
-    volume: 0.25
-    pitch: 1
-    clipSource: {fileID: 0}
-  - clipName: Worlds Collide
-    clip: {fileID: 8300000, guid: fd84fb38e455de74ab5762b1ad770094, type: 3}
     volume: 0.25
     pitch: 1
     clipSource: {fileID: 0}

@@ -9,6 +9,8 @@ public class EnemyBehaviour : MonoBehaviour {
     //DEBUG: 
     [SerializeField] float DPS = 0;
 
+    public bool isImmune = false;
+
     // ===== Shooting =====
     [HideInInspector] public bool enemyIsShooting = false;  
     public Projectile ammo = null;
@@ -22,7 +24,7 @@ public class EnemyBehaviour : MonoBehaviour {
     public int minImpactDamage = 92;
 
     // ===== Links =====
-    [SerializeField] Enemy container = null;  // Link to parent container
+    public Enemy container = null;  // Link to parent container
     [SerializeField] Canvas gameCanvas = null; 
 
     // ===== On Spawn =====
