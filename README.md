@@ -1,15 +1,20 @@
 # Cosmica
-Google Play listing: play.google.com/apps/publish/?account=8306589591891515437#MarketListingPlace:p=com.Cosmica.Cosmica&appid=4974398102836671677
+
 Hold down the front lines with a small army of warships to protect the galaxy against the invading alien menace!
 
-PROTECT THE GALAXY!
+Protect the galaxy!
+
 Triumph against 28 different types of alien invaders across 50 intense levels.
 
-HONE YOUR STRATEGY!
+Hone your strategy!
+
 Pick and plan your battlefield with 7 different types of defenders, each with 3 permanent upgrade tiers of their own.
 
-EMBRACE THE SCI-FI EXPERIENCE!
+Embrace the sci-fi experience!
+
 Feel like a boss as you journey through a picturesque side-scrolling space environment listening to glorious sci-fi tunes!
+
+Google Play listing: play.google.com/apps/publish/?account=8306589591891515437#MarketListingPlace:p=com.Cosmica.Cosmica&appid=4974398102836671677
 
 # Development Logs
 
