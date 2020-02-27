@@ -1,4 +1,14 @@
 # Cosmica
+Hold down the front lines with a small army of warships to protect the galaxy against the invading alien menace!
+
+PROTECT THE GALAXY!
+Triumph against 28 different types of alien invaders across 50 intense levels.
+
+HONE YOUR STRATEGY!
+Pick and plan your battlefield with 7 different types of defenders, each with 3 permanent upgrade tiers of their own.
+
+EMBRACE THE SCI-FI EXPERIENCE!
+Feel like a boss as you journey through a picturesque side-scrolling space environment listening to glorious sci-fi tunes!
 
 # Development Logs
 
