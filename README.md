@@ -1,4 +1,5 @@
 # Cosmica
+Google Play listing: play.google.com/apps/publish/?account=8306589591891515437#MarketListingPlace:p=com.Cosmica.Cosmica&appid=4974398102836671677
 Hold down the front lines with a small army of warships to protect the galaxy against the invading alien menace!
 
 PROTECT THE GALAXY!
