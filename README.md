@@ -2,16 +2,13 @@
 
 Hold down the front lines with a small army of warships to protect the galaxy against the invading alien menace!
 
-Protect the galaxy!
-
+PROTECT THE GALAXY!\
 Triumph against 28 different types of alien invaders across 50 intense levels.
 
-Hone your strategy!
+HONE YOUR STRATEGY!\
+Pick and plan your battlefield with 7 different types of defenders, each with 3 permanent upgrade tiers of their own. 
 
-Pick and plan your battlefield with 7 different types of defenders, each with 3 permanent upgrade tiers of their own.
-
-Embrace the sci-fi experience!
-
+EMBRACE THE SCI-FI EXPERIENCE!\
 Feel like a boss as you journey through a picturesque side-scrolling space environment listening to glorious sci-fi tunes!
 
 Google Play listing: play.google.com/apps/publish/?account=8306589591891515437#MarketListingPlace:p=com.Cosmica.Cosmica&appid=4974398102836671677
