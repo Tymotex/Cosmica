@@ -100,6 +100,7 @@ Cosmica_21:
 - Improved load speed by fixing some data compression optimisation issues: http://blog.theknightsofunity.com/wrong-import-settings-killing-unity-game-part-1/?_ga=2.152208505.1101337095.1582258954-2035885584.1578100776
 - Added a method for the player to reset all prefs
 
-
+Cosmica_22:
+- First production release! https://play.google.com/store/apps/details?id=com.Cosmica.Cosmica
 
 
