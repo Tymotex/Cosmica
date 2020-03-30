@@ -11,7 +11,10 @@ Pick and plan your battlefield with 7 different types of defenders, each with 3 
 EMBRACE THE SCI-FI EXPERIENCE!\
 Feel like a boss as you journey through a picturesque side-scrolling space environment listening to glorious sci-fi tunes!
 
-Google Play listing: play.google.com/store/apps/details?id=com.Cosmica.Cosmica
+## Links:
+- Google Play listing: play.google.com/store/apps/details?id=com.Cosmica.Cosmica
+- Showcase/Trailer: https://www.youtube.com/watch?v=D7K1GOqns1w
+- Development showcase: https://www.youtube.com/watch?v=ganf7AlCvV0
 
 # Development Logs
 
