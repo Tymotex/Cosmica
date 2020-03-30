@@ -12,7 +12,7 @@ EMBRACE THE SCI-FI EXPERIENCE!\
 Feel like a boss as you journey through a picturesque side-scrolling space environment listening to glorious sci-fi tunes!
 
 ## Links:
-- Google Play listing: play.google.com/store/apps/details?id=com.Cosmica.Cosmica
+- Google Play listing: https://play.google.com/store/apps/details?id=com.Cosmica.Cosmica
 - Showcase/Trailer: https://www.youtube.com/watch?v=D7K1GOqns1w
 - Development showcase: https://www.youtube.com/watch?v=ganf7AlCvV0
 
