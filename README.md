@@ -16,6 +16,9 @@ Feel like a boss as you journey through a picturesque side-scrolling space envir
 - Showcase/Trailer: https://www.youtube.com/watch?v=D7K1GOqns1w
 - Development showcase: https://www.youtube.com/watch?v=ganf7AlCvV0
 
+![Thumbnail](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Thumbnail.PNG?raw=true)  |  ![Triumph](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Triumph.png?raw=true)
+![Battle](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Screenshot_2020-02-22-21-19-47-41_fda667b7fd960e9419fea7f2286c2314.png?raw=true)  |  ![Shop](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Shop_1.png?raw=true)
+
 # Development Logs
 
 Cosmica_4:
