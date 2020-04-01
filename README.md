@@ -17,12 +17,12 @@ Feel like a boss as you journey through a picturesque side-scrolling space envir
 - Development showcase: https://www.youtube.com/watch?v=ganf7AlCvV0
 
 <p float="left">
-  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Thumbnail.PNG?raw=true" width="50%" />
-  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Triumph.png?raw=true" width="50%" /> 
+  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Thumbnail.PNG?raw=true" width="40%" />
+  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Triumph.png?raw=true" width="40%" /> 
 </p>
 <p float="left">
-  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Screenshot_2020-02-22-21-19-47-41_fda667b7fd960e9419fea7f2286c2314.png?raw=true" width="50%" />
-  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Shop_1.png?raw=true" width="50%" />
+  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Screenshot_2020-02-22-21-19-47-41_fda667b7fd960e9419fea7f2286c2314.png?raw=true" width="40%" />
+  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Shop_1.png?raw=true" width="40%" />
 </p>
 
 # Development Logs
