@@ -18,9 +18,7 @@ Feel like a boss as you journey through a picturesque side-scrolling space envir
 
 ![Thumbnail](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Thumbnail.PNG?raw=true)  ![Triumph](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Triumph.png?raw=true)
 
-Solarized dark             |  Solarized Ocean
-:-------------------------:|:-------------------------:
-![Battle](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Screenshot_2020-02-22-21-19-47-41_fda667b7fd960e9419fea7f2286c2314.png?raw=true) ![Shop](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Shop_1.png?raw=true)
+![alt-text-1](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Screenshot_2020-02-22-21-19-47-41_fda667b7fd960e9419fea7f2286c2314.png?raw=true "Battle") ![alt-text-2](https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Shop_1.png?raw=true "Shop")
 
 # Development Logs
 
