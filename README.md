@@ -17,8 +17,8 @@ Feel like a boss as you journey through a picturesque side-scrolling space envir
 - Development showcase: https://www.youtube.com/watch?v=ganf7AlCvV0
 
 <p float="left">
-  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Thumbnail.PNG?raw=true" width="100" />
-  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Triumph.png?raw=true" width="100" /> 
+  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Thumbnail.PNG?raw=true" width="45%" />
+  <img src="https://github.com/Tymotex/Cosmica/blob/master/PublicImages/Triumph.png?raw=true" width="45" /> 
   <img src="/img3.png" width="100" />
 </p>
 
