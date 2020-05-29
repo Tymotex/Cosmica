@@ -1,5 +1,8 @@
 # Cosmica
-Playable online <a href="https://tymotex.github.io/CosmicaWebGL/">here</a>.
+Playable WebGL build <a href="https://tymotex.github.io/CosmicaWebGL/">here</a>. 
+
+Google Play listing <a href="https://play.google.com/store/apps/details?id=com.Cosmica.Cosmica">here</a>.
+
 <hr>
 Hold down the front lines with a small army of warships to protect the galaxy against the invading alien menace!
 
