@@ -1,6 +1,6 @@
 # Cosmica
 
-- Playable WebGL build <a href="https://tymotex.github.io/CosmicaWebGL/">here</a>
+- Playable WebGL build <a href="https://tymotex.github.io/Cosmica/">here</a>
 - Google Play listing <a href="https://play.google.com/store/apps/details?id=com.Cosmica.Cosmica">here</a>.
 
 ### Gameplay Demo
