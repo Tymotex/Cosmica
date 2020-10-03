@@ -3,12 +3,15 @@
 - Playable WebGL build <a href="https://tymotex.github.io/CosmicaWebGL/">here</a>
 - Google Play listing <a href="https://play.google.com/store/apps/details?id=com.Cosmica.Cosmica">here</a>.
 
-![Gameplay-demo](/public/gameplay-demo.gif)
+### Gameplay Demo
+![Gameplay-demo](/PublicImages/gameplay-demo.gif)
 
+### YouTube
 Showcase             |  Trailer
 :-------------------------:|:-------------------------:
 [![Showcase](https://img.youtube.com/vi/ganf7AlCvV0/0.jpg)](https://www.youtube.com/watch?v=ganf7AlCvV0)  |  [![Trailer](https://img.youtube.com/vi/D7K1GOqns1w/0.jpg)](https://www.youtube.com/watch?v=D7K1GOqns1w)
 
+## Description
 <hr>
 Hold down the front lines with a small army of warships to protect the galaxy against the invading alien menace!
 
