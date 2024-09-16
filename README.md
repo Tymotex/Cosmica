@@ -1,13 +1,11 @@
 # Cosmica
 
-- <strong>Playable WebGL build <a href="https://tymotex.github.io/Cosmica/">here</a></strong>
-- Google Play listing <a href="https://play.google.com/store/apps/details?id=com.Cosmica.Cosmica">here</a>.
+Playable WebGL build <a href="https://tymotex.github.io/Cosmica/">here</a>
 
-### Gameplay Demo
 ![Gameplay-demo](/PublicImages/gameplay-demo.gif)
 
 ### YouTube
-Showcase             |  Trailer
+Showcase Video             |  Trailer Video
 :-------------------------:|:-------------------------:
 [![Showcase](https://img.youtube.com/vi/ganf7AlCvV0/0.jpg)](https://www.youtube.com/watch?v=ganf7AlCvV0)  |  [![Trailer](https://img.youtube.com/vi/D7K1GOqns1w/0.jpg)](https://www.youtube.com/watch?v=D7K1GOqns1w)
 
@@ -25,7 +23,6 @@ Pick and plan your battlefield with 7 different types of defenders, each with 3 
 Feel like a boss as you journey through a picturesque side-scrolling space environment listening to glorious sci-fi tunes!
 
 ## Links:
-- Google Play listing: https://play.google.com/store/apps/details?id=com.Cosmica.Cosmica
 - Showcase/Trailer: https://www.youtube.com/watch?v=D7K1GOqns1w
 - Development showcase: https://www.youtube.com/watch?v=ganf7AlCvV0
 
